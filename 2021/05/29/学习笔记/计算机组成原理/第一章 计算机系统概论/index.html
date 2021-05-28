@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>MUSCLE </title>
+        <!-- 字体图片库 -->
+        
+<link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- 代码高亮库 -->
+        
+<link rel="stylesheet" href="/lib/highlight/styles/github.css">
+
+
+        
+<link rel="stylesheet" href="/css/main.css">
+  
+        
+<link rel="stylesheet" href="/css/part.css">
+
+        
+        
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+    <meta name="generator" content="Hexo 5.4.0"></head>
+    <body>
+         
+        <div id="main">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/lib/github-markdown.css">
+
+<style>
+	.markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 45px;
+	}
+
+	@media (max-width: 767px) {
+		.markdown-body {
+			padding: 15px;
+		}
+	}
+</style>
+<!-- 作者信息 -->
+<div>
+    <span id="post-author">Author: Muscle</span>
+    <span id="post-date">2021-05-29 07:19:21</span>
+</div>
+<!-- 目录 -->
+<div id="tooc">
+    <div id="toc"></div>
+</div>
+<!-- 内容 -->
+<article class="markdown-body">
+    <div id="article">
+        <p>简单介绍了计算机是什么，计算机的发展过程，组成，结构关系，工作过程，硬件技术指标。内容有点多，概述已经写在了本文开头的目标中。</p>
+<span id="more"></span>
+<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><div style="color:#ec6161;">
+1.理解计算机软硬件概念<br>
+2.理解计算机系统的多层次结构和虚拟机的概念<br>
+3.理解计算机组成与计算机体系结构的关系<br>
+</div>
+<div style="color:#4c4cec;">
+4.理解冯·诺依曼计算机的特点<br>
+5.初步理解存储器，运算器和控制器的组成与功能，并能描述运算器加、减、乘、除四则运算的操作过程<br>
+6.能正确绘制细化的计算机硬件组成框图，并能基于此图描述主机完成一条指令（如存数、取数、加法、减法）的过程<br>
+</div>
+<div style="color:#50ea50;">
+7.了解计算机主要的硬件指标，能区分机器字长、指令字长和存储字长，能理解主频、MIPS、CPI、FLOPS等运算速度指标
+</div>
+
+<h1 id="关于计算机"><a href="#关于计算机" class="headerlink" title="关于计算机"></a>关于计算机</h1><h2 id="什么是电子计算机"><a href="#什么是电子计算机" class="headerlink" title="什么是电子计算机?"></a>什么是电子计算机?</h2><p>能存储程序和数据，能执行机器指令，能自动、高速、精确进行信息处理的现代化电子设备。</p>
+<h2 id="计算机有多种分类方法"><a href="#计算机有多种分类方法" class="headerlink" title="计算机有多种分类方法"></a>计算机有多种分类方法</h2><p>按用途（专用，通用）<br>按规模（个人，小型，大型，巨型）<br>按处理的信号（数据信号，模拟信号）<br>按体系结构<br>    SISD（Single instruction, Single data）单指令单数据流<br>    SIMD（Single Instruction,Multiple Data）单指令多数据流<br>    MISD（Multiple Instruction,Single Data）多指令单数据流<br>    MIMD（Multiple Instruction,Multiple Data）多指令多数据流</p>
+<h1 id="计算机系统简介"><a href="#计算机系统简介" class="headerlink" title="计算机系统简介"></a>计算机系统简介</h1><h2 id="1-计算机系统软硬件组成"><a href="#1-计算机系统软硬件组成" class="headerlink" title="1.计算机系统软硬件组成"></a>1.计算机系统软硬件组成</h2><pre><code class="mermaid">graph LR;
+    A[计算机系统]--&gt;B[硬件]
+    A[计算机系统]--&gt;C[软件]
+    B--&gt;Ba[运算器]
+    B--&gt;Bb[控制器]
+    B--&gt;Bc[存储器]
+    B--&gt;Bd[输入设备]
+    B--&gt;Be[输出设备]
+    C--&gt;Ca[系统软件]
+    C--&gt;Cb[应用软件]
+    Ca--&gt;Cc[操作系统]
+    Ca--&gt;Cd[语言处理程序]
+    Ca--&gt;Ce[数据库管理系统]
+    Ca--&gt;Cf[等等]
+</code></pre>
+<h2 id="2-从解题过程分析计算机层次结构"><a href="#2-从解题过程分析计算机层次结构" class="headerlink" title="2.从解题过程分析计算机层次结构"></a>2.从解题过程分析计算机层次结构</h2><pre><code class="mermaid">graph LR;
+    A[机器语言程序]--&gt;B[运行]
+    subgraph  
+        B
+    end
+    B--&gt;C[结果]
+</code></pre>
+<div style="width:100%;text-align:center;">机器语言时代计算机解题过程</div>
+```mermaid
+graph LR;
+    A[汇编语言源程序]-->B[汇编]
+    subgraph  
+        B-->|机器语言目标程序|C[运行]
+    end
+    C-->D[结果]
+```
+<div style="width:100%;text-align:center;">汇编语言时代计算机解题过程</div>
+```mermaid
+graph LR;
+    A[高级语言源程序]-->B[编译+汇编]
+    subgraph  
+        B-->|机器语言目标程序|C[运行]
+    end
+    C-->D[结果]
+```
+<div style="width:100%;text-align:center;">高级语言时代计算机解题过程</div>
+
+<h2 id="3-计算机的层次结构"><a href="#3-计算机的层次结构" class="headerlink" title="3.计算机的层次结构"></a>3.计算机的层次结构</h2><pre><code class="mermaid">graph TB;
+    subgraph 软件
+        A[&quot;虚拟机器M4（高级语言机器）&quot;]--&gt;B[&quot;虚拟机器M3（汇编语言机器）&quot;]
+        B--&gt;C[&quot;虚拟机器M2（操作系统机器）&quot;]
+        Aa[&quot;用编译程序翻译成汇编语言程序&quot;]-.-&gt;Ba[&quot;用汇编程序翻译成机器语言程序&quot;]
+        Ba-.-&gt;Ca[&quot;用机器语言解释操作系统&quot;]
+    end
+    subgraph 硬件
+        C--&gt;|&quot;控制并管理计算机系统全部软硬件资源，为用户使用计算机系统提供方便&quot;|D[&quot;传统机器M1（机器语言机器）&quot;]
+        D--&gt;E[&quot;微程序机器M0（微指令系统）&quot;]
+        Da[&quot;用微指令解释机器指令&quot;]
+        Ea[&quot;由硬件直接执行微指令&quot;]
+        Da-.-&gt;Ea
+    end
+</code></pre>
+<h1 id="计算机的基本组成"><a href="#计算机的基本组成" class="headerlink" title="计算机的基本组成"></a>计算机的基本组成</h1><h2 id="1-冯·诺依曼计算机的特点"><a href="#1-冯·诺依曼计算机的特点" class="headerlink" title="1.冯·诺依曼计算机的特点"></a>1.冯·诺依曼计算机的特点</h2><p>1.计算机由运算器，控制器，存储器，输入设备，输出设备五大部件组成。（<span style="color:red;">硬件组成</span>）<br>2.指令和数据以同等地位存于存储器，可按地址寻访。（<span style="color:red;">存储特点</span>）<br>3.指令和数据用二进制表示。（<span style="color:red;">编码特点</span>）<br>4.指令由操作码和地址码组成，操作码用来表示操作的性质，地址码用来表示操作数在存储器中的位置。（<span style="color:red;">指令格式</span>）<br>5.指令在存储器中按顺序存放。（<span style="color:red;">便于顺序执行</span>）<br>6.机器以运算器为中心，I/O设备与存储器之间的数据传送通过运算器完成。（<span style="color:red;">结构特点</span>）</p>
+<h2 id="2-计算机的硬件框图"><a href="#2-计算机的硬件框图" class="headerlink" title="2.计算机的硬件框图"></a>2.计算机的硬件框图</h2><p>1.典型的冯·诺依曼计算机结构框图<br><span style="color:yellow">实线表示数据信息，虚线表示控制信息</span></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/ezgif-3-aaa7639f943b.png" alt="ezgif-3-aaa7639f943b"><br>2.以存储器为中心的计算机结构框图<br><span style="color:yellow">空心箭头表示数据信息，实线表示控制信息，虚线表示控制器之外的其他设备向控制器所做的反馈信息，如设备状态等</span></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/ezgif-3-be82a2dddeae.png" alt="ezgif-3-be82a2dddeae"><br>3.现代计算机的组成框图</p>
+<pre><code class="mermaid">graph LR;
+    A[&quot;运算器 ALU&quot;]--&gt;E[&quot;CPU&quot;]
+    B[&quot;控制器 CU&quot;]--&gt;E[&quot;CPU&quot;]
+    C[&quot;存储器&quot;]--&gt;F[&quot;主存&quot;]
+    E--&gt;I[&quot;主机&quot;]
+    F--&gt;I[&quot;主机&quot;]
+    C[&quot;存储器&quot;]--&gt;G[&quot;副存&quot;]
+    G--&gt;H[&quot;I/O设备&quot;]
+    D[&quot;输入设备&quot;]--&gt;H[&quot;I/O设备&quot;]
+    J[&quot;输出设备&quot;]--&gt;H[&quot;I/O设备&quot;]
+    I--&gt;K[&quot;硬件&quot;]
+    H--&gt;K[&quot;硬件&quot;]
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/ezgif-3-e295e50103a5.png" alt="ezgif-3-e295e50103a5"></p>
+<h2 id="3-计算机各部件的组成"><a href="#3-计算机各部件的组成" class="headerlink" title="3.计算机各部件的组成"></a>3.计算机各部件的组成</h2><h3 id="3-1存储器的基本组成"><a href="#3-1存储器的基本组成" class="headerlink" title="3.1存储器的基本组成"></a>3.1存储器的基本组成</h3><div style="display:flex;justify-content: space-between;">
+<img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/ezgif-3-42fcbf8bce49.png" width="30%" height="30%">
+<div style="margin:10px;">
+<p>1.存储体（大楼） - 存储单元（房间） - 存储元件（床位）</p>
+<p><b>存储单元</b> 存放一串二进制代码，<b>按地址寻访</b></p>
+<p>2.<b>MAR</b> 存储器地址寄存器，其位数反映存储单元的个数</p>
+<p>3.<b>MDR</b>存储器数据寄存器，其位数反映存储字长</p>
+</div>
+</div>
+
+<p><img src="https://i.loli.net/2020/04/16/Azry59QIejVGcgY.png"></p>
+<h3 id="3-2运算器的基本组成及操作过程"><a href="#3-2运算器的基本组成及操作过程" class="headerlink" title="3.2运算器的基本组成及操作过程"></a>3.2运算器的基本组成及操作过程</h3><div style="display:flex;justify-content: space-between;">
+<img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/ezgif-3-b9ab80dc5ebc.png" width="30%" height="30%">
+<div style="margin:10px;">
+    <p>ALU:算数逻辑单元</p>
+    <p>ACC:累加器</p>
+    <p>MQ:乘商寄存器</p>
+    <p>X:操作数寄存器</p>
+</div>
+</div>
+
+<h4 id="1-加法操作过程"><a href="#1-加法操作过程" class="headerlink" title="1.加法操作过程"></a>1.加法操作过程</h4><pre><code class="mermaid">graph LR;
+    subgraph 指令
+        A[&quot;加（操作码）&quot;]---B[&quot;M（地址码）&quot;]
+    end
+</code></pre>
+<p>第1步：初态 <strong>ACC</strong>中已经置好了<strong>被加数</strong><br>第2步：把内存M单元中的数据取过来装入到X中 <strong>[M]–&gt;X</strong><br>第3步：ACC提供被加数，X提供加数，由ALU完成运算后放入ACC中，这就是第1步中已经存在数据的由来 <strong>[ACC]+[X]–&gt;ACC</strong></p>
+<p>tip：M表示加数的地址，加上方括号的[M]表示该地址存放的数据，也就是加数本身</p>
+<h4 id="2-减法操作过程（与加法极其相似）"><a href="#2-减法操作过程（与加法极其相似）" class="headerlink" title="2.减法操作过程（与加法极其相似）"></a>2.减法操作过程（与加法极其相似）</h4><pre><code class="mermaid">graph LR;
+    subgraph 指令
+        A[&quot;减（操作码）&quot;]---B[&quot;M（地址码）&quot;]
+    end
+</code></pre>
+<p>第1步：初态 <strong>ACC</strong>中已经置好了<strong>被减数</strong><br>第2步：**[M]–&gt;X**<br>第3步： <strong>[ACC]-[X]–&gt;ACC</strong></p>
+<h4 id="3-乘法操作过程"><a href="#3-乘法操作过程" class="headerlink" title="3.乘法操作过程"></a>3.乘法操作过程</h4><p>由于乘法的操作比较复杂，比如16位乘16位可能得到一个32位的数，所以存放的时候需要用到两个16位的寄存器，把高位（前16位）放到ACC中，把低位（后16位）放到MQ中</p>
+<pre><code class="mermaid">graph LR;
+    subgraph 指令
+        A[&quot;乘（操作码）&quot;]---B[&quot;M（地址码）&quot;]
+    end
+</code></pre>
+<p>第1步：初态 <strong>ACC</strong>中已经置好了<strong>被乘数</strong><br>第2步：**[M]–&gt;MQ**<br>第3步：**[ACC]–&gt;X**<br>第4步：<strong>0–&gt;ACC</strong>(清空ACC)<br>第5步：**[X]<em>[MQ]–&gt;ACC//MQ</em>*</p>
+<h4 id="4-除法操作过程"><a href="#4-除法操作过程" class="headerlink" title="4.除法操作过程"></a>4.除法操作过程</h4><p>MQ中存放商，ACC中存放余数</p>
+<pre><code class="mermaid">graph LR;
+    subgraph 指令
+        A[&quot;除（操作码）&quot;]---B[&quot;M（地址码）&quot;]
+    end
+</code></pre>
+<p>第1步：初态 <strong>ACC</strong>中已经置好了<strong>被除数</strong><br>第2步：**[M]–&gt;X**<br>第3步：**[ACC]/[X]–&gt;MQ** 余数在ACC中</p>
+<h4 id="运算器操作过程总结"><a href="#运算器操作过程总结" class="headerlink" title="运算器操作过程总结"></a>运算器操作过程总结</h4><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">ACC</th>
+<th align="center">MQ</th>
+<th align="center">X</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">加法</td>
+<td align="center">被加数，和</td>
+<td align="center"></td>
+<td align="center">加数</td>
+</tr>
+<tr>
+<td align="center">减法</td>
+<td align="center">被减数，差</td>
+<td align="center"></td>
+<td align="center">减数</td>
+</tr>
+<tr>
+<td align="center">乘法</td>
+<td align="center">乘积高位</td>
+<td align="center">乘数，乘积低位</td>
+<td align="center">被乘数</td>
+</tr>
+<tr>
+<td align="center">除法</td>
+<td align="center">被除数。余数</td>
+<td align="center">商</td>
+<td align="center">除数</td>
+</tr>
+</tbody></table>
+<h3 id="3-3控制器的基本组成"><a href="#3-3控制器的基本组成" class="headerlink" title="3.3控制器的基本组成"></a>3.3控制器的基本组成</h3><div style="display:flex;justify-content: space-between;">
+<img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/ezgif-3-78f9ac0f3abd.png" width="30%" height="30%">
+<div style="margin:10px;">
+    <p>CU:控制单元</p>
+    <p>IR:指令寄存器，存放着当前欲执行的完整指令，操作码+地址码</p>
+    <p>PC:程序计数器，存放当前欲执行的指令地址，有计数功能,指向下一条指令地址，实现指令的顺序执行<b>(PC)+1-->PC</b></p>
+</div>
+</div>
+
+<p>第1步：PC给出指令的地址，CU根据地址在主存中取出该指令，放入到IR<br>第2步：CU从IR中取出指令的操作码，进行分析，根据分析结果发出控制信息</p>
+<pre><code class="mermaid">graph LR;
+    A[&quot;完成一条指令&quot;]--&gt;Aa[&quot;取指令(PC)&quot;]
+    A--&gt;Ab[&quot;分析指令（IR）&quot;]
+    A--&gt;Ac[&quot;执行指令（CU）&quot;]
+    Aa--&gt;B[&quot;取指 访存&quot;]
+    Ab--&gt;B
+    Ac--&gt;C[&quot;执行 访存&quot;]
+</code></pre>
+<h3 id="更细化的计算机硬件组成框图："><a href="#更细化的计算机硬件组成框图：" class="headerlink" title="更细化的计算机硬件组成框图："></a>更细化的计算机硬件组成框图：</h3><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/ezgif-3-4a8f1f1fe2db.png" alt="ezgif-3-4a8f1f1fe2db"></p>
+<h2 id="计算机的工作过程"><a href="#计算机的工作过程" class="headerlink" title="计算机的工作过程"></a>计算机的工作过程</h2><p><span style="color:red;">大致逻辑：取指令-分析指令-执行指令</span></p>
+<h3 id="取数指令"><a href="#取数指令" class="headerlink" title="取数指令"></a>取数指令</h3><p>主机完成一条指令的过程，以取数指令为例</p>
+<p>通过计算机各部件的组成的1、2、3节，我们了解到存储器，运算器和控制器的工作过程，接下来是更完整的组成框图的工作过程。</p>
+<p><span style="color:#ec9191;">取指令</span></p>
+<p>第1步：<strong>PC–&gt;MAR</strong>，PC给出指令的地址，放入到MAR中。<br>第2步：<strong>MAR–&gt;存储体</strong>，根据MAR中的地址，通过译码，选中存储体中的地址存储单元。<br>第3步：<strong>存储体–&gt;MDR</strong>，把锁定的地址的内容放入到MDR中。<br>第4步：<strong>MDR–&gt;IR</strong>，（这里PC发出的地址可能是指令，也有可能是数据，我们以取数指令为例）将MDR中的指令放入到IR中。</p>
+<p><span style="color:#ec9191;">分析指令</span></p>
+<p>第5步：<strong>IR–&gt;CU</strong>，当IR接收到指令之后，提交到CU，并由CU来分析接下来要执行什么操作。</p>
+<p><span style="color:#ec9191;">执行指令</span></p>
+<p>第6步：<strong>IR–&gt;MAR</strong>，根据冯·诺依曼计算机的特点，指令包括操作码和地址码，CU根据操作码完成分析，发现这是一条取数的指令，再由地址码要求IR取出操作对象。<br>第7步：<strong>MAR–&gt;存储体</strong>，MAR通过译码，在存储体中找到相应的存储单元。<br>第8步：<strong>存储体–&gt;MDR</strong>，在存储单元中，取出数据，放入到MDR中。<br>第9步：<strong>MDR–&gt;ACC</strong>，将数据传给ACC，等待运算处理。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/ezgif-3-7773a7522269.png" alt="ezgif-3-7773a7522269"></p>
+<h3 id="存数指令"><a href="#存数指令" class="headerlink" title="存数指令"></a>存数指令</h3><p>主机完成一条指令的过程，以存数指令为例</p>
+<p>与取数指令比较，大致流程相同，直到第7步，MAR中的地址锁定存储体的存储单元位置之后，存数指令需要将数据放入到存储体中。</p>
+<p><span style="color:#ec9191;">执行指令</span></p>
+<p>第8步：<strong>ACC–&gt;MDR</strong>，将ACC中的数据放入到MDR中。<br>第9步：<strong>MDR–&gt;存储体</strong>，将MDR中的数据，放入到锁定的存储单元位置，完成存数。<br><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/12.png" alt="12"></p>
+<div style="text-align:center;">与前一张图大致不变，8和9的箭头互换</div>
+
+<h3 id="例题1-加法指令的信息流程"><a href="#例题1-加法指令的信息流程" class="headerlink" title="例题1 加法指令的信息流程"></a>例题1 加法指令的信息流程</h3><p>以加法指令ADD M（M为主存地址）为例，写出完成指令的信息流程（从取指令开始）</p>
+<h4 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h4><details>
+  <summary style="color:#72c17c;">点击查看</summary>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/ezgif-3-c3a38ccada7b.png" alt="ezgif-3-c3a38ccada7b"><br>取指令：PC–&gt;MAR–&gt;M–&gt;MDR–&gt;IR<br>分析指令：OP(IR)–&gt;CU<br>执行指令：Ad(IR)–&gt;MAR–&gt;M–&gt;MDR–&gt;X,ACC–&gt;ALU同时X–&gt;ALU,ALU–&gt;ACC</p>
+</details>
+
+<h3 id="例题2-指令和数据如何区分"><a href="#例题2-指令和数据如何区分" class="headerlink" title="例题2 指令和数据如何区分"></a>例题2 指令和数据如何区分</h3><p>指令和数据都在于存储器中，计算机如何区分它们?</p>
+<h4 id="答案-1"><a href="#答案-1" class="headerlink" title="答案"></a>答案</h4><details>
+  <summary style="color:#72c17c;">点击查看</summary>
+
+<p>方法1：根据不同阶段去区分，取指阶段取的是指令，执行阶段取的是数据；<br>方法2：根据地址的来源区分，来自PC寄存器的地址取的是指令，来自IR寄存器的地址码部分的地址取的是数据。</p>
+</details>
+
+<h3 id="一个程序的运行过程"><a href="#一个程序的运行过程" class="headerlink" title="一个程序的运行过程"></a>一个程序的运行过程</h3><pre><code class="mermaid">graph TB;
+A[&quot;将程序装入计算机主存中&quot;]--&gt;B[&quot;程序首条指令地址--&gt;PC&quot;]
+B--&gt;C[&quot;启动程序运行&quot;]
+C--&gt;D[&quot;取指令 PC--&gt;MAR--&gt;M--&gt;MDR--&gt;IR&quot;]
+D--&gt;E[&quot;分析指令 OP(IR)--&gt;CU&quot;]
+E--&gt;F[&quot;执行指令 AD(IR)--&gt;MAR--&gt;M--&gt;MDR--&gt;ACC&quot;]
+D--&gt;G[&quot;一个指令周期&quot;]
+E--&gt;G
+F--&gt;G
+G--&gt;H[&quot;执行下一条指令……周而复始地执行指令周期&quot;]
+H--&gt;I[&quot;停机&quot;]
+</code></pre>
+<h3 id="例题3-计算位数，指出信息通路"><a href="#例题3-计算位数，指出信息通路" class="headerlink" title="例题3 计算位数，指出信息通路"></a>例题3 计算位数，指出信息通路</h3><p>设主存储器容量为64K*32位，并且指令字长、存储字长、机器字长三者相等，写出图中各寄存器的位数，并指出那些寄存器之间有信息通路。<br><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/13.png" alt="13"></p>
+<h4 id="答案-2"><a href="#答案-2" class="headerlink" title="答案"></a>答案</h4><details>
+  <summary style="color:#72c17c;">点击查看</summary>
+
+<p>分析：</p>
+<p><span style="color:#d8d579;">64K*32位</span>：主存储器由64K个存储单位构成，每个存储单位可以存放一个字长为32位的存储字。（一栋楼，有64个房间，每个房间有32张床）<br>指令字长 = 存储字长 = 机器字长 =32位</p>
+<p><span style="color:#d8d579;">64K个存储单元编号需要几位二进制数？</span><br>1K = 2<sup>10</sup><br>64 = 2<sup>6</sup><br>64K = 2<sup>6</sup> * 2<sup>10</sup> = 2<sup>16</sup><br>也就是64K需要16个二进制数来表示，也就是64个房间的编号，从0000……0（16个）到1111……1（16个）。</p>
+<p><span style="color:#d8d579;">这个地址从哪儿来？</span><br>PC（上步推导得 16位）</p>
+<p><span style="color:#d8d579;">访存时该地址存放在哪儿？</span><br>MAR（由PC输入，所以也是16位）</p>
+<p>从我个人角度理解，存放数据的都是32位，存放地址的都是16位。至于信息通路已经由例题1和例题2演示了。<br><br><br><br>最终答案</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/ezgif-3-378ce8861aac.png" alt="ezgif-3-378ce8861aac"></p>
+</details>
+
+<h1 id="计算机硬件的技术指标"><a href="#计算机硬件的技术指标" class="headerlink" title="计算机硬件的技术指标"></a>计算机硬件的技术指标</h1><h2 id="机器字长"><a href="#机器字长" class="headerlink" title="机器字长"></a>机器字长</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>CPU一次能处理的位数，与CPU中的寄存器位数有关。</p>
+<h3 id="对其他字长的概念理解"><a href="#对其他字长的概念理解" class="headerlink" title="对其他字长的概念理解"></a>对其他字长的概念理解</h3><p><strong>存储字长</strong>：存储器中一个存储单元（存储地址）所存储的二进制代码的位数，MDR寄存器的位数取决于存储字长。<br><strong>指令字长</strong>：计算机指令字的位数，IR寄存器的位数取决于指令字长。<br><strong>数据字长</strong>：计算机中一个特定的类型数据所存储所占用的位数。</p>
+<h2 id="运算速度"><a href="#运算速度" class="headerlink" title="运算速度"></a>运算速度</h2><h3 id="指标"><a href="#指标" class="headerlink" title="指标"></a>指标</h3><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/ezgif-3-77014ccc93bf.png" alt="ezgif-3-77014ccc93bf"></p>
+<h3 id="对运算速度的理解"><a href="#对运算速度的理解" class="headerlink" title="对运算速度的理解"></a>对运算速度的理解</h3><p>1.主频、外频二者的关系<br>主频：CPU内核工作的时钟频率<br>外频：系统总线时钟频率<br>主频 = 外频*倍频系数<br>主频不能单独决定运算速度的快慢</p>
+<p>2.主频，MIPS与CPI的关系<br>MIPS：百万条指令/每秒。<br>MIPS = f * 10<sup>-6</sup>/CPI</p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p>莫计算机主频为1GHz，在其上运行的某目标代码含2*10^5条指令，共有A、B、C、D四类指令，每类指令的CPI值及其在目标代码中所占比例如下表，求目标代码的运行速度MIPS。</p>
+<table>
+<thead>
+<tr>
+<th align="center">指令类型</th>
+<th align="center">CPI</th>
+<th align="center">所占比例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A</td>
+<td align="center">1</td>
+<td align="center">60%</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center">2</td>
+<td align="center">18%</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center">4</td>
+<td align="center">12%</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center">8</td>
+<td align="center">10%</td>
+</tr>
+</tbody></table>
+<h4 id="答案-3"><a href="#答案-3" class="headerlink" title="答案"></a>答案</h4><details>
+  <summary style="color:#72c17c;">点击查看</summary>
+
+<p>解：MIPS = f * 10<sup>-6</sup>/CPI<br>= 1*10<sup>9</sup>*10<sup>-6</sup>/(1*60%+2*18%+4*12%+8*10%)<br>= 1000/2.24<br>= 446.4</p>
+</details>
+
+<h2 id="存储容量"><a href="#存储容量" class="headerlink" title="存储容量"></a>存储容量</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>存储器存放二进制信息的总位数</p>
+<pre><code class="mermaid">graph TB;
+    A[&quot;存储容量&quot;]--&gt;B[&quot;主存容量&quot;]
+    A--&gt;C[&quot;辅存容量&quot;]
+    B--&gt;D[&quot;存储单元个数 * 存储字长&quot;]
+    D--&gt; E[&quot; &quot;]
+    subgraph 例3
+        E[&quot;10(MAR) * 8(MDR) =&lt;br&gt;1K * 8位(容量)&quot;]
+    end
+    B--&gt;F[&quot;字节数&quot;]
+    F--&gt;G[&quot; &quot;]
+    subgraph 例2
+        G[2&lt;sup&gt;13&lt;/sup&gt;b = 1KB]
+    end
+    C--&gt;H[&quot;字节数&quot;]
+    H--&gt;I[&quot; &quot;]
+    subgraph 例1
+        I[&quot;80GB(1GB = 2&lt;sup&gt;30&lt;/sup&gt;B)&quot;]
+    end
+</code></pre>
+<div style="font-size:24pt;text-align:center;">第一章 完</div>
+    </div>
+</article>
+
+
+        </div>
+        <div class="footer" id="footer"> 
+    <div class="profile">
+        (。・∀・)ノ create by Muscle in 2021 <br>
+        Sent To : zhangmengweimuscle@gmail.com
+    </div>
+</div> 
+        
+<script src="/js/main.js"></script>
+ 
+        
+        <!-- 引入代码高亮的 js -->
+        
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

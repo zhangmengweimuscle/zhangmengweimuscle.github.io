@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>MUSCLE </title>
+        <!-- 字体图片库 -->
+        
+<link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- 代码高亮库 -->
+        
+<link rel="stylesheet" href="/lib/highlight/styles/github.css">
+
+
+        
+<link rel="stylesheet" href="/css/main.css">
+  
+        
+<link rel="stylesheet" href="/css/part.css">
+
+        
+        
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+    <meta name="generator" content="Hexo 5.4.0"></head>
+    <body>
+         
+        <div id="main">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/lib/github-markdown.css">
+
+<style>
+	.markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 45px;
+	}
+
+	@media (max-width: 767px) {
+		.markdown-body {
+			padding: 15px;
+		}
+	}
+</style>
+<!-- 作者信息 -->
+<div>
+    <span id="post-author">Author: Muscle</span>
+    <span id="post-date">2021-05-29 07:19:21</span>
+</div>
+<!-- 目录 -->
+<div id="tooc">
+    <div id="toc"></div>
+</div>
+<!-- 内容 -->
+<article class="markdown-body">
+    <div id="article">
+        <p>毕业设计的程序开发过程中,当退出管理员的时候,后台销毁Session,销毁成功但是返回的内容确实false,只是因为没有设置这个!</p>
+<span id="more"></span>
+<h2 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h2><p>在设计开发的过程中，在销毁Session后，检测Session是否成功销毁，是则返回true，否则返回false</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在检测Session销毁的过程中，发现程序执行过程中，Session被正常销毁，但是返回值是false<br>再次执行程序，才返回true</p>
+<h2 id="错误代码"><a href="#错误代码" class="headerlink" title="错误代码"></a>错误代码</h2><pre><code class="java">@Override
+public Boolean deleteSession(HttpServletResponse httpServletResponse, 
+HttpServletRequest httpServletRequest) throws IOException &#123;
+    HttpSession httpSession = httpServletRequest.getSession(false);
+    System.out.println(httpSession);
+    if(httpSession != null)&#123;
+        System.out.println(httpSession + &quot;正在被销毁&quot;);
+        httpSession.removeAttribute(&quot;username&quot;);
+        httpSession.invalidate();
+    &#125;
+    /*=====问题所在=====*/
+    if(httpSession == null)&#123;
+        System.out.println(&quot;销毁成功&quot;);
+        return true;
+    &#125;
+    /*==================*/
+    return false;
+&#125;
+</code></pre>
+<h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h2><p>在上述代码中，httpSession被成功销毁之后，并不是直接将httpSession的内容设置为null，这个对象不会随着Session.incalidate()而消失。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在检测之前，重新给httpSession赋值，然后判断它的内容</p>
+<pre><code class="java">//重新赋值
+httpSession = httpServletRequest.getSession(false);
+/*=====问题所在=====*/
+if(httpSession == null)&#123;
+    System.out.println(&quot;销毁成功&quot;);
+    return true;
+&#125;
+</code></pre>
+
+    </div>
+</article>
+
+
+        </div>
+        <div class="footer" id="footer"> 
+    <div class="profile">
+        (。・∀・)ノ create by Muscle in 2021 <br>
+        Sent To : zhangmengweimuscle@gmail.com
+    </div>
+</div> 
+        
+<script src="/js/main.js"></script>
+ 
+        
+        <!-- 引入代码高亮的 js -->
+        
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

@@ -1,0 +1,119 @@
+/* 目录 */
+#index{
+    display: flex;
+    justify-content: space-between;
+}
+#list{
+    margin-top: 50px;
+    border-top: 2px solid black;
+    /* background-color:rgb(33, 37, 43); */
+    /* opacity: .7; */
+}
+#search{
+    margin: 0 auto;
+}
+/* 搜索框 */
+input {
+    width: 290px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    left: 0;    
+    height: 90%;
+    font-size: 14px;
+    /* background: #131417; */
+    text-indent: 20px;
+    outline: none;
+    color: #052133;
+}
+
+/* 搜索图标 */
+#search i.fa.fa-search {
+    margin-right: 10px;
+    height: 90%;
+    color: #757575;
+    font-size: 16px;
+    width: 40px;
+    text-align: center;
+}
+/* 树目录 */
+#tree ul {
+    padding: 0px 5px 5px 20px;
+}
+#tree ul li {
+    list-style: none;
+    line-height: 25px;
+}
+#tree ul li a {
+    color: rgb(87, 87, 87);
+    font-size: 14px;
+    text-decoration: none
+
+}
+#tree ul li a:hover {
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid #ccc;
+    cursor:pointer;
+}
+#tree .active a,
+#tree .active a:hover {
+    color: #87daff;
+    border-bottom: 1px solid #87daff;
+}
+
+#tree i.fa {
+    padding-right: 5px;
+}
+/* 作者 时间 相关 */
+#post-author {
+    font-size: 9px;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    color: #999;
+}
+
+#post-date {
+    font-size: 9px;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    color: #999;
+}
+/* 头尾 */
+#footer{
+    width: 100%;
+    margin-top: 100px;
+    padding-top: 100px;
+    padding-bottom: 200px;
+    text-align: center;
+}
+#footer .profile{
+    line-height: 40px;
+    width: 40%;
+    margin: 0 auto;
+    background-image: url('https://pic.imgdb.cn/item/60b155e308f74bc15956abf4.png');
+}
+/* 信息 */
+#info > div{
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+#info > div > a{
+    text-decoration:none;
+    color: black;
+    width: 100%;
+    text-align: center;
+    /* background-color: #1f202a; */
+}
+#info > div > a > li{
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    padding: 3px;
+}
+#info > div > a > li:hover{
+    background-color: rgb(33, 37, 43);
+    color: white;
+}

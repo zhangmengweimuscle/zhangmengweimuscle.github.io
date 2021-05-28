@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>MUSCLE </title>
+        <!-- 字体图片库 -->
+        
+<link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- 代码高亮库 -->
+        
+<link rel="stylesheet" href="/lib/highlight/styles/github.css">
+
+
+        
+<link rel="stylesheet" href="/css/main.css">
+  
+        
+<link rel="stylesheet" href="/css/part.css">
+
+        
+        
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+    <meta name="generator" content="Hexo 5.4.0"></head>
+    <body>
+         
+        <div id="main">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/lib/github-markdown.css">
+
+<style>
+	.markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 45px;
+	}
+
+	@media (max-width: 767px) {
+		.markdown-body {
+			padding: 15px;
+		}
+	}
+</style>
+<!-- 作者信息 -->
+<div>
+    <span id="post-author">Author: Muscle</span>
+    <span id="post-date">2021-05-29 07:19:21</span>
+</div>
+<!-- 目录 -->
+<div id="tooc">
+    <div id="toc"></div>
+</div>
+<!-- 内容 -->
+<article class="markdown-body">
+    <div id="article">
+        <p>关于数组的螺旋输出的实现，通过一个给定的M*N的二维数组，将数组内容通过螺旋的顺序输出。<br>本题在一次面试中，面试官通过屏幕共享方式让我当场编程，但是我没有写出来。</p>
+<span id="more"></span>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有一个 m*n的数组</p>
+<pre><code class="java">int[][] array = &#123;
+    &#123;1,2,3,4,5&#125;,
+    &#123;6,7,8,9,10&#125;,
+    &#123;11,12,13,14,15&#125;,
+    &#123;16,17,18,19,20&#125;,
+    &#123;21,22,23,24,25&#125;
+&#125;
+</code></pre>
+<p>通过输出的方式，将数组的每一个数据按螺旋顺序输出，得到结果如下：</p>
+<pre><code class="java">&#123;1,2,3,4,5,10,15,20,25,24,23,22,21,16,11,6,7,8,9,14,19,18,17,12,13&#125;
+</code></pre>
+<h2 id="java实现方式"><a href="#java实现方式" class="headerlink" title="java实现方式"></a>java实现方式</h2><h3 id="具体实现步骤"><a href="#具体实现步骤" class="headerlink" title="具体实现步骤"></a>具体实现步骤</h3><p><strong>1.定义四个变量 top,bottom,left,right</strong><br>在执行程序的遍历之前，我们需要定义4个变量来检测二维数组array的四条边界，在每次碰到边界之后，收缩边界，并转向。</p>
+<pre><code class="java">    //top = 0 表示将从二维数组array的第一层开始遍历
+    int top = 0;
+    //bottom = array.length-1表示二维数组array层高为array.length-1，这个值是最低层所在的位置
+    int bottom = array.length-1;
+    //left = 0 表示遍历的初始位置，从左向右遍历
+    int left = 0;
+    //right = array[0].length-1表示取数组中第一个元素的长度减一，表示二维数组array的宽度
+    int right = array[0].length-1;
+</code></pre>
+<p><strong>2.遍历第一条边 top</strong><br>在第一次的遍历中，我们需要的输出为{1，2，3，4，5}<br>此时执行的顺序为</p>
+<pre><code class="java">array[top][left] ==&gt; array[top][right]
+</code></pre>
+<p>并且在执行完成之后</p>
+<pre><code class="java">top++
+</code></pre>
+<p>表示最上的边已经遍历完成，在下次返回的时候，不会再经过第一层，而是在碰到第二层之后转向。</p>
+<p><strong>3.遍历第二条边 right</strong><br>在上一次的遍历中，我们完成了第一条边的遍历，在这次遍历中，采取了同样的方法。<br>这一次，我们需要的输出为{<strong>5</strong>，10，15，20，25}<br>但是由于<strong>5</strong>这个数据在上一次的遍历中，完成了输出，所以这次需要省略。<br>此时的执行顺序为</p>
+<pre><code class="java">array[top][right] ==&gt; array[bottom][right]
+</code></pre>
+<p>并且在执行完成之后</p>
+<pre><code class="java">right--
+</code></pre>
+<p>表示最右的边已经遍历完成，在下一次返回的时候，不会再经过最右层，而是在碰到它的左一层的时候转向。</p>
+<p><strong>4.遍历第三条边 bottom</strong><br>同理，这个阶段需要的输出的内容为{<strong>25</strong>，24，23，22，21}<br>注意<strong>25</strong>已经出现过一次，这次遍历的时候不要扫描到第二次<br>此时的执行顺序为</p>
+<pre><code class="java">array[bottom][right] ==&gt; array[bottom][left]
+</code></pre>
+<p>并且在执行之后</p>
+<pre><code class="java">bottom--
+</code></pre>
+<p>表示最底层已经遍历完成，在下一次返回的时候，不会再经过最底层，而是在碰到上一层的时候转向。</p>
+<p><strong>5.遍历第四条边 left</strong><br>完成了上边三次遍历，这次也是一样。<br>预期输出{<strong>21</strong>，16，1，6，<strong>1</strong>}<br>注意<strong>21</strong>这个数字</p>
+<p>执行顺序</p>
+<pre><code class="java">array[bottom][left] ==&gt; array[top][left]
+</code></pre>
+<p>因为</p>
+<pre><code class="java">top++
+</code></pre>
+<p>所以这次的遍历会在层高为2的地方停止<br>所以<strong>1</strong>（array[0][0]）这个数据不会出现</p>
+<p><strong>6.重复这四次遍历 直到所有的数据完成输出</strong><br>需要用一个while语句将着四层遍历包裹起来<br>while的判断条件是所有的数据都已经输出<br>条件判断规则如下</p>
+<pre><code class="java">top &lt;= bottom
+&amp;&amp;
+left &lt;= right
+</code></pre>
+<h3 id="java源码"><a href="#java源码" class="headerlink" title="java源码"></a>java源码</h3><pre><code class="java">public class Test &#123;
+    static int [][] array = &#123;
+            &#123;1,2,3,4,5&#125;,
+            &#123;6,7,8,9,10&#125;,
+            &#123;11,12,13,14,15&#125;,
+            &#123;16,17,18,19,20&#125;,
+            &#123;21,22,23,24,25&#125;
+    &#125;;
+    public static void main(String[] args) &#123;
+        display(array);
+    &#125;
+    public static void display(int[][] arr)&#123;
+        int top = 0;
+        int left = 0;
+        int right = arr[0].length-1;
+        int bottom = arr.length-1;
+        while (top &lt;= bottom &amp;&amp; left &lt;= right)&#123;
+            // from arr[top,left] To arr[top,right]
+            for(int i = left;i&lt;=right;i++)&#123;
+                System.out.print(arr[top][i]+&quot;,&quot;);
+            &#125;
+            ++top;
+
+            //from arr[top,right] To arr[bottom,right]
+            for(int i = top;i&lt;=bottom;i++)&#123;
+                System.out.print(arr[i][right]+&quot;,&quot;);
+            &#125;
+            --right;
+
+            //from arr[bottom,right] To arr[bottom,left]
+            for(int i = right;i &gt;= left;i--)&#123;
+                System.out.print(arr[bottom][i]+&quot;,&quot;);
+            &#125;
+            --bottom;
+
+            //from arr[bottom,left] To arr[top,left]
+            for (int i = bottom;i &gt;= top;i--)&#123;
+                System.out.print(arr[i][left]+&quot;,&quot;);
+            &#125;
+            ++left;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
+    </div>
+</article>
+
+
+        </div>
+        <div class="footer" id="footer"> 
+    <div class="profile">
+        (。・∀・)ノ create by Muscle in 2021 <br>
+        Sent To : zhangmengweimuscle@gmail.com
+    </div>
+</div> 
+        
+<script src="/js/main.js"></script>
+ 
+        
+        <!-- 引入代码高亮的 js -->
+        
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

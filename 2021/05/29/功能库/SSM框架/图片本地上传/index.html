@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>MUSCLE </title>
+        <!-- 字体图片库 -->
+        
+<link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- 代码高亮库 -->
+        
+<link rel="stylesheet" href="/lib/highlight/styles/github.css">
+
+
+        
+<link rel="stylesheet" href="/css/main.css">
+  
+        
+<link rel="stylesheet" href="/css/part.css">
+
+        
+        
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+    <meta name="generator" content="Hexo 5.4.0"></head>
+    <body>
+         
+        <div id="main">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="/lib/github-markdown.css">
+
+<style>
+	.markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 45px;
+	}
+
+	@media (max-width: 767px) {
+		.markdown-body {
+			padding: 15px;
+		}
+	}
+</style>
+<!-- 作者信息 -->
+<div>
+    <span id="post-author">Author: Muscle</span>
+    <span id="post-date">2021-05-29 07:19:21</span>
+</div>
+<!-- 目录 -->
+<div id="tooc">
+    <div id="toc"></div>
+</div>
+<!-- 内容 -->
+<article class="markdown-body">
+    <div id="article">
+        <p>如何实现图片的本地上传?<br>1.在本地的tomcat中配置G:img的路径,保证能通过localhost:8080/项目目录/img/访问到下面的文件;<br>2.复制粘贴本文代码;<br>你,学会了吗?</p>
+<span id="more"></span>
+<h2 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h2><pre><code class="html">&lt;div class=&quot;carouselImg&quot;&gt;
+    &lt;input type=&quot;file&quot; class=&quot;carouselImg&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h2><pre><code class="css">.carouselImg&#123;
+    background-size:100% 100%;
+    margin-left: 40px;
+    width: 265px;
+    height: 190px;
+    background-color: white;
+    border: 1px solid #B3B2B2;
+    cursor: pointer;
+    margin: 20px;
+    float: left;
+&#125;
+div &gt; input[type=&quot;file&quot;]&#123;
+    opacity: 0;
+&#125;
+</code></pre>
+<h2 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h2><pre><code class="js">$(&quot;.carouselImg&quot;).find(&quot;input&quot;).change(function (e) &#123;
+        var fd = new FormData();
+        fd.append(&quot;imgFile&quot;, e.target.files[0]);
+        $.ajax(&#123;
+            type: &quot;post&quot;,
+            url: &quot;http://localhost:8080/companyWeb/carouselMap/addCarouselMap.do&quot;,
+            data: fd,
+            dataType: &quot;json&quot;,
+            processData: false,  // processData和contentType需设置为false
+            contentType: false,
+            success: function (response) &#123;
+                $(e.target.parentNode).css(&quot;background-image&quot;, &quot;url(&quot; + response.url + &quot;)&quot;);
+            &#125;
+        &#125;);
+    &#125;)
+</code></pre>
+<h2 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h2><pre><code class="java">//添加并显示图片（还没有连接数据库）
+    @RequestMapping(value = &quot;/addCarouselMap&quot;, method = RequestMethod.POST)
+    public @ResponseBody String addCarouselMap(@RequestParam(&quot;imgFile&quot;) MultipartFile pictureFile, Model model, HttpSession session) throws Exception&#123;
+        //图片新名字
+        String newName = UUID.randomUUID().toString();
+        //图片原名
+        String oldName = pictureFile.getOriginalFilename();
+        //得到后缀名
+        String sux = oldName.substring(oldName.lastIndexOf(&quot;.&quot;));
+        //本地文件流，图片存放在G盘下的img文件夹中，该路径需要在tomcat中配置
+        File file = new File(&quot;G:\\img\\&quot;+newName+sux); 
+        //写入本地磁盘
+        pictureFile.transferTo(file);
+        //创建预备返回的json对象
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode node = mapper.createObjectNode();
+        //写入数据
+        node.put(&quot;error&quot;,0);
+        node.put(&quot;message&quot;,&quot;上传成功！&quot;);
+        node.put(&quot;url&quot;,&quot;/img/&quot;+newName+sux);
+        //准备返回 json格式
+        String json = mapper.writeValueAsString(node);
+        return  json;
+    &#125;
+</code></pre>
+
+    </div>
+</article>
+
+
+        </div>
+        <div class="footer" id="footer"> 
+    <div class="profile">
+        (。・∀・)ノ create by Muscle in 2021 <br>
+        Sent To : zhangmengweimuscle@gmail.com
+    </div>
+</div> 
+        
+<script src="/js/main.js"></script>
+ 
+        
+        <!-- 引入代码高亮的 js -->
+        
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>
