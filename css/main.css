@@ -90,3 +90,16 @@ html, body {
 }
 
 /* #################### 文章索引 #################### */
+/* #################### 自适应 #################### */
+@media screen and (max-width: 800px) {
+    #tooc{
+        display: none;
+    }
+}
+/*竖屏*/
+@media all and (orientation : portrait) {
+    #tooc{
+        display: none;
+    }
+}
+/* #################### 自适应 #################### */
