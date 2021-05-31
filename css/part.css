@@ -64,7 +64,7 @@ input {
 #tree i.fa {
     padding-right: 5px;
 }
-/* 作者 时间 相关 */
+/* 作者 时间 标题 相关 */
 #post-author {
     font-size: 9px;
     position: absolute;
@@ -77,6 +77,13 @@ input {
     font-size: 9px;
     position: absolute;
     top: 80px;
+    right: 30px;
+    color: #999;
+}
+#post-title {
+    font-size: 9px;
+    position: absolute;
+    top: 100px;
     right: 30px;
     color: #999;
 }
