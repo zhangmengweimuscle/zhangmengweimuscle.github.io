@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="/img/favicon .ico" mce_href="/img/favicon .ico" type="image/x-icon" />
+        <title>MUSCLE</title>
+        <meta charset="UTF-8">
+        
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+        
+<link rel="stylesheet" href="/css/main.css">
+
+
+        <!-- 字体图片库 -->
+        
+<link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- 代码高亮库 -->
+        
+<link rel="stylesheet" href="/lib/prism/prism.css">
+
+        <!-- echarts 图表库 -->
+        
+<script src="/lib/echarts/echarts.js"></script>
+
+        
+<link rel="stylesheet" href="/lib/github-markdown.css">
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <!-- dunno how to design a nice header,so it's just blank now-->
+        <!-- use css/navigation.css -->
+<div id="navigation" class="navigation">
+    <div id="navigation-profile" class="navigation-profile">
+        <ul class="main-menu">   
+            <!-- navigation -->
+            
+                <li id="HOME" class="main-menu-item ">
+                    <a href="/">HOME</a>
+                </li>
+            
+                <li id="DIRECTORY" class="main-menu-item ">
+                    <a href="/directory">DIRECTORY</a>
+                </li>
+            
+                <li id="PAGE" class="main-menu-item  active ">
+                    <a href="/20">PAGE</a>
+                </li>
+            
+                <li id="COMMENT" class="main-menu-item ">
+                    <a href="/comment">COMMENT</a>
+                </li>
+            
+            <!-- local-search功能 -->
+            <li class=" main-menu-search">
+                
+<script src="/js/search.js"></script>
+
+                <script>
+                    var search_path = "search.xml";
+                    if(search_path.length ==0 ){
+                    search_path = "search.xml";
+                    }
+                    var path = "/" + search_path;
+                    searchFunc(path,'local-search-input','local-search-result');
+                </script>
+                <div class="search-item">
+                    <form style="display:flex !important;">
+                        <input type="text" id="local-search-input" class="search" aria-label="Search" placeholder="local-search" />
+                    </form>
+                <div id="local-search-result"></div>
+            </li>
+    
+        </ul>
+    </div>
+</div>
+        <div style="position: relative;">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	.markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 45px;
+	}
+
+	@media (max-width: 767px) {
+		.markdown-body {
+			padding: 15px;
+		}
+	}
+
+</style>
+<!-- 作者信息 -->
+<div>
+    <span id="post-author">Author: Muscle</span>
+    <span id="post-date">2021-01-01 19:01:25</span>
+	<span id="post-title">图片本地上传 </span>
+</div>
+<!-- 目录 -->
+<div id="tooc">
+    <div id="toc"></div>
+</div>
+<!-- 内容 -->
+<article class="markdown-body">
+    <div id="article">
+        <p>如何实现图片的本地上传?<br>1.在本地的tomcat中配置G:img的路径,保证能通过localhost:8080&#x2F;项目目录&#x2F;img&#x2F;访问到下面的文件;<br>2.复制粘贴本文代码;<br>你,学会了吗?</p>
+<span id="more"></span>
+<h2 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carouselImg&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">class</span>=<span class="string">&quot;carouselImg&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.carouselImg</span>&#123;</span><br><span class="line">    <span class="attribute">background-size</span>:<span class="number">100%</span> <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">265px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">190px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: white;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#B3B2B2</span>;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&quot;file&quot;</span>]</span>&#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;.carouselImg&quot;</span>).<span class="title function_">find</span>(<span class="string">&quot;input&quot;</span>).<span class="title function_">change</span>(<span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> fd = <span class="keyword">new</span> <span class="title class_">FormData</span>();</span><br><span class="line">        fd.<span class="title function_">append</span>(<span class="string">&quot;imgFile&quot;</span>, e.<span class="property">target</span>.<span class="property">files</span>[<span class="number">0</span>]);</span><br><span class="line">        $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">            <span class="attr">type</span>: <span class="string">&quot;post&quot;</span>,</span><br><span class="line">            <span class="attr">url</span>: <span class="string">&quot;http://localhost:8080/companyWeb/carouselMap/addCarouselMap.do&quot;</span>,</span><br><span class="line">            <span class="attr">data</span>: fd,</span><br><span class="line">            <span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>,</span><br><span class="line">            <span class="attr">processData</span>: <span class="literal">false</span>,  <span class="comment">// processData和contentType需设置为false</span></span><br><span class="line">            <span class="attr">contentType</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">                $(e.<span class="property">target</span>.<span class="property">parentNode</span>).<span class="title function_">css</span>(<span class="string">&quot;background-image&quot;</span>, <span class="string">&quot;url(&quot;</span> + response.<span class="property">url</span> + <span class="string">&quot;)&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加并显示图片（还没有连接数据库）</span></span><br><span class="line">    <span class="meta">@RequestMapping(value = &quot;/addCarouselMap&quot;, method = RequestMethod.POST)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="meta">@ResponseBody</span> String <span class="title function_">addCarouselMap</span><span class="params">(<span class="meta">@RequestParam(&quot;imgFile&quot;)</span> MultipartFile pictureFile, Model model, HttpSession session)</span> <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">        <span class="comment">//图片新名字</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">newName</span> <span class="operator">=</span> UUID.randomUUID().toString();</span><br><span class="line">        <span class="comment">//图片原名</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">oldName</span> <span class="operator">=</span> pictureFile.getOriginalFilename();</span><br><span class="line">        <span class="comment">//得到后缀名</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">sux</span> <span class="operator">=</span> oldName.substring(oldName.lastIndexOf(<span class="string">&quot;.&quot;</span>));</span><br><span class="line">        <span class="comment">//本地文件流，图片存放在G盘下的img文件夹中，该路径需要在tomcat中配置</span></span><br><span class="line">        <span class="type">File</span> <span class="variable">file</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;G:\\img\\&quot;</span>+newName+sux); </span><br><span class="line">        <span class="comment">//写入本地磁盘</span></span><br><span class="line">        pictureFile.transferTo(file);</span><br><span class="line">        <span class="comment">//创建预备返回的json对象</span></span><br><span class="line">        <span class="type">ObjectMapper</span> <span class="variable">mapper</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectMapper</span>();</span><br><span class="line">        <span class="type">ObjectNode</span> <span class="variable">node</span> <span class="operator">=</span> mapper.createObjectNode();</span><br><span class="line">        <span class="comment">//写入数据</span></span><br><span class="line">        node.put(<span class="string">&quot;error&quot;</span>,<span class="number">0</span>);</span><br><span class="line">        node.put(<span class="string">&quot;message&quot;</span>,<span class="string">&quot;上传成功！&quot;</span>);</span><br><span class="line">        node.put(<span class="string">&quot;url&quot;</span>,<span class="string">&quot;/img/&quot;</span>+newName+sux);</span><br><span class="line">        <span class="comment">//准备返回 json格式</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">json</span> <span class="operator">=</span> mapper.writeValueAsString(node);</span><br><span class="line">        <span class="keyword">return</span>  json;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;multipartResolver&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 最大上传文件大小 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;8388608&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+
+<!-- 使用mermaid渲染流程图 -->
+
+	
+<script src="/js/mermaid.min.js"></script>
+
+	<script>
+	  if (window.mermaid) {
+		mermaid.initialize({theme: 'forest'});
+	  }
+	</script>
+  
+
+
+            
+        </div>
+        <a href="#" class="back2top">返回顶部</a>
+        <!-- use css/footer.css -->
+<div id="footer" class="footer">
+    <div class="footer-profile" id="footer-profile">
+                <div>
+                    <i class="fa fa-user" aria-hidden="true">
+                        <span>Author:</span>
+                    </i>
+                    <span>
+                        Muscle
+                    </span>
+                </div>
+                <div>
+                    <i class="fa  fa-file" aria-hidden="true">
+                        <span>Pages:</span>
+                    </i>
+                    <span>
+                        11
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-pencil" aria-hidden="true">
+                        <span>TotalCount:</span></i>
+                    <span class="post-count">
+                        14.4k
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-heart" aria-hidden="true">
+                        <span>Theme:</span></i>
+                    <span>
+                        mitsushima
+                    </span>
+                </div>
+    </div>
+</div>
+        
+        <!-- 引入代码高亮的 js -->
+        
+<script src="/lib/prism/prism.js"></script>
+
+        <script>
+            $("figure").each(function(i,e){
+                let lang = e.classList[1];
+                $(e).find('td.code pre').each(function(index,element){
+                    element.innerHTML = '<code class = "language-'+lang+'">'+element.innerText+'</code>';
+                })
+            })
+        </script>
+         <!-- 页面初始化 -->
+         
+<script src="/js/initialization.js"></script>
+
+    </body>
+</html>

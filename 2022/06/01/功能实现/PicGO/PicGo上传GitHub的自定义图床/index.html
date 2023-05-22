@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="/img/favicon .ico" mce_href="/img/favicon .ico" type="image/x-icon" />
+        <title>MUSCLE</title>
+        <meta charset="UTF-8">
+        
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+        
+<link rel="stylesheet" href="/css/main.css">
+
+
+        <!-- 字体图片库 -->
+        
+<link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- 代码高亮库 -->
+        
+<link rel="stylesheet" href="/lib/prism/prism.css">
+
+        <!-- echarts 图表库 -->
+        
+<script src="/lib/echarts/echarts.js"></script>
+
+        
+<link rel="stylesheet" href="/lib/github-markdown.css">
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <!-- dunno how to design a nice header,so it's just blank now-->
+        <!-- use css/navigation.css -->
+<div id="navigation" class="navigation">
+    <div id="navigation-profile" class="navigation-profile">
+        <ul class="main-menu">   
+            <!-- navigation -->
+            
+                <li id="HOME" class="main-menu-item ">
+                    <a href="/">HOME</a>
+                </li>
+            
+                <li id="DIRECTORY" class="main-menu-item ">
+                    <a href="/directory">DIRECTORY</a>
+                </li>
+            
+                <li id="PAGE" class="main-menu-item  active ">
+                    <a href="/20">PAGE</a>
+                </li>
+            
+                <li id="COMMENT" class="main-menu-item ">
+                    <a href="/comment">COMMENT</a>
+                </li>
+            
+            <!-- local-search功能 -->
+            <li class=" main-menu-search">
+                
+<script src="/js/search.js"></script>
+
+                <script>
+                    var search_path = "search.xml";
+                    if(search_path.length ==0 ){
+                    search_path = "search.xml";
+                    }
+                    var path = "/" + search_path;
+                    searchFunc(path,'local-search-input','local-search-result');
+                </script>
+                <div class="search-item">
+                    <form style="display:flex !important;">
+                        <input type="text" id="local-search-input" class="search" aria-label="Search" placeholder="local-search" />
+                    </form>
+                <div id="local-search-result"></div>
+            </li>
+    
+        </ul>
+    </div>
+</div>
+        <div style="position: relative;">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	.markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 45px;
+	}
+
+	@media (max-width: 767px) {
+		.markdown-body {
+			padding: 15px;
+		}
+	}
+
+</style>
+<!-- 作者信息 -->
+<div>
+    <span id="post-author">Author: Muscle</span>
+    <span id="post-date">2022-06-01 08:06:25</span>
+	<span id="post-title">PicGo上传GitHub的自定义图床 </span>
+</div>
+<!-- 目录 -->
+<div id="tooc">
+    <div id="toc"></div>
+</div>
+<!-- 内容 -->
+<article class="markdown-body">
+    <div id="article">
+        <p>建立一个GitHub的仓库作为图床，在编写markdown的时候通过插件快速导入，减少图片上传的步骤。</p>
+<span id="more"></span>
+
+<h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><h3 id="1-VsCode"><a href="#1-VsCode" class="headerlink" title="1. VsCode"></a>1. VsCode</h3><h3 id="2-PicGo插件"><a href="#2-PicGo插件" class="headerlink" title="2. PicGo插件"></a>2. PicGo插件</h3><h3 id="3-GitHub"><a href="#3-GitHub" class="headerlink" title="3. GitHub"></a>3. GitHub</h3><h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><h3 id="1-新建一个GitHub仓库作为图床"><a href="#1-新建一个GitHub仓库作为图床" class="headerlink" title="1.新建一个GitHub仓库作为图床"></a>1.新建一个GitHub仓库作为图床</h3><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531220724.png" alt="20210531220724"></p>
+<h3 id="2-获取token"><a href="#2-获取token" class="headerlink" title="2.获取token"></a>2.获取token</h3><h4 id="1）点击右上角的头像，选择-设置"><a href="#1）点击右上角的头像，选择-设置" class="headerlink" title="1）点击右上角的头像，选择 设置"></a>1）点击右上角的头像，选择 设置</h4><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531221105.png" alt="20210531221105"></p>
+<h4 id="2）进入-开发者设置-页面"><a href="#2）进入-开发者设置-页面" class="headerlink" title="2）进入 开发者设置 页面"></a>2）进入 开发者设置 页面</h4><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531221320.png" alt="20210531221320"></p>
+<h4 id="3）选择-私人账户Token-gt-gt-生成新的token"><a href="#3）选择-私人账户Token-gt-gt-生成新的token" class="headerlink" title="3）选择 私人账户Token &gt;&gt; 生成新的token"></a>3）选择 私人账户Token &gt;&gt; 生成新的token</h4><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531221845.png" alt="20210531221845"></p>
+<h4 id="4）设置token"><a href="#4）设置token" class="headerlink" title="4）设置token"></a>4）设置token</h4><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531222229.png" alt="20210531222229"></p>
+<h4 id="5）复制生成的token"><a href="#5）复制生成的token" class="headerlink" title="5）复制生成的token"></a>5）复制生成的token</h4><p>注意这个token只会出现一次，所以一定要保存好。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531222708.png" alt="20210531222708"></p>
+<h3 id="3-设置PicGo"><a href="#3-设置PicGo" class="headerlink" title="3.设置PicGo"></a>3.设置PicGo</h3><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531223846.png" alt="20210531223846"></p>
+<p><strong>Current</strong>设置为GitHub</p>
+<p><strong>Branch</strong>是仓库的分支，默认为master</p>
+<p><strong>Custom Url</strong> 是我们图片上传的链接，有两种方式可以使用</p>
+<ol>
+<li>原生方式<br>使用GitHub原生连接，格式为</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://raw.githubusercontent.com/[用户名]/[仓库名]/[分支名]</span><br></pre></td></tr></table></figure>
+
+<p>我的例子</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://raw.githubusercontent.com/zhangmengweimuscle/images</span><br></pre></td></tr></table></figure>
+
+<p>原生方式有一个弊端就是，国内速度比较慢<br>2. cdn加速方式，格式为</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/[用户名]/[仓库名]@[分支名]</span><br></pre></td></tr></table></figure>
+
+<p>我的例子</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/zhangmengweimuscle/images</span><br></pre></td></tr></table></figure>
+
+<p>cdn加速的优点是国内访问速度比较快</p>
+<p><strong>Path</strong>是我们的图片存储在仓库中的路径，比如我的是img&#x2F;</p>
+<p><strong>Repo</strong>是我们的仓库，比如我的是zhangmengweimuscle&#x2F;images</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531224843.png" alt="20210531224843"></p>
+<h3 id="4-使用快捷键"><a href="#4-使用快捷键" class="headerlink" title="4.使用快捷键"></a>4.使用快捷键</h3><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531225440.png" alt="20210531225440"></p>
+<h3 id="5-运行测试"><a href="#5-运行测试" class="headerlink" title="5.运行测试"></a>5.运行测试</h3><p>Ctrl+Alt+E</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531225801.png" alt="20210531225801"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/src=http___5b0988e595225.cdn.sohucs.com_images_20171221_5798f3583b714072b8eebc440977485c.jpeg&refer=http___5b0988e595225.cdn.sohucs.jpg" alt="src=http___5b0988e595225.cdn.sohucs.com_images_20171221_5798f3583b714072b8eebc440977485c.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs"></p>
+<p>右下角开始上传<br><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531225856.png" alt="20210531225856"></p>
+<p>显示上传成功<br><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531225935.png" alt="20210531225935"></p>
+<p>查看上传结果<br><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20210531230133.png" alt="20210531230133"><br>预览文章，我们发现图片已经出现了。</p>
+
+    </div>
+</article>
+
+<!-- 使用mermaid渲染流程图 -->
+
+	
+<script src="/js/mermaid.min.js"></script>
+
+	<script>
+	  if (window.mermaid) {
+		mermaid.initialize({theme: 'forest'});
+	  }
+	</script>
+  
+
+
+            
+        </div>
+        <a href="#" class="back2top">返回顶部</a>
+        <!-- use css/footer.css -->
+<div id="footer" class="footer">
+    <div class="footer-profile" id="footer-profile">
+                <div>
+                    <i class="fa fa-user" aria-hidden="true">
+                        <span>Author:</span>
+                    </i>
+                    <span>
+                        Muscle
+                    </span>
+                </div>
+                <div>
+                    <i class="fa  fa-file" aria-hidden="true">
+                        <span>Pages:</span>
+                    </i>
+                    <span>
+                        11
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-pencil" aria-hidden="true">
+                        <span>TotalCount:</span></i>
+                    <span class="post-count">
+                        14.4k
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-heart" aria-hidden="true">
+                        <span>Theme:</span></i>
+                    <span>
+                        mitsushima
+                    </span>
+                </div>
+    </div>
+</div>
+        
+        <!-- 引入代码高亮的 js -->
+        
+<script src="/lib/prism/prism.js"></script>
+
+        <script>
+            $("figure").each(function(i,e){
+                let lang = e.classList[1];
+                $(e).find('td.code pre').each(function(index,element){
+                    element.innerHTML = '<code class = "language-'+lang+'">'+element.innerText+'</code>';
+                })
+            })
+        </script>
+         <!-- 页面初始化 -->
+         
+<script src="/js/initialization.js"></script>
+
+    </body>
+</html>

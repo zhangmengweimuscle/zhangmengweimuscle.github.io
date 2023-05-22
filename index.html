@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="/img/favicon .ico" mce_href="/img/favicon .ico" type="image/x-icon" />
+        <title>MUSCLE</title>
+        <meta charset="UTF-8">
+        
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+        
+<link rel="stylesheet" href="/css/main.css">
+
+
+        <!-- 字体图片库 -->
+        
+<link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- 代码高亮库 -->
+        
+<link rel="stylesheet" href="/lib/prism/prism.css">
+
+        <!-- echarts 图表库 -->
+        
+<script src="/lib/echarts/echarts.js"></script>
+
+        
+<link rel="stylesheet" href="/lib/github-markdown.css">
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <!-- dunno how to design a nice header,so it's just blank now-->
+        <!-- use css/navigation.css -->
+<div id="navigation" class="navigation">
+    <div id="navigation-profile" class="navigation-profile">
+        <ul class="main-menu">   
+            <!-- navigation -->
+            
+                <li id="HOME" class="main-menu-item  active ">
+                    <a href="/">HOME</a>
+                </li>
+            
+                <li id="DIRECTORY" class="main-menu-item ">
+                    <a href="/directory">DIRECTORY</a>
+                </li>
+            
+                <li id="PAGE" class="main-menu-item ">
+                    <a href="/20">PAGE</a>
+                </li>
+            
+                <li id="COMMENT" class="main-menu-item ">
+                    <a href="/comment">COMMENT</a>
+                </li>
+            
+            <!-- local-search功能 -->
+            <li class=" main-menu-search">
+                
+<script src="/js/search.js"></script>
+
+                <script>
+                    var search_path = "search.xml";
+                    if(search_path.length ==0 ){
+                    search_path = "search.xml";
+                    }
+                    var path = "/" + search_path;
+                    searchFunc(path,'local-search-input','local-search-result');
+                </script>
+                <div class="search-item">
+                    <form style="display:flex !important;">
+                        <input type="text" id="local-search-input" class="search" aria-label="Search" placeholder="local-search" />
+                    </form>
+                <div id="local-search-result"></div>
+            </li>
+    
+        </ul>
+    </div>
+</div>
+        <div style="position: relative;">
+            <div id="index-main">
+   <!-- COVER -->
+   <div class="index-cover" id="_index-cover">
+      <div id="index-main" class="index-main">
+    <!-- 链接 -->
+    <div class="index-content" id="index-content">
+      <div id="index-languages" style="height: 320px"></div>
+      <div id="index-percent" style="height: 70px"></div>
+      <div id="index-links" class="links" style="height: 70px">
+         <ul class="profile-social-links">
+            <li><a target="_blank" rel="noopener" href="https://github.com/zhangmengweimuscle"><img src="../img/github.png"></a></li>
+            <li><a target="_blank" rel="noopener" href="https://ejs.bootcss.com/"><img src="../img/sj.png"></a></li>
+            <li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/"><img src="../img/hexo.png"></a></li>
+            <li><a target="_blank" rel="noopener" href="https://git-scm.com/"><img src="../img/git.png"></a></li>
+         </ul>
+      </div>
+    </div>
+    <script src="lib/echarts/essos.js"></script>
+   <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var languages_chart = echarts.init(document.getElementById('index-languages'),'essos');
+      var percent_chart = echarts.init(document.getElementById('index-percent'),'essos');
+      // 指定图表的配置项和数据
+      var languages_option = {
+         title: {
+            text: 'Languages'
+         },
+         tooltip: {},
+         legend: {
+            data: ['posts','wordcount'],
+            right: 10
+         },
+         xAxis: {
+            type: 'log',
+            min: 1,
+            axisLabel:{
+               formatter:function(v){ //v为刻度 从0开始
+                  return v === 1 ? 0 : v
+               }
+            }
+            
+         },
+         yAxis: {
+            data: "Java,其他,html,Shell,Syst,css,javaScript".split(',')
+            
+         },
+         grid:{
+               left: '2',
+               containLabel: true,
+               bottom:40
+            },
+         series: [
+            {
+               name: 'posts',
+               type: 'bar',
+               data: "3,2,1.15,1.15,2,1.15,1.15".split(','),
+               label:{
+                  formatter:function(param){
+                     return param.data == 1.15 ? 1 : param.data
+                  }
+               },
+               tooltip:{
+                  valueFormatter: value => value == 1.15 ? 1 : value
+               }
+               
+
+            },
+            {
+               name: 'wordcount',
+               type: 'bar',
+               data: "1816,956,385,1929,9067,385,385".split(',')
+            }
+         ],
+         
+      };
+      let percent_name = [];
+      let percent_data = [];
+      let percent_series = [];
+      let _obj = new Object();
+      percent_name = "Java,其他,html,Shell,Syst,css,javaScript".split(',');
+      percent_data = "1816,956,385,1929,9067,385,385".split(',');
+      for(let i =0;i<percent_name.length;i++){
+         _obj = {};
+         _obj.name = percent_name[i];
+         _obj.type = 'bar';
+         _obj.stack = 'total';
+         // _obj.label = {show : true};
+         _obj.emphasis = {focus :'series'};
+         _obj.data = [(parseInt(percent_data[i])/parseInt('14377')).toFixed(3)]
+         percent_series.push(_obj);
+      }
+      var percent_option ={
+         tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+               // Use axis to trigger tooltip
+               type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+            },
+            valueFormatter: value => (value*100).toFixed(1) + ' %'
+         },
+         // legend: {},
+         grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+         },
+         legend: {
+
+         },
+         xAxis: {
+            // type: 'value'
+            show: false,
+            max: 'dataMax',
+         },
+         yAxis: {
+            type: 'category',
+            data: ['percent']
+         },
+         series: percent_series
+      }
+      
+      // 使用刚指定的配置项和数据显示图表。
+      languages_chart.setOption(languages_option);
+      percent_chart.setOption(percent_option);
+    </script>
+
+
+
+
+</div>
+   </div>
+   <!-- INDEX-BLOG -->
+   <div class="part-t-text" >README</div>
+   <div class="index-blog" id="_index-blog">
+      
+
+<!-- 内容 -->
+    <article class="markdown-body" style="width: 100% !important">
+        <div id="article">
+            <h2 id="hexo-theme-mitsushima"><a href="#hexo-theme-mitsushima" class="headerlink" title="hexo-theme-mitsushima"></a>hexo-theme-mitsushima</h2><p><img src="https://img.shields.io/github/last-commit/zhangmengweimuscle/hexo-theme-mitsushima?style=float" alt="GitHub last commit"> <img src="https://img.shields.io/github/watchers/zhangmengweimuscle/hexo-theme-mitsushima?style=float" alt="GitHub watchers"> <img src="https://img.shields.io/github/stars/zhangmengweimuscle/hexo-theme-mitsushima?style=float" alt="GitHub Repo stars"></p>
+<p>这是一个基于<a target="_blank" rel="noopener" href="https://github.com/nodejs/node">NodeJs</a>和<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo">Hexo</a>搭建的静态博客主题,目前尚未完成。欢迎在我的<a target="_blank" rel="noopener" href="https://github.com/zhangmengweimuscle/hexo-theme-mitsushima/issues">Issues</a>留下你的建议。</p>
+<h3 id="下载-x2F-安装"><a href="#下载-x2F-安装" class="headerlink" title="下载&#x2F;安装"></a>下载&#x2F;安装</h3><p>本地体验之前，请先确保已经初始化了hexo，并且版本在4.3.0及以上，Nodejs版本在v.16.13.1及以上。然后执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化HEXO后,clone项目到themes文件夹下</span></span><br><span class="line"><span class="built_in">cd</span> Hexo/themes/</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zhangmengweimuscle/hexo-theme-mitsushima.git </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将根目录下的_config.yml中的theme 改成hexo-theme-mitsushima</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">hexo-theme-mitsushima</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="开发-x2F-维护计划"><a href="#开发-x2F-维护计划" class="headerlink" title="开发&#x2F;维护计划"></a>开发&#x2F;维护计划</h3><ol>
+<li>2023年完成主页开发</li>
+</ol>
+
+        </div>
+    </article>
+
+
+   </div>
+
+   <!-- TIMELINE -->
+   <div class="part-t-text" >TIMELINE</div>
+   <div class="index-timeline" id="_index-timeline">
+      <div class="timeline">
+    <div class="node">
+        <div class="node-time">十二月 12 2022</div>
+        <div class="node-circle"></div>
+    </div>
+    
+</div>
+
+
+   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+            
+        </div>
+        <a href="#" class="back2top">返回顶部</a>
+        <!-- use css/footer.css -->
+<div id="footer" class="footer">
+    <div class="footer-profile" id="footer-profile">
+                <div>
+                    <i class="fa fa-user" aria-hidden="true">
+                        <span>Author:</span>
+                    </i>
+                    <span>
+                        Muscle
+                    </span>
+                </div>
+                <div>
+                    <i class="fa  fa-file" aria-hidden="true">
+                        <span>Pages:</span>
+                    </i>
+                    <span>
+                        11
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-pencil" aria-hidden="true">
+                        <span>TotalCount:</span></i>
+                    <span class="post-count">
+                        14.4k
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-heart" aria-hidden="true">
+                        <span>Theme:</span></i>
+                    <span>
+                        mitsushima
+                    </span>
+                </div>
+    </div>
+</div>
+        
+        <!-- 引入代码高亮的 js -->
+        
+<script src="/lib/prism/prism.js"></script>
+
+        <script>
+            $("figure").each(function(i,e){
+                let lang = e.classList[1];
+                $(e).find('td.code pre').each(function(index,element){
+                    element.innerHTML = '<code class = "language-'+lang+'">'+element.innerText+'</code>';
+                })
+            })
+        </script>
+         <!-- 页面初始化 -->
+         
+<script src="/js/initialization.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="/img/favicon .ico" mce_href="/img/favicon .ico" type="image/x-icon" />
+        <title>MUSCLE</title>
+        <meta charset="UTF-8">
+        
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+        
+<link rel="stylesheet" href="/css/main.css">
+
+
+        <!-- 字体图片库 -->
+        
+<link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- 代码高亮库 -->
+        
+<link rel="stylesheet" href="/lib/prism/prism.css">
+
+        <!-- echarts 图表库 -->
+        
+<script src="/lib/echarts/echarts.js"></script>
+
+        
+<link rel="stylesheet" href="/lib/github-markdown.css">
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <!-- dunno how to design a nice header,so it's just blank now-->
+        <!-- use css/navigation.css -->
+<div id="navigation" class="navigation">
+    <div id="navigation-profile" class="navigation-profile">
+        <ul class="main-menu">   
+            <!-- navigation -->
+            
+                <li id="HOME" class="main-menu-item ">
+                    <a href="/">HOME</a>
+                </li>
+            
+                <li id="DIRECTORY" class="main-menu-item ">
+                    <a href="/directory">DIRECTORY</a>
+                </li>
+            
+                <li id="PAGE" class="main-menu-item  active ">
+                    <a href="/20">PAGE</a>
+                </li>
+            
+                <li id="COMMENT" class="main-menu-item ">
+                    <a href="/comment">COMMENT</a>
+                </li>
+            
+            <!-- local-search功能 -->
+            <li class=" main-menu-search">
+                
+<script src="/js/search.js"></script>
+
+                <script>
+                    var search_path = "search.xml";
+                    if(search_path.length ==0 ){
+                    search_path = "search.xml";
+                    }
+                    var path = "/" + search_path;
+                    searchFunc(path,'local-search-input','local-search-result');
+                </script>
+                <div class="search-item">
+                    <form style="display:flex !important;">
+                        <input type="text" id="local-search-input" class="search" aria-label="Search" placeholder="local-search" />
+                    </form>
+                <div id="local-search-result"></div>
+            </li>
+    
+        </ul>
+    </div>
+</div>
+        <div style="position: relative;">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	.markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 45px;
+	}
+
+	@media (max-width: 767px) {
+		.markdown-body {
+			padding: 15px;
+		}
+	}
+
+</style>
+<!-- 作者信息 -->
+<div>
+    <span id="post-author">Author: Muscle</span>
+    <span id="post-date">2022-07-01 13:01:25</span>
+	<span id="post-title">从网易云中获取真实播放链 </span>
+</div>
+<!-- 目录 -->
+<div id="tooc">
+    <div id="toc"></div>
+</div>
+<!-- 内容 -->
+<article class="markdown-body">
+    <div id="article">
+        <p>获取网易云音乐的播放链接的方法：</p>
+<span id="more"></span>
+<h2 id="使用情形"><a href="#使用情形" class="headerlink" title="使用情形"></a>使用情形</h2><p>获取网易云的音乐播放链接<br><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20220102173543-2022-01-02-17-35-50.png" alt="20220102173543-2022-01-02-17-35-50"></p>
+<p>点击下面的 复制链接，获得地址是</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://music.163.com/#/song?id=536570450&amp;userid=5015563321</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20220102173746-2022-01-02-17-37-47.png" alt="20220102173746-2022-01-02-17-37-47"></p>
+<p>跳转到页面之后发现是这样的界面，如果我们直接把它放在网页播放器的src上并不能完成点击播放的效果。</p>
+<p>如下是网页播放器代码和运行结果。<br>可以看到播放按钮是不可用的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>=<span class="string">&quot;controls&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;https://music.163.com/#/song?id=536570450&amp;userid=5015563321&quot;</span> <span class="attr">type</span>=<span class="string">&quot;audio/mp3&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20220102211814-2022-01-02-21-18-15.png" alt="20220102211814-2022-01-02-21-18-15"></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>获取真实的播放链接可以参考以下结果办法：</p>
+<h3 id="方案一-从外链播放器中复制地址"><a href="#方案一-从外链播放器中复制地址" class="headerlink" title="方案一 从外链播放器中复制地址"></a>方案一 从外链播放器中复制地址</h3><h4 id="点击网易云音乐-生成外链播放器-查看生成的HTML代码"><a href="#点击网易云音乐-生成外链播放器-查看生成的HTML代码" class="headerlink" title="点击网易云音乐 生成外链播放器 查看生成的HTML代码"></a>点击网易云音乐 <strong>生成外链播放器</strong> 查看生成的HTML代码</h4><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20220102214735-2022-01-02-21-47-36.png" alt="20220102214735-2022-01-02-21-47-36"></p>
+<p>上面的src的部分就是我们需要的真实链接。</p>
+<h4 id="复制src部分"><a href="#复制src部分" class="headerlink" title="复制src部分"></a>复制src部分</h4><h3 id="方案二-参考真实链接转换公式"><a href="#方案二-参考真实链接转换公式" class="headerlink" title="方案二 参考真实链接转换公式"></a>方案二 参考真实链接转换公式</h3><h4 id="原地址"><a href="#原地址" class="headerlink" title="原地址"></a>原地址</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://music.163.com/#/song?id=536570450&amp;userid=5015563321</span><br></pre></td></tr></table></figure>
+
+<h4 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://music.163.com/song/media/outer/url?id=ID数字.mp3</span><br></pre></td></tr></table></figure>
+
+<h4 id="最后结果"><a href="#最后结果" class="headerlink" title="最后结果"></a>最后结果</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://music.163.com/song/media/outer/url?id=536570450.mp3</span><br></pre></td></tr></table></figure>
+
+<p>（这个方法并不是万能的，比如周董的这首《魔术与歌曲：告白气球》用公式套的话就是失效的）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20220102220141-2022-01-02-22-01-42.png" alt="20220102220141-2022-01-02-22-01-42"></p>
+<p>这里展示另一个成功案例 《骑士精神》</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20220102220551-2022-01-02-22-05-51.png" alt="20220102220551-2022-01-02-22-05-51"></p>
+<p>图中可知链接的id是 <code>209760</code></p>
+<p>参考公式得出链接地址为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://music.163.com/song/media/outer/url?id=209760.mp3</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20220102220637-2022-01-02-22-06-38.png" alt="20220102220637-2022-01-02-22-06-38"></p>
+<p><strong>访问成功！</strong></p>
+<h3 id="方案三-在开发者工具里直接找"><a href="#方案三-在开发者工具里直接找" class="headerlink" title="方案三 在开发者工具里直接找"></a>方案三 在开发者工具里直接找</h3><p>这可能最直接，最简单的方案了。</p>
+<p><strong>比起找链接，直接找资源是不是更快捷呢？</strong></p>
+<p>首先回到刚才的《魔术与歌曲：告白气球页面》</p>
+<h4 id="F12-打开开发者工具"><a href="#F12-打开开发者工具" class="headerlink" title="F12 打开开发者工具"></a>F12 打开开发者工具</h4><h4 id="选择Network-查看网页运行过程中的资源请求"><a href="#选择Network-查看网页运行过程中的资源请求" class="headerlink" title="选择Network 查看网页运行过程中的资源请求"></a>选择Network 查看网页运行过程中的资源请求</h4><h4 id="播放歌曲，监测Network中的资源请求条目"><a href="#播放歌曲，监测Network中的资源请求条目" class="headerlink" title="播放歌曲，监测Network中的资源请求条目"></a>播放歌曲，监测Network中的资源请求条目</h4><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20220102221457-2022-01-02-22-14-58.png" alt="20220102221457-2022-01-02-22-14-58"></p>
+<p>如图所示，第一条数据就是我们要找的请求</p>
+<p>（小技巧，可以点击Size 按照文件存储大小来排序，一般网站的MP3，m4a格式的文件都偏大）</p>
+<h4 id="选中请求，查看具体内容"><a href="#选中请求，查看具体内容" class="headerlink" title="选中请求，查看具体内容"></a>选中请求，查看具体内容</h4><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20220102221833-2022-01-02-22-18-34.png" alt="20220102221833-2022-01-02-22-18-34"></p>
+<p>General中的Request URL就是我们要找的请求链接了</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://m804.music.126.net/20220102224111/65fca444407fada9465b0717222498d7/jdyyaac/515b/0e53/5652/f1503286e6995df4a0f2a88ecb663bf1.m4a?authSecret=0000017e1b25d3e50ee20aaba14d1ccb</span><br></pre></td></tr></table></figure>
+
+<h4 id="复制链接-跳转到目标资源"><a href="#复制链接-跳转到目标资源" class="headerlink" title="复制链接 跳转到目标资源"></a>复制链接 跳转到目标资源</h4><p><img src="https://cdn.jsdelivr.net/gh/zhangmengweimuscle/images/img/20220102222032-2022-01-02-22-20-33.png" alt="20220102222032-2022-01-02-22-20-33"></p>
+<p><strong>访问成功！</strong></p>
+
+    </div>
+</article>
+
+<!-- 使用mermaid渲染流程图 -->
+
+	
+<script src="/js/mermaid.min.js"></script>
+
+	<script>
+	  if (window.mermaid) {
+		mermaid.initialize({theme: 'forest'});
+	  }
+	</script>
+  
+
+
+            
+        </div>
+        <a href="#" class="back2top">返回顶部</a>
+        <!-- use css/footer.css -->
+<div id="footer" class="footer">
+    <div class="footer-profile" id="footer-profile">
+                <div>
+                    <i class="fa fa-user" aria-hidden="true">
+                        <span>Author:</span>
+                    </i>
+                    <span>
+                        Muscle
+                    </span>
+                </div>
+                <div>
+                    <i class="fa  fa-file" aria-hidden="true">
+                        <span>Pages:</span>
+                    </i>
+                    <span>
+                        11
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-pencil" aria-hidden="true">
+                        <span>TotalCount:</span></i>
+                    <span class="post-count">
+                        14.4k
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-heart" aria-hidden="true">
+                        <span>Theme:</span></i>
+                    <span>
+                        mitsushima
+                    </span>
+                </div>
+    </div>
+</div>
+        
+        <!-- 引入代码高亮的 js -->
+        
+<script src="/lib/prism/prism.js"></script>
+
+        <script>
+            $("figure").each(function(i,e){
+                let lang = e.classList[1];
+                $(e).find('td.code pre').each(function(index,element){
+                    element.innerHTML = '<code class = "language-'+lang+'">'+element.innerText+'</code>';
+                })
+            })
+        </script>
+         <!-- 页面初始化 -->
+         
+<script src="/js/initialization.js"></script>
+
+    </body>
+</html>

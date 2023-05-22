@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="/img/favicon .ico" mce_href="/img/favicon .ico" type="image/x-icon" />
+        <title>MUSCLE</title>
+        <meta charset="UTF-8">
+        
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+        
+<link rel="stylesheet" href="/css/main.css">
+
+
+        <!-- 字体图片库 -->
+        
+<link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- 代码高亮库 -->
+        
+<link rel="stylesheet" href="/lib/prism/prism.css">
+
+        <!-- echarts 图表库 -->
+        
+<script src="/lib/echarts/echarts.js"></script>
+
+        
+<link rel="stylesheet" href="/lib/github-markdown.css">
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <!-- dunno how to design a nice header,so it's just blank now-->
+        <!-- use css/navigation.css -->
+<div id="navigation" class="navigation">
+    <div id="navigation-profile" class="navigation-profile">
+        <ul class="main-menu">   
+            <!-- navigation -->
+            
+                <li id="HOME" class="main-menu-item ">
+                    <a href="/">HOME</a>
+                </li>
+            
+                <li id="DIRECTORY" class="main-menu-item ">
+                    <a href="/directory">DIRECTORY</a>
+                </li>
+            
+                <li id="PAGE" class="main-menu-item  active ">
+                    <a href="/20">PAGE</a>
+                </li>
+            
+                <li id="COMMENT" class="main-menu-item ">
+                    <a href="/comment">COMMENT</a>
+                </li>
+            
+            <!-- local-search功能 -->
+            <li class=" main-menu-search">
+                
+<script src="/js/search.js"></script>
+
+                <script>
+                    var search_path = "search.xml";
+                    if(search_path.length ==0 ){
+                    search_path = "search.xml";
+                    }
+                    var path = "/" + search_path;
+                    searchFunc(path,'local-search-input','local-search-result');
+                </script>
+                <div class="search-item">
+                    <form style="display:flex !important;">
+                        <input type="text" id="local-search-input" class="search" aria-label="Search" placeholder="local-search" />
+                    </form>
+                <div id="local-search-result"></div>
+            </li>
+    
+        </ul>
+    </div>
+</div>
+        <div style="position: relative;">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	.markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 45px;
+	}
+
+	@media (max-width: 767px) {
+		.markdown-body {
+			padding: 15px;
+		}
+	}
+
+</style>
+<!-- 作者信息 -->
+<div>
+    <span id="post-author">Author: Muscle</span>
+    <span id="post-date">2021-01-02 11:09:25</span>
+	<span id="post-title">Session成功销毁，但检测结果为false </span>
+</div>
+<!-- 目录 -->
+<div id="tooc">
+    <div id="toc"></div>
+</div>
+<!-- 内容 -->
+<article class="markdown-body">
+    <div id="article">
+        <p>毕业设计的程序开发过程中,当退出管理员的时候,后台销毁Session,销毁成功但是返回的内容确实false,只是因为没有设置这个!</p>
+<span id="more"></span>
+<h2 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h2><p>在设计开发的过程中，在销毁Session后，检测Session是否成功销毁，是则返回true，否则返回false</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在检测Session销毁的过程中，发现程序执行过程中，Session被正常销毁，但是返回值是false<br>再次执行程序，才返回true</p>
+<h2 id="错误代码"><a href="#错误代码" class="headerlink" title="错误代码"></a>错误代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Boolean <span class="title function_">deleteSession</span><span class="params">(HttpServletResponse httpServletResponse, </span></span><br><span class="line"><span class="params">HttpServletRequest httpServletRequest)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="type">HttpSession</span> <span class="variable">httpSession</span> <span class="operator">=</span> httpServletRequest.getSession(<span class="literal">false</span>);</span><br><span class="line">    System.out.println(httpSession);</span><br><span class="line">    <span class="keyword">if</span>(httpSession != <span class="literal">null</span>)&#123;</span><br><span class="line">        System.out.println(httpSession + <span class="string">&quot;正在被销毁&quot;</span>);</span><br><span class="line">        httpSession.removeAttribute(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">        httpSession.invalidate();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*=====问题所在=====*/</span></span><br><span class="line">    <span class="keyword">if</span>(httpSession == <span class="literal">null</span>)&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;销毁成功&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*==================*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h2><p>在上述代码中，httpSession被成功销毁之后，并不是直接将httpSession的内容设置为null，这个对象不会随着Session.invalidate()而消失。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在检测之前，重新给httpSession赋值，然后判断它的内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重新赋值</span></span><br><span class="line">httpSession = httpServletRequest.getSession(<span class="literal">false</span>);</span><br><span class="line"><span class="comment">/*=====问题所在=====*/</span></span><br><span class="line"><span class="keyword">if</span>(httpSession == <span class="literal">null</span>)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;销毁成功&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+
+<!-- 使用mermaid渲染流程图 -->
+
+	
+<script src="/js/mermaid.min.js"></script>
+
+	<script>
+	  if (window.mermaid) {
+		mermaid.initialize({theme: 'forest'});
+	  }
+	</script>
+  
+
+
+            
+        </div>
+        <a href="#" class="back2top">返回顶部</a>
+        <!-- use css/footer.css -->
+<div id="footer" class="footer">
+    <div class="footer-profile" id="footer-profile">
+                <div>
+                    <i class="fa fa-user" aria-hidden="true">
+                        <span>Author:</span>
+                    </i>
+                    <span>
+                        Muscle
+                    </span>
+                </div>
+                <div>
+                    <i class="fa  fa-file" aria-hidden="true">
+                        <span>Pages:</span>
+                    </i>
+                    <span>
+                        11
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-pencil" aria-hidden="true">
+                        <span>TotalCount:</span></i>
+                    <span class="post-count">
+                        14.4k
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-heart" aria-hidden="true">
+                        <span>Theme:</span></i>
+                    <span>
+                        mitsushima
+                    </span>
+                </div>
+    </div>
+</div>
+        
+        <!-- 引入代码高亮的 js -->
+        
+<script src="/lib/prism/prism.js"></script>
+
+        <script>
+            $("figure").each(function(i,e){
+                let lang = e.classList[1];
+                $(e).find('td.code pre').each(function(index,element){
+                    element.innerHTML = '<code class = "language-'+lang+'">'+element.innerText+'</code>';
+                })
+            })
+        </script>
+         <!-- 页面初始化 -->
+         
+<script src="/js/initialization.js"></script>
+
+    </body>
+</html>

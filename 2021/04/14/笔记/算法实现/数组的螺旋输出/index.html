@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="/img/favicon .ico" mce_href="/img/favicon .ico" type="image/x-icon" />
+        <title>MUSCLE</title>
+        <meta charset="UTF-8">
+        
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+        
+<link rel="stylesheet" href="/css/main.css">
+
+
+        <!-- 字体图片库 -->
+        
+<link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- 代码高亮库 -->
+        
+<link rel="stylesheet" href="/lib/prism/prism.css">
+
+        <!-- echarts 图表库 -->
+        
+<script src="/lib/echarts/echarts.js"></script>
+
+        
+<link rel="stylesheet" href="/lib/github-markdown.css">
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <!-- dunno how to design a nice header,so it's just blank now-->
+        <!-- use css/navigation.css -->
+<div id="navigation" class="navigation">
+    <div id="navigation-profile" class="navigation-profile">
+        <ul class="main-menu">   
+            <!-- navigation -->
+            
+                <li id="HOME" class="main-menu-item ">
+                    <a href="/">HOME</a>
+                </li>
+            
+                <li id="DIRECTORY" class="main-menu-item ">
+                    <a href="/directory">DIRECTORY</a>
+                </li>
+            
+                <li id="PAGE" class="main-menu-item  active ">
+                    <a href="/20">PAGE</a>
+                </li>
+            
+                <li id="COMMENT" class="main-menu-item ">
+                    <a href="/comment">COMMENT</a>
+                </li>
+            
+            <!-- local-search功能 -->
+            <li class=" main-menu-search">
+                
+<script src="/js/search.js"></script>
+
+                <script>
+                    var search_path = "search.xml";
+                    if(search_path.length ==0 ){
+                    search_path = "search.xml";
+                    }
+                    var path = "/" + search_path;
+                    searchFunc(path,'local-search-input','local-search-result');
+                </script>
+                <div class="search-item">
+                    <form style="display:flex !important;">
+                        <input type="text" id="local-search-input" class="search" aria-label="Search" placeholder="local-search" />
+                    </form>
+                <div id="local-search-result"></div>
+            </li>
+    
+        </ul>
+    </div>
+</div>
+        <div style="position: relative;">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	.markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 45px;
+	}
+
+	@media (max-width: 767px) {
+		.markdown-body {
+			padding: 15px;
+		}
+	}
+
+</style>
+<!-- 作者信息 -->
+<div>
+    <span id="post-author">Author: Muscle</span>
+    <span id="post-date">2021-04-14 10:03:25</span>
+	<span id="post-title">数组的螺旋输出 </span>
+</div>
+<!-- 目录 -->
+<div id="tooc">
+    <div id="toc"></div>
+</div>
+<!-- 内容 -->
+<article class="markdown-body">
+    <div id="article">
+        <p>关于数组的螺旋输出的实现，通过一个给定的M*N的二维数组，将数组内容通过螺旋的顺序输出。<br>本题在一次面试中，面试官通过屏幕共享方式让我当场编程，但是我没有写出来。</p>
+<span id="more"></span>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有一个 m*n的数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[][] array = &#123;</span><br><span class="line">    &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;,</span><br><span class="line">    &#123;<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;,</span><br><span class="line">    &#123;<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>&#125;,</span><br><span class="line">    &#123;<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>&#125;,</span><br><span class="line">    &#123;<span class="number">21</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">24</span>,<span class="number">25</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>通过输出的方式，将数组的每一个数据按螺旋顺序输出，得到结果如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>,<span class="number">20</span>,<span class="number">25</span>,<span class="number">24</span>,<span class="number">23</span>,<span class="number">22</span>,<span class="number">21</span>,<span class="number">16</span>,<span class="number">11</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">14</span>,<span class="number">19</span>,<span class="number">18</span>,<span class="number">17</span>,<span class="number">12</span>,<span class="number">13</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="java实现方式"><a href="#java实现方式" class="headerlink" title="java实现方式"></a>java实现方式</h2><h3 id="具体实现步骤"><a href="#具体实现步骤" class="headerlink" title="具体实现步骤"></a>具体实现步骤</h3><p><strong>1.定义四个变量 top,bottom,left,right</strong><br>在执行程序的遍历之前，我们需要定义4个变量来检测二维数组array的四条边界，在每次碰到边界之后，收缩边界，并转向。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//top = 0 表示将从二维数组array的第一层开始遍历</span></span><br><span class="line"><span class="type">int</span> <span class="variable">top</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="comment">//bottom = array.length-1表示二维数组array层高为array.length-1，这个值是最低层所在的位置</span></span><br><span class="line"><span class="type">int</span> <span class="variable">bottom</span> <span class="operator">=</span> array.length-<span class="number">1</span>;</span><br><span class="line"><span class="comment">//left = 0 表示遍历的初始位置，从左向右遍历</span></span><br><span class="line"><span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="comment">//right = array[0].length-1表示取数组中第一个元素的长度减一，表示二维数组array的宽度</span></span><br><span class="line"><span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> array[<span class="number">0</span>].length-<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.遍历第一条边 top</strong><br>在第一次的遍历中，我们需要的输出为{1，2，3，4，5}<br>此时执行的顺序为</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array[top][left] ==&gt; array[top][right]</span><br></pre></td></tr></table></figure>
+
+<p>并且在执行完成之后</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top++</span><br></pre></td></tr></table></figure>
+
+<p>表示最上的边已经遍历完成，在下次返回的时候，不会再经过第一层，而是在碰到第二层之后转向。</p>
+<p><strong>3.遍历第二条边 right</strong><br>在上一次的遍历中，我们完成了第一条边的遍历，在这次遍历中，采取了同样的方法。<br>这一次，我们需要的输出为{<strong>5</strong>，10，15，20，25}<br>但是由于<strong>5</strong>这个数据在上一次的遍历中，完成了输出，所以这次需要省略。<br>此时的执行顺序为</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array[top][right] ==&gt; array[bottom][right]</span><br></pre></td></tr></table></figure>
+
+<p>并且在执行完成之后</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">right--</span><br></pre></td></tr></table></figure>
+
+<p>表示最右的边已经遍历完成，在下一次返回的时候，不会再经过最右层，而是在碰到它的左一层的时候转向。</p>
+<p><strong>4.遍历第三条边 bottom</strong><br>同理，这个阶段需要的输出的内容为{<strong>25</strong>，24，23，22，21}<br>注意<strong>25</strong>已经出现过一次，这次遍历的时候不要扫描到第二次<br>此时的执行顺序为</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array[bottom][right] ==&gt; array[bottom][left]</span><br></pre></td></tr></table></figure>
+
+<p>并且在执行之后</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bottom--</span><br></pre></td></tr></table></figure>
+
+<p>表示最底层已经遍历完成，在下一次返回的时候，不会再经过最底层，而是在碰到上一层的时候转向。</p>
+<p><strong>5.遍历第四条边 left</strong><br>完成了上边三次遍历，这次也是一样。<br>预期输出{<strong>21</strong>，16，1，6，<strong>1</strong>}<br>注意<strong>21</strong>这个数字</p>
+<p>执行顺序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array[bottom][left] ==&gt; array[top][left]</span><br></pre></td></tr></table></figure>
+
+<p>因为</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top++</span><br></pre></td></tr></table></figure>
+
+<p>所以这次的遍历会在层高为2的地方停止<br>所以<strong>1</strong>（array[0][0]）这个数据不会出现</p>
+<p><strong>6.重复这四次遍历 直到所有的数据完成输出</strong><br>需要用一个while语句将着四层遍历包裹起来<br>while的判断条件是所有的数据都已经输出<br>条件判断规则如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">top &lt;= bottom</span><br><span class="line">&amp;&amp;</span><br><span class="line">left &lt;= right</span><br></pre></td></tr></table></figure>
+
+<h3 id="java源码"><a href="#java源码" class="headerlink" title="java源码"></a>java源码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> [][] array = &#123;</span><br><span class="line">            &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;,</span><br><span class="line">            &#123;<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;,</span><br><span class="line">            &#123;<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>&#125;,</span><br><span class="line">            &#123;<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>&#125;,</span><br><span class="line">            &#123;<span class="number">21</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">24</span>,<span class="number">25</span>&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        display(array);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">display</span><span class="params">(<span class="type">int</span>[][] arr)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">top</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> arr[<span class="number">0</span>].length-<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">bottom</span> <span class="operator">=</span> arr.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (top &lt;= bottom &amp;&amp; left &lt;= right)&#123;</span><br><span class="line">            <span class="comment">// from arr[top,left] To arr[top,right]</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left;i&lt;=right;i++)&#123;</span><br><span class="line">                System.out.print(arr[top][i]+<span class="string">&quot;,&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            ++top;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//from arr[top,right] To arr[bottom,right]</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> top;i&lt;=bottom;i++)&#123;</span><br><span class="line">                System.out.print(arr[i][right]+<span class="string">&quot;,&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            --right;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//from arr[bottom,right] To arr[bottom,left]</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> right;i &gt;= left;i--)&#123;</span><br><span class="line">                System.out.print(arr[bottom][i]+<span class="string">&quot;,&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            --bottom;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//from arr[bottom,left] To arr[top,left]</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> bottom;i &gt;= top;i--)&#123;</span><br><span class="line">                System.out.print(arr[i][left]+<span class="string">&quot;,&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            ++left;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+
+<!-- 使用mermaid渲染流程图 -->
+
+	
+<script src="/js/mermaid.min.js"></script>
+
+	<script>
+	  if (window.mermaid) {
+		mermaid.initialize({theme: 'forest'});
+	  }
+	</script>
+  
+
+
+            
+        </div>
+        <a href="#" class="back2top">返回顶部</a>
+        <!-- use css/footer.css -->
+<div id="footer" class="footer">
+    <div class="footer-profile" id="footer-profile">
+                <div>
+                    <i class="fa fa-user" aria-hidden="true">
+                        <span>Author:</span>
+                    </i>
+                    <span>
+                        Muscle
+                    </span>
+                </div>
+                <div>
+                    <i class="fa  fa-file" aria-hidden="true">
+                        <span>Pages:</span>
+                    </i>
+                    <span>
+                        11
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-pencil" aria-hidden="true">
+                        <span>TotalCount:</span></i>
+                    <span class="post-count">
+                        14.4k
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-heart" aria-hidden="true">
+                        <span>Theme:</span></i>
+                    <span>
+                        mitsushima
+                    </span>
+                </div>
+    </div>
+</div>
+        
+        <!-- 引入代码高亮的 js -->
+        
+<script src="/lib/prism/prism.js"></script>
+
+        <script>
+            $("figure").each(function(i,e){
+                let lang = e.classList[1];
+                $(e).find('td.code pre').each(function(index,element){
+                    element.innerHTML = '<code class = "language-'+lang+'">'+element.innerText+'</code>';
+                })
+            })
+        </script>
+         <!-- 页面初始化 -->
+         
+<script src="/js/initialization.js"></script>
+
+    </body>
+</html>

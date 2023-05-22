@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="/img/favicon .ico" mce_href="/img/favicon .ico" type="image/x-icon" />
+        <title>MUSCLE</title>
+        <meta charset="UTF-8">
+        
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+        
+<link rel="stylesheet" href="/css/main.css">
+
+
+        <!-- 字体图片库 -->
+        
+<link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- 代码高亮库 -->
+        
+<link rel="stylesheet" href="/lib/prism/prism.css">
+
+        <!-- echarts 图表库 -->
+        
+<script src="/lib/echarts/echarts.js"></script>
+
+        
+<link rel="stylesheet" href="/lib/github-markdown.css">
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <!-- dunno how to design a nice header,so it's just blank now-->
+        <!-- use css/navigation.css -->
+<div id="navigation" class="navigation">
+    <div id="navigation-profile" class="navigation-profile">
+        <ul class="main-menu">   
+            <!-- navigation -->
+            
+                <li id="HOME" class="main-menu-item ">
+                    <a href="/">HOME</a>
+                </li>
+            
+                <li id="DIRECTORY" class="main-menu-item ">
+                    <a href="/directory">DIRECTORY</a>
+                </li>
+            
+                <li id="PAGE" class="main-menu-item  active ">
+                    <a href="/20">PAGE</a>
+                </li>
+            
+                <li id="COMMENT" class="main-menu-item ">
+                    <a href="/comment">COMMENT</a>
+                </li>
+            
+            <!-- local-search功能 -->
+            <li class=" main-menu-search">
+                
+<script src="/js/search.js"></script>
+
+                <script>
+                    var search_path = "search.xml";
+                    if(search_path.length ==0 ){
+                    search_path = "search.xml";
+                    }
+                    var path = "/" + search_path;
+                    searchFunc(path,'local-search-input','local-search-result');
+                </script>
+                <div class="search-item">
+                    <form style="display:flex !important;">
+                        <input type="text" id="local-search-input" class="search" aria-label="Search" placeholder="local-search" />
+                    </form>
+                <div id="local-search-result"></div>
+            </li>
+    
+        </ul>
+    </div>
+</div>
+        <div style="position: relative;">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	.markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 45px;
+	}
+
+	@media (max-width: 767px) {
+		.markdown-body {
+			padding: 15px;
+		}
+	}
+
+</style>
+<!-- 作者信息 -->
+<div>
+    <span id="post-author">Author: Muscle</span>
+    <span id="post-date">2021-01-01 22:01:25</span>
+	<span id="post-title">加载中的页面效果 </span>
+</div>
+<!-- 目录 -->
+<div id="tooc">
+    <div id="toc"></div>
+</div>
+<!-- 内容 -->
+<article class="markdown-body">
+    <div id="article">
+        <p>了解加载遮罩的使用原因和实现代码</p>
+<span id="more"></span>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>在html的静态资源加载的时候，网页上的资源没有合理的填充，导致了网页在用户浏览的过程中会出现突然跳段的情况，降低了用户的体验。<br>为了防止这种情况的发生，需要设置一个网页加载的遮罩，通过屏蔽用户对网页初始化过程中信息的浏览的方式，等待网页的加载完成后，才能浏览信息。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取浏览器页面可见高度和宽度</span></span><br><span class="line"><span class="keyword">var</span> _PageHeight = <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span>,</span><br><span class="line">    _PageWidth = <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientWidth</span>;</span><br><span class="line"><span class="comment">//计算loading框距离顶部和左部的距离（loading框的宽度为215px，高度为61px）</span></span><br><span class="line"><span class="keyword">var</span> _LoadingTop = _PageHeight &gt; <span class="number">61</span> ? (_PageHeight - <span class="number">61</span>) / <span class="number">2</span> : <span class="number">0</span>,</span><br><span class="line">    _LoadingLeft = _PageWidth &gt; <span class="number">215</span> ? (_PageWidth - <span class="number">215</span>) / <span class="number">2</span> : <span class="number">0</span>;</span><br><span class="line"><span class="comment">//在页面未加载完毕之前显示的loading Html自定义内容</span></span><br><span class="line"><span class="keyword">var</span> _LoadingHtml = <span class="string">&#x27;&lt;div id=&quot;loadingDiv&quot; style=&quot;position:absolute;left:0;width:100%;height:&#x27;</span> + _PageHeight + <span class="string">&#x27;px;top:0; background:#f3f8ff;opacity:1;filter:alpha(opacity=80);z-index:10000;&quot;&gt;&lt;div style=&quot;position: absolute; cursor1: wait; left: &#x27;</span> + _LoadingLeft + <span class="string">&#x27;px; top:&#x27;</span> + _LoadingTop + <span class="string">&#x27;px; width: auto; height: 57px; line-height: 57px; padding-left: 50px; padding-right: 5px; background: #fff url(../img/loading.gif) no-repeat scroll 5px 10px; border: 2px solid #95B8E7; color: #696969; font-family:\&#x27;Microsoft YaHei\&#x27;;&quot;&gt;页面加载中，请等待...&lt;/div&gt;&lt;/div&gt;&#x27;</span>;</span><br><span class="line"><span class="comment">//呈现loading效果</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(_LoadingHtml);</span><br><span class="line"><span class="comment">//监听加载状态改变</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">onreadystatechange</span> = completeLoading;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//加载状态为complete时移除loading效果</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">completeLoading</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">readyState</span> == <span class="string">&quot;complete&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> loadingMask = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;loadingDiv&#x27;</span>);</span><br><span class="line">        loadingMask.<span class="property">parentNode</span>.<span class="title function_">removeChild</span>(loadingMask);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+
+<!-- 使用mermaid渲染流程图 -->
+
+	
+<script src="/js/mermaid.min.js"></script>
+
+	<script>
+	  if (window.mermaid) {
+		mermaid.initialize({theme: 'forest'});
+	  }
+	</script>
+  
+
+
+            
+        </div>
+        <a href="#" class="back2top">返回顶部</a>
+        <!-- use css/footer.css -->
+<div id="footer" class="footer">
+    <div class="footer-profile" id="footer-profile">
+                <div>
+                    <i class="fa fa-user" aria-hidden="true">
+                        <span>Author:</span>
+                    </i>
+                    <span>
+                        Muscle
+                    </span>
+                </div>
+                <div>
+                    <i class="fa  fa-file" aria-hidden="true">
+                        <span>Pages:</span>
+                    </i>
+                    <span>
+                        11
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-pencil" aria-hidden="true">
+                        <span>TotalCount:</span></i>
+                    <span class="post-count">
+                        14.4k
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-heart" aria-hidden="true">
+                        <span>Theme:</span></i>
+                    <span>
+                        mitsushima
+                    </span>
+                </div>
+    </div>
+</div>
+        
+        <!-- 引入代码高亮的 js -->
+        
+<script src="/lib/prism/prism.js"></script>
+
+        <script>
+            $("figure").each(function(i,e){
+                let lang = e.classList[1];
+                $(e).find('td.code pre').each(function(index,element){
+                    element.innerHTML = '<code class = "language-'+lang+'">'+element.innerText+'</code>';
+                })
+            })
+        </script>
+         <!-- 页面初始化 -->
+         
+<script src="/js/initialization.js"></script>
+
+    </body>
+</html>
