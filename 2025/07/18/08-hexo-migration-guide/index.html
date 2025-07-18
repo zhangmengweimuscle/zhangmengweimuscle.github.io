@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案 | Moonshot Blog</title>
+<meta name="author" content="Muscle">
+<meta name="description" content="一个关于技术和生活的博客">
+<meta name="keywords" content="technology, blog, programming">
+
+<meta name="description" content="Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案前言随着技术博客的发展，许多博主开始从WordPress、Jekyll、Hugo等平台迁移到Hexo。本文将提供一套完整的迁移方案，确保数据完整性和SEO连续性，实现无缝平台迁移。 迁移前准备1. 数据备份策略12345678# 创建完整备份mkdir backup-$(date +%Y%m%d)cd backup-$(date +%Y%m%">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案">
+<meta property="og:url" content="https://zhangmengweimuscle.github.io/2025/07/18/08-hexo-migration-guide/">
+<meta property="og:site_name" content="Moonshot Blog">
+<meta property="og:description" content="Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案前言随着技术博客的发展，许多博主开始从WordPress、Jekyll、Hugo等平台迁移到Hexo。本文将提供一套完整的迁移方案，确保数据完整性和SEO连续性，实现无缝平台迁移。 迁移前准备1. 数据备份策略12345678# 创建完整备份mkdir backup-$(date +%Y%m%d)cd backup-$(date +%Y%m%">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-18T14:35:00.000Z">
+<meta property="article:modified_time" content="2025-07-18T15:30:47.421Z">
+<meta property="article:author" content="Muscle">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="技术教程">
+<meta property="article:tag" content="迁移指南">
+<meta property="article:tag" content="数据迁移">
+<meta property="article:tag" content="平台迁移">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400,700">
+
+<script src="/js/url-search.js"></script>
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner">
+    <div class="banner-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    <div class="banner-pattern"></div>
+    <div class="banner-signature"></div>
+  </div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moonshot Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">技术分享与思考</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a id="nav-github-link" class="nav-icon" target="_blank" rel="noopener" href="https://github.com/zhangmengweimuscle/" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          
+        
+          
+            <a id="nav-twitter-link" class="nav-icon" target="_blank" rel="noopener" href="https://x.com/zhangmuscle/" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          
+        
+          
+            <a id="nav-email-link" class="nav-icon" href="mailto:zhangmengweimusclea@email.com" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索">
+          <i class="fas fa-search"></i>
+        </a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="搜索...">
+          <button type="submit" class="search-form-submit">&#xF002;</button>
+          <input type="hidden" name="sitesearch" value="https://zhangmengweimuscle.github.io">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+          <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案</h1>
+    
+    <div class="post-meta">
+      <span class="post-time">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar"></i>
+        </span>
+        <span class="post-meta-item-text">发表于</span>
+        <time itemprop="dateCreated" datetime="2025-07-18T14:35:00.000Z" content="2025-07-18T14:35:00.000Z">
+          2025-07-18
+        </time>
+      </span>
+      
+      
+        <span class="post-time">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="far fa-calendar-check"></i>
+          </span>
+          <span class="post-meta-item-text">编辑于</span>
+          <time itemprop="dateModified" datetime="2025-07-18T15:30:47.421Z" content="2025-07-18T15:30:47.421Z">
+            2025-07-18
+          </time>
+        </span>
+      
+      
+      
+        <span class="post-category">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="far fa-folder"></i>
+          </span>
+          <span class="post-meta-item-text">分类于</span>
+          
+            <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                <span itemprop="name">技术</span>
+              </a>
+            </span>
+            
+          
+        </span>
+      
+      
+      
+        <span class="post-tags">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="fas fa-tags"></i>
+          </span>
+          <span class="post-meta-item-text">Tags</span>
+          
+            <a href="/tags/hexo/" rel="index">
+              <span class="post-meta-item-text">hexo</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/" rel="index">
+              <span class="post-meta-item-text">技术教程</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E8%BF%81%E7%A7%BB%E6%8C%87%E5%8D%97/" rel="index">
+              <span class="post-meta-item-text">迁移指南</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/" rel="index">
+              <span class="post-meta-item-text">数据迁移</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E5%B9%B3%E5%8F%B0%E8%BF%81%E7%A7%BB/" rel="index">
+              <span class="post-meta-item-text">平台迁移</span>
+            </a>
+            
+          
+        </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-body" itemprop="articleBody">
+    <h1 id="Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案"><a href="#Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案" class="headerlink" title="Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案"></a>Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着技术博客的发展，许多博主开始从WordPress、Jekyll、Hugo等平台迁移到Hexo。本文将提供一套完整的迁移方案，确保数据完整性和SEO连续性，实现无缝平台迁移。</p>
+<h2 id="迁移前准备"><a href="#迁移前准备" class="headerlink" title="迁移前准备"></a>迁移前准备</h2><h3 id="1-数据备份策略"><a href="#1-数据备份策略" class="headerlink" title="1. 数据备份策略"></a>1. 数据备份策略</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建完整备份</span></span><br><span class="line"><span class="built_in">mkdir</span> backup-$(<span class="built_in">date</span> +%Y%m%d)</span><br><span class="line"><span class="built_in">cd</span> backup-$(<span class="built_in">date</span> +%Y%m%d)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份原平台数据</span></span><br><span class="line"><span class="comment"># WordPress示例</span></span><br><span class="line">mysqldump -u username -p wordpress_db &gt; wordpress_backup.sql</span><br><span class="line">tar -czf uploads_backup.tar.gz /path/to/wordpress/wp-content/uploads/</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-环境评估清单"><a href="#2-环境评估清单" class="headerlink" title="2. 环境评估清单"></a>2. 环境评估清单</h3><ul>
+<li><input disabled="" type="checkbox"> 文章总数统计</li>
+<li><input disabled="" type="checkbox"> 媒体文件大小</li>
+<li><input disabled="" type="checkbox"> 自定义字段数量</li>
+<li><input disabled="" type="checkbox"> 插件依赖分析</li>
+<li><input disabled="" type="checkbox"> SEO数据备份</li>
+<li><input disabled="" type="checkbox"> 评论数据导出</li>
+</ul>
+<h2 id="WordPress迁移方案"><a href="#WordPress迁移方案" class="headerlink" title="WordPress迁移方案"></a>WordPress迁移方案</h2><h3 id="1-使用hexo-migrator-wordpress"><a href="#1-使用hexo-migrator-wordpress" class="headerlink" title="1. 使用hexo-migrator-wordpress"></a>1. 使用hexo-migrator-wordpress</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装迁移插件</span></span><br><span class="line">npm install hexo-migrator-wordpress --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导出WordPress数据</span></span><br><span class="line"><span class="comment"># 在WordPress后台：工具 -&gt; 导出 -&gt; 所有内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行迁移</span></span><br><span class="line">hexo migrate wordpress wordpress-export.xml</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-自定义迁移脚本"><a href="#2-自定义迁移脚本" class="headerlink" title="2. 自定义迁移脚本"></a>2. 自定义迁移脚本</h3><p>创建<code>scripts/migrate-wordpress.js</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> xml2js = <span class="built_in">require</span>(<span class="string">&#x27;xml2js&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WordPressMigrator</span> &#123;</span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">migrate</span>(<span class="params">inputFile, outputDir</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> xml = fs.<span class="title function_">readFileSync</span>(inputFile, <span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> parser = <span class="keyword">new</span> xml2js.<span class="title class_">Parser</span>();</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">await</span> parser.<span class="title function_">parseStringPromise</span>(xml);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> posts = result.<span class="property">rss</span>.<span class="property">channel</span>[<span class="number">0</span>].<span class="property">item</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> post <span class="keyword">of</span> posts) &#123;</span><br><span class="line">      <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">convertPost</span>(post, outputDir);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">convertPost</span>(<span class="params">wpPost, outputDir</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> title = wpPost.<span class="property">title</span>[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>(wpPost[<span class="string">&#x27;wp:post_date&#x27;</span>][<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">const</span> content = wpPost[<span class="string">&#x27;content:encoded&#x27;</span>][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">const</span> categories = <span class="variable language_">this</span>.<span class="title function_">extractCategories</span>(wpPost);</span><br><span class="line">    <span class="keyword">const</span> tags = <span class="variable language_">this</span>.<span class="title function_">extractTags</span>(wpPost);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> hexoPost = &#123;</span><br><span class="line">      title,</span><br><span class="line">      <span class="attr">date</span>: date.<span class="title function_">toISOString</span>(),</span><br><span class="line">      categories,</span><br><span class="line">      tags,</span><br><span class="line">      <span class="attr">content</span>: <span class="variable language_">this</span>.<span class="title function_">processContent</span>(content)</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> filename = <span class="string">`<span class="subst">$&#123;date.toISOString().split(<span class="string">&#x27;T&#x27;</span>)[<span class="number">0</span>]&#125;</span>-<span class="subst">$&#123;<span class="variable language_">this</span>.slugify(title)&#125;</span>.md`</span>;</span><br><span class="line">    <span class="keyword">const</span> filepath = path.<span class="title function_">join</span>(outputDir, filename);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> contentStr = <span class="variable language_">this</span>.<span class="title function_">formatHexoPost</span>(hexoPost);</span><br><span class="line">    fs.<span class="title function_">writeFileSync</span>(filepath, contentStr);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">extractCategories</span>(<span class="params">post</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> post.<span class="property">category</span></span><br><span class="line">      ?.<span class="title function_">filter</span>(<span class="function"><span class="params">cat</span> =&gt;</span> cat.<span class="property">$</span>.<span class="property">domain</span> === <span class="string">&#x27;category&#x27;</span>)</span><br><span class="line">      .<span class="title function_">map</span>(<span class="function"><span class="params">cat</span> =&gt;</span> cat.<span class="property">_</span>) || [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">extractTags</span>(<span class="params">post</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> post.<span class="property">category</span></span><br><span class="line">      ?.<span class="title function_">filter</span>(<span class="function"><span class="params">cat</span> =&gt;</span> cat.<span class="property">$</span>.<span class="property">domain</span> === <span class="string">&#x27;post_tag&#x27;</span>)</span><br><span class="line">      .<span class="title function_">map</span>(<span class="function"><span class="params">cat</span> =&gt;</span> cat.<span class="property">_</span>) || [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">processContent</span>(<span class="params">content</span>) &#123;</span><br><span class="line">    <span class="comment">// 处理WordPress短代码</span></span><br><span class="line">    content = content.<span class="title function_">replace</span>(<span class="regexp">/\[caption.*?\](.*?)\[\/caption\]/g</span>, <span class="string">&#x27;$1&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 处理图片路径</span></span><br><span class="line">    content = content.<span class="title function_">replace</span>(</span><br><span class="line">      <span class="regexp">/src=&quot;.*?\/wp-content\/uploads\/(.*?)&quot;/g</span>, </span><br><span class="line">      <span class="string">&#x27;src=&quot;/images/$1&quot;&#x27;</span></span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> content;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">formatHexoPost</span>(<span class="params">post</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`---</span></span><br><span class="line"><span class="string">title: &quot;<span class="subst">$&#123;post.title&#125;</span>&quot;</span></span><br><span class="line"><span class="string">date: <span class="subst">$&#123;post.date&#125;</span></span></span><br><span class="line"><span class="string">categories: <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(post.categories)&#125;</span></span></span><br><span class="line"><span class="string">tags: <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(post.tags)&#125;</span></span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"><span class="subst">$&#123;post.content&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">slugify</span>(<span class="params">text</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> text.<span class="title function_">toLowerCase</span>()</span><br><span class="line">      .<span class="title function_">replace</span>(<span class="regexp">/[^\w\s-]/g</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">      .<span class="title function_">replace</span>(<span class="regexp">/[\s_-]+/g</span>, <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">      .<span class="title function_">replace</span>(<span class="regexp">/^-+|-+$/g</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Jekyll迁移方案"><a href="#Jekyll迁移方案" class="headerlink" title="Jekyll迁移方案"></a>Jekyll迁移方案</h2><h3 id="1-文件结构转换"><a href="#1-文件结构转换" class="headerlink" title="1. 文件结构转换"></a>1. 文件结构转换</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Jekyll到Hexo目录映射</span></span><br><span class="line"><span class="comment"># Jekyll: _posts/ -&gt; Hexo: source/_posts/</span></span><br><span class="line"><span class="comment"># Jekyll: _layouts/ -&gt; Hexo: themes/your-theme/layout/</span></span><br><span class="line"><span class="comment"># Jekyll: _sass/ -&gt; Hexo: themes/your-theme/source/css/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-配置文件转换"><a href="#2-配置文件转换" class="headerlink" title="2. 配置文件转换"></a>2. 配置文件转换</h3><p>创建<code>scripts/migrate-jekyll.js</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> yaml = <span class="built_in">require</span>(<span class="string">&#x27;js-yaml&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">JekyllMigrator</span> &#123;</span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">migrate</span>(<span class="params">jekyllDir, hexoDir</span>) &#123;</span><br><span class="line">    <span class="comment">// 迁移文章</span></span><br><span class="line">    <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">migratePosts</span>(jekyllDir, hexoDir);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 迁移配置</span></span><br><span class="line">    <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">migrateConfig</span>(jekyllDir, hexoDir);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 迁移静态文件</span></span><br><span class="line">    <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">migrateAssets</span>(jekyllDir, hexoDir);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">migratePosts</span>(<span class="params">jekyllDir, hexoDir</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> postsDir = path.<span class="title function_">join</span>(jekyllDir, <span class="string">&#x27;_posts&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> files = fs.<span class="title function_">readdirSync</span>(postsDir);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> file <span class="keyword">of</span> files) &#123;</span><br><span class="line">      <span class="keyword">if</span> (file.<span class="title function_">endsWith</span>(<span class="string">&#x27;.md&#x27;</span>)) &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">convertJekyllPost</span>(</span><br><span class="line">          path.<span class="title function_">join</span>(postsDir, file),</span><br><span class="line">          path.<span class="title function_">join</span>(hexoDir, <span class="string">&#x27;source/_posts&#x27;</span>, file)</span><br><span class="line">        );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">convertJekyllPost</span>(<span class="params">inputPath, outputPath</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> content = fs.<span class="title function_">readFileSync</span>(inputPath, <span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> &#123; data, <span class="attr">content</span>: body &#125; = <span class="variable language_">this</span>.<span class="title function_">parseJekyllPost</span>(content);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 转换Front-matter</span></span><br><span class="line">    <span class="keyword">const</span> hexoFrontMatter = &#123;</span><br><span class="line">      <span class="attr">title</span>: data.<span class="property">title</span>,</span><br><span class="line">      <span class="attr">date</span>: data.<span class="property">date</span>,</span><br><span class="line">      <span class="attr">categories</span>: data.<span class="property">categories</span> || [],</span><br><span class="line">      <span class="attr">tags</span>: data.<span class="property">tags</span> || [],</span><br><span class="line">      <span class="attr">layout</span>: data.<span class="property">layout</span> || <span class="string">&#x27;post&#x27;</span></span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> hexoContent = <span class="variable language_">this</span>.<span class="title function_">formatHexoPost</span>(hexoFrontMatter, body);</span><br><span class="line">    fs.<span class="title function_">writeFileSync</span>(outputPath, hexoContent);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">parseJekyllPost</span>(<span class="params">content</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> lines = content.<span class="title function_">split</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> frontMatter = [];</span><br><span class="line">    <span class="keyword">let</span> isFrontMatter = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">let</span> contentStart = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; lines.<span class="property">length</span>; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (lines[i] === <span class="string">&#x27;---&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!isFrontMatter) &#123;</span><br><span class="line">          isFrontMatter = <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          contentStart = i + <span class="number">1</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isFrontMatter) &#123;</span><br><span class="line">        frontMatter.<span class="title function_">push</span>(lines[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> yamlContent = frontMatter.<span class="title function_">join</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> data = yaml.<span class="title function_">load</span>(yamlContent);</span><br><span class="line">    <span class="keyword">const</span> body = lines.<span class="title function_">slice</span>(contentStart).<span class="title function_">join</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> &#123; data, <span class="attr">content</span>: body &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">formatHexoPost</span>(<span class="params">frontMatter, content</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> yamlStr = yaml.<span class="title function_">dump</span>(frontMatter);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`---\n<span class="subst">$&#123;yamlStr&#125;</span>---\n<span class="subst">$&#123;content&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Hugo迁移方案"><a href="#Hugo迁移方案" class="headerlink" title="Hugo迁移方案"></a>Hugo迁移方案</h2><h3 id="1-内容格式转换"><a href="#1-内容格式转换" class="headerlink" title="1. 内容格式转换"></a>1. 内容格式转换</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Hugo到Hexo内容转换</span></span><br><span class="line"><span class="comment"># Hugo: content/posts/ -&gt; Hexo: source/_posts/</span></span><br><span class="line"><span class="comment"># Hugo: static/ -&gt; Hexo: source/</span></span><br><span class="line"><span class="comment"># Hugo: themes/ -&gt; Hexo: themes/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-模板转换工具"><a href="#2-模板转换工具" class="headerlink" title="2. 模板转换工具"></a>2. 模板转换工具</h3><p>创建<code>scripts/migrate-hugo.js</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> toml = <span class="built_in">require</span>(<span class="string">&#x27;toml&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HugoMigrator</span> &#123;</span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">migrate</span>(<span class="params">hugoDir, hexoDir</span>) &#123;</span><br><span class="line">    <span class="comment">// 迁移内容</span></span><br><span class="line">    <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">migrateContent</span>(hugoDir, hexoDir);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 迁移主题</span></span><br><span class="line">    <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">migrateTheme</span>(hugoDir, hexoDir);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 迁移配置</span></span><br><span class="line">    <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">migrateConfig</span>(hugoDir, hexoDir);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">migrateContent</span>(<span class="params">hugoDir, hexoDir</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> contentDir = path.<span class="title function_">join</span>(hugoDir, <span class="string">&#x27;content&#x27;</span>);</span><br><span class="line">    <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">processDirectory</span>(contentDir, hexoDir);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">processDirectory</span>(<span class="params">dir, hexoDir</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> items = fs.<span class="title function_">readdirSync</span>(dir);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> items) &#123;</span><br><span class="line">      <span class="keyword">const</span> itemPath = path.<span class="title function_">join</span>(dir, item);</span><br><span class="line">      <span class="keyword">const</span> stat = fs.<span class="title function_">statSync</span>(itemPath);</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">if</span> (stat.<span class="title function_">isDirectory</span>()) &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">processDirectory</span>(itemPath, hexoDir);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item.<span class="title function_">endsWith</span>(<span class="string">&#x27;.md&#x27;</span>)) &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">convertHugoPost</span>(itemPath, hexoDir);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">convertHugoPost</span>(<span class="params">inputPath, hexoDir</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> content = fs.<span class="title function_">readFileSync</span>(inputPath, <span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> &#123; data, <span class="attr">content</span>: body &#125; = <span class="variable language_">this</span>.<span class="title function_">parseHugoPost</span>(content);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 转换日期格式</span></span><br><span class="line">    <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>(data.<span class="property">date</span>);</span><br><span class="line">    <span class="keyword">const</span> filename = <span class="string">`<span class="subst">$&#123;date.toISOString().split(<span class="string">&#x27;T&#x27;</span>)[<span class="number">0</span>]&#125;</span>-<span class="subst">$&#123;<span class="variable language_">this</span>.slugify(data.title)&#125;</span>.md`</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 确定输出目录</span></span><br><span class="line">    <span class="keyword">const</span> relativePath = path.<span class="title function_">relative</span>(path.<span class="title function_">join</span>(inputPath, <span class="string">&#x27;../../&#x27;</span>), inputPath);</span><br><span class="line">    <span class="keyword">const</span> outputDir = path.<span class="title function_">join</span>(hexoDir, <span class="string">&#x27;source/_posts&#x27;</span>, path.<span class="title function_">dirname</span>(relativePath));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!fs.<span class="title function_">existsSync</span>(outputDir)) &#123;</span><br><span class="line">      fs.<span class="title function_">mkdirSync</span>(outputDir, &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> hexoPost = &#123;</span><br><span class="line">      <span class="attr">title</span>: data.<span class="property">title</span>,</span><br><span class="line">      <span class="attr">date</span>: date.<span class="title function_">toISOString</span>(),</span><br><span class="line">      <span class="attr">categories</span>: <span class="variable language_">this</span>.<span class="title function_">extractCategories</span>(data),</span><br><span class="line">      <span class="attr">tags</span>: data.<span class="property">tags</span> || [],</span><br><span class="line">      <span class="attr">content</span>: body</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> outputPath = path.<span class="title function_">join</span>(outputDir, filename);</span><br><span class="line">    <span class="keyword">const</span> contentStr = <span class="variable language_">this</span>.<span class="title function_">formatHexoPost</span>(hexoPost);</span><br><span class="line">    fs.<span class="title function_">writeFileSync</span>(outputPath, contentStr);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">parseHugoPost</span>(<span class="params">content</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> lines = content.<span class="title function_">split</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> frontMatter = [];</span><br><span class="line">    <span class="keyword">let</span> isFrontMatter = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">let</span> contentStart = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; lines.<span class="property">length</span>; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (lines[i] === <span class="string">&#x27;+++&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!isFrontMatter) &#123;</span><br><span class="line">          isFrontMatter = <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          contentStart = i + <span class="number">1</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isFrontMatter) &#123;</span><br><span class="line">        frontMatter.<span class="title function_">push</span>(lines[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> tomlContent = frontMatter.<span class="title function_">join</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> data = toml.<span class="title function_">parse</span>(tomlContent);</span><br><span class="line">    <span class="keyword">const</span> body = lines.<span class="title function_">slice</span>(contentStart).<span class="title function_">join</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> &#123; data, <span class="attr">content</span>: body &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">extractCategories</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (data.<span class="property">categories</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="title class_">Array</span>.<span class="title function_">isArray</span>(data.<span class="property">categories</span>) ? data.<span class="property">categories</span> : [data.<span class="property">categories</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">slugify</span>(<span class="params">text</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> text.<span class="title function_">toLowerCase</span>()</span><br><span class="line">      .<span class="title function_">replace</span>(<span class="regexp">/[^\w\s-]/g</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">      .<span class="title function_">replace</span>(<span class="regexp">/[\s_-]+/g</span>, <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">      .<span class="title function_">replace</span>(<span class="regexp">/^-+|-+$/g</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="媒体文件迁移"><a href="#媒体文件迁移" class="headerlink" title="媒体文件迁移"></a>媒体文件迁移</h2><h3 id="1-图片批量迁移"><a href="#1-图片批量迁移" class="headerlink" title="1. 图片批量迁移"></a>1. 图片批量迁移</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># migrate-images.sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># WordPress图片迁移</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">&quot;wordpress/wp-content/uploads&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;迁移WordPress图片...&quot;</span></span><br><span class="line">  rsync -av wordpress/wp-content/uploads/* <span class="built_in">source</span>/images/</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Jekyll图片迁移</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">&quot;jekyll/assets/images&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;迁移Jekyll图片...&quot;</span></span><br><span class="line">  rsync -av jekyll/assets/images/* <span class="built_in">source</span>/images/</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Hugo图片迁移</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">&quot;hugo/static/images&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;迁移Hugo图片...&quot;</span></span><br><span class="line">  rsync -av hugo/static/images/* <span class="built_in">source</span>/images/</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 优化图片</span></span><br><span class="line">npm run optimize:images</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-图片路径修复"><a href="#2-图片路径修复" class="headerlink" title="2. 图片路径修复"></a>2. 图片路径修复</h3><p>创建<code>scripts/fix-image-paths.js</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fixImagePaths</span>(<span class="params">postsDir</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> files = fs.<span class="title function_">readdirSync</span>(postsDir);</span><br><span class="line">  </span><br><span class="line">  files.<span class="title function_">forEach</span>(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (file.<span class="title function_">endsWith</span>(<span class="string">&#x27;.md&#x27;</span>)) &#123;</span><br><span class="line">      <span class="keyword">const</span> filePath = path.<span class="title function_">join</span>(postsDir, file);</span><br><span class="line">      <span class="keyword">let</span> content = fs.<span class="title function_">readFileSync</span>(filePath, <span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line">      </span><br><span class="line">      <span class="comment">// 修复图片路径</span></span><br><span class="line">      content = content.<span class="title function_">replace</span>(</span><br><span class="line">        <span class="regexp">/!\[.*?\]\((.*?\/wp-content\/uploads\/.*?)\)/g</span>,</span><br><span class="line">        <span class="function">(<span class="params">match, imgPath</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">const</span> filename = path.<span class="title function_">basename</span>(imgPath);</span><br><span class="line">          <span class="keyword">return</span> <span class="string">`![image](/images/<span class="subst">$&#123;filename&#125;</span>)`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      );</span><br><span class="line">      </span><br><span class="line">      fs.<span class="title function_">writeFileSync</span>(filePath, content);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fixImagePaths</span>(<span class="string">&#x27;source/_posts&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="SEO迁移策略"><a href="#SEO迁移策略" class="headerlink" title="SEO迁移策略"></a>SEO迁移策略</h2><h3 id="1-URL重定向映射"><a href="#1-URL重定向映射" class="headerlink" title="1. URL重定向映射"></a>1. URL重定向映射</h3><p>创建<code>source/_redirects</code>（Netlify）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># WordPress重定向</span><br><span class="line">/blog/:year/:month/:day/:slug /:year/:month/:day/:slug 301</span><br><span class="line"></span><br><span class="line"># Jekyll重定向</span><br><span class="line">/:year/:month/:day/:slug.html /:year/:month/:day/:slug 301</span><br><span class="line"></span><br><span class="line"># Hugo重定向</span><br><span class="line">/post/:slug /:year/:month/:day/:slug 301</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-生成重定向规则"><a href="#2-生成重定向规则" class="headerlink" title="2. 生成重定向规则"></a>2. 生成重定向规则</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生成Nginx重定向配置</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">generateNginxRedirects</span>(<span class="params">oldUrls, newUrls</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> redirects = oldUrls.<span class="title function_">map</span>(<span class="function">(<span class="params">oldUrl, index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`rewrite ^<span class="subst">$&#123;oldUrl&#125;</span>$ <span class="subst">$&#123;newUrls[index]&#125;</span> permanent;`</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> redirects.<span class="title function_">join</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据验证和测试"><a href="#数据验证和测试" class="headerlink" title="数据验证和测试"></a>数据验证和测试</h2><h3 id="1-迁移验证脚本"><a href="#1-迁移验证脚本" class="headerlink" title="1. 迁移验证脚本"></a>1. 迁移验证脚本</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 验证迁移结果</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MigrationValidator</span> &#123;</span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">validate</span>(<span class="params">sourceDir, targetDir</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> results = &#123;</span><br><span class="line">      <span class="attr">total</span>: <span class="number">0</span>,</span><br><span class="line">      <span class="attr">success</span>: <span class="number">0</span>,</span><br><span class="line">      <span class="attr">errors</span>: []</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> sourceFiles = <span class="variable language_">this</span>.<span class="title function_">getAllFiles</span>(sourceDir);</span><br><span class="line">    <span class="keyword">const</span> targetFiles = <span class="variable language_">this</span>.<span class="title function_">getAllFiles</span>(targetDir);</span><br><span class="line">    </span><br><span class="line">    results.<span class="property">total</span> = sourceFiles.<span class="property">length</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> sourceFile <span class="keyword">of</span> sourceFiles) &#123;</span><br><span class="line">      <span class="keyword">const</span> targetFile = <span class="variable language_">this</span>.<span class="title function_">findCorrespondingFile</span>(sourceFile, targetFiles);</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">if</span> (targetFile) &#123;</span><br><span class="line">        <span class="keyword">const</span> isValid = <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">validateFile</span>(sourceFile, targetFile);</span><br><span class="line">        <span class="keyword">if</span> (isValid) &#123;</span><br><span class="line">          results.<span class="property">success</span>++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          results.<span class="property">errors</span>.<span class="title function_">push</span>(<span class="string">`文件验证失败: <span class="subst">$&#123;sourceFile&#125;</span>`</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        results.<span class="property">errors</span>.<span class="title function_">push</span>(<span class="string">`找不到对应文件: <span class="subst">$&#123;sourceFile&#125;</span>`</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> results;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">validateFile</span>(<span class="params">source, target</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> sourceContent = fs.<span class="title function_">readFileSync</span>(source, <span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> targetContent = fs.<span class="title function_">readFileSync</span>(target, <span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 验证内容完整性</span></span><br><span class="line">    <span class="keyword">const</span> sourceWordCount = sourceContent.<span class="title function_">split</span>(<span class="regexp">/\s+/</span>).<span class="property">length</span>;</span><br><span class="line">    <span class="keyword">const</span> targetWordCount = targetContent.<span class="title function_">split</span>(<span class="regexp">/\s+/</span>).<span class="property">length</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">abs</span>(sourceWordCount - targetWordCount) &lt; <span class="number">100</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-自动化测试"><a href="#2-自动化测试" class="headerlink" title="2. 自动化测试"></a>2. 自动化测试</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GitHub Actions测试工作流</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">Migration</span> <span class="string">Test</span></span><br><span class="line"><span class="attr">on:</span> [<span class="string">workflow_dispatch</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">test-migration:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v4</span></span><br><span class="line">      </span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Node.js</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v4</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;18&#x27;</span></span><br><span class="line">          </span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">        </span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Run</span> <span class="string">migration</span> <span class="string">tests</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">test:migration</span></span><br><span class="line">        </span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Validate</span> <span class="string">migration</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">node</span> <span class="string">scripts/validate-migration.js</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="迁移后优化"><a href="#迁移后优化" class="headerlink" title="迁移后优化"></a>迁移后优化</h2><h3 id="1-性能优化"><a href="#1-性能优化" class="headerlink" title="1. 性能优化"></a>1. 性能优化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理无用文件</span></span><br><span class="line">find <span class="built_in">source</span>/_posts -name <span class="string">&quot;*.backup&quot;</span> -delete</span><br><span class="line">find <span class="built_in">source</span>/images -name <span class="string">&quot;*.tmp&quot;</span> -delete</span><br><span class="line"></span><br><span class="line"><span class="comment"># 优化图片</span></span><br><span class="line">npm run optimize:images</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建测试</span></span><br><span class="line">hexo clean &amp;&amp; hexo generate</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-SEO检查"><a href="#2-SEO检查" class="headerlink" title="2. SEO检查"></a>2. SEO检查</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查死链接</span></span><br><span class="line">npm install -g broken-link-checker</span><br><span class="line">blc https://yourdomain.com -ro</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证站点地图</span></span><br><span class="line">curl https://yourdomain.com/sitemap.xml | xmllint --format -</span><br></pre></td></tr></table></figure>
+
+<h2 id="常见问题解决"><a href="#常见问题解决" class="headerlink" title="常见问题解决"></a>常见问题解决</h2><h3 id="1-编码问题"><a href="#1-编码问题" class="headerlink" title="1. 编码问题"></a>1. 编码问题</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 处理编码问题</span></span><br><span class="line"><span class="keyword">const</span> iconv = <span class="built_in">require</span>(<span class="string">&#x27;iconv-lite&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fixEncoding</span>(<span class="params">text</span>) &#123;</span><br><span class="line">  <span class="comment">// 检测并修复编码</span></span><br><span class="line">  <span class="keyword">return</span> iconv.<span class="title function_">decode</span>(iconv.<span class="title function_">encode</span>(text, <span class="string">&#x27;utf8&#x27;</span>), <span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-特殊字符处理"><a href="#2-特殊字符处理" class="headerlink" title="2. 特殊字符处理"></a>2. 特殊字符处理</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 处理特殊字符</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sanitizeContent</span>(<span class="params">content</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> content</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/[\u0000-\u001F\u007F-\u009F]/g</span>, <span class="string">&#x27;&#x27;</span>) <span class="comment">// 移除控制字符</span></span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/\u00A0/g</span>, <span class="string">&#x27; &#x27;</span>) <span class="comment">// 替换不间断空格</span></span><br><span class="line">    .<span class="title function_">trim</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="迁移后检查清单"><a href="#迁移后检查清单" class="headerlink" title="迁移后检查清单"></a>迁移后检查清单</h2><h3 id="1-功能验证"><a href="#1-功能验证" class="headerlink" title="1. 功能验证"></a>1. 功能验证</h3><ul>
+<li><input disabled="" type="checkbox"> 所有文章正常显示</li>
+<li><input disabled="" type="checkbox"> 图片正确加载</li>
+<li><input disabled="" type="checkbox"> 链接有效</li>
+<li><input disabled="" type="checkbox"> 评论系统工作</li>
+<li><input disabled="" type="checkbox"> 搜索功能正常</li>
+<li><input disabled="" type="checkbox"> RSS订阅有效</li>
+</ul>
+<h3 id="2-SEO验证"><a href="#2-SEO验证" class="headerlink" title="2. SEO验证"></a>2. SEO验证</h3><ul>
+<li><input disabled="" type="checkbox"> 站点地图正确</li>
+<li><input disabled="" type="checkbox"> 元标签完整</li>
+<li><input disabled="" type="checkbox"> 重定向生效</li>
+<li><input disabled="" type="checkbox"> 搜索引擎收录正常</li>
+</ul>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>平台迁移是一个复杂但值得的过程。通过系统化的迁移方案，你可以确保数据完整性、功能连续性和SEO稳定性。记住，迁移不是终点，而是新旅程的开始。在新的平台上，你将拥有更好的性能、更灵活的定制能力和更丰富的功能。</p>
+<p>精心规划，细致执行，让迁移成为博客发展的新起点！</p>
+
+  </div>
+  
+  <footer class="post-footer">
+    <div class="post-nav">
+      
+        <a href="/2025/07/18/09-hexo-troubleshooting/" rel="prev" title="Hexo故障排除完全指南：常见问题诊断与解决方案">
+          <i class="fas fa-angle-left"></i>
+          Hexo故障排除完全指南：常见问题诊断与解决方案
+        </a>
+      
+      
+      
+        <a href="/2025/07/18/07-hexo-advanced-features/" rel="next" title="Hexo高级功能开发：搜索、评论、分析等核心功能实现">
+          Hexo高级功能开发：搜索、评论、分析等核心功能实现
+          <i class="fas fa-angle-right"></i>
+        </a>
+      
+    </div>
+  </footer>
+</article>
+
+        </section>
+        <aside id="sidebar">
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line"></span>
+      <span class="sidebar-toggle-line"></span>
+      <span class="sidebar-toggle-line"></span>
+    </div>
+  </div>
+  
+  <div id="sidebar-inner">
+    <section class="site-overview-wrap sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Muscle">
+        <p class="site-author-name" itemprop="name">Muscle</p>
+        <p class="site-description motion-element" itemprop="description">一个关于技术和生活的博客</p>
+      </div>
+      
+      <nav class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <a href="/archives">
+            <span class="site-state-item-count">12</span>
+            <span class="site-state-item-name">文章</span>
+          </a>
+        </div>
+        
+        <div class="site-state-item site-state-categories">
+          <a href="/categories">
+            <span class="site-state-item-count">2</span>
+            <span class="site-state-item-name">分类</span>
+          </a>
+        </div>
+        
+        <div class="site-state-item site-state-tags">
+          <a href="/tags">
+            <span class="site-state-item-count">48</span>
+            <span class="site-state-item-name">标签</span>
+          </a>
+        </div>
+      </nav>
+      
+      
+        <div class="links-of-author motion-element">
+          
+            <span class="links-of-author-item">
+              <a href="https://github.com/zhangmengweimuscle/" target="_blank" title="GitHub">
+                
+                  <i class="fab fa-github"></i>GitHub
+                
+              </a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="https://x.com/zhangmuscle/" target="_blank" title="Twitter">
+                
+                  <i class="fab fa-twitter"></i>Twitter
+                
+              </a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="mailto:zhangmengweimusclea@email.com" target="_blank" title="Email">
+                
+                  <i class="fas fa-envelope"></i>Email
+                
+              </a>
+            </span>
+          
+        </div>
+      
+    </section>
+    
+    
+<section class="post-toc-wrap sidebar-panel">
+  <div class="post-toc motion-element">
+    <p class="post-toc-title">文章目录</p>
+    <div class="post-toc-content" id="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo%E8%BF%81%E7%A7%BB%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E5%85%B6%E4%BB%96%E5%B9%B3%E5%8F%B0%E6%97%A0%E7%BC%9D%E8%BF%81%E7%A7%BB%E5%88%B0Hexo%E7%9A%84%E5%AE%8C%E6%95%B4%E6%96%B9%E6%A1%88"><span class="toc-text">Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%81%E7%A7%BB%E5%89%8D%E5%87%86%E5%A4%87"><span class="toc-text">迁移前准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E7%AD%96%E7%95%A5"><span class="toc-text">1. 数据备份策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%8E%AF%E5%A2%83%E8%AF%84%E4%BC%B0%E6%B8%85%E5%8D%95"><span class="toc-text">2. 环境评估清单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WordPress%E8%BF%81%E7%A7%BB%E6%96%B9%E6%A1%88"><span class="toc-text">WordPress迁移方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8hexo-migrator-wordpress"><span class="toc-text">1. 使用hexo-migrator-wordpress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%81%E7%A7%BB%E8%84%9A%E6%9C%AC"><span class="toc-text">2. 自定义迁移脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jekyll%E8%BF%81%E7%A7%BB%E6%96%B9%E6%A1%88"><span class="toc-text">Jekyll迁移方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E8%BD%AC%E6%8D%A2"><span class="toc-text">1. 文件结构转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2"><span class="toc-text">2. 配置文件转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hugo%E8%BF%81%E7%A7%BB%E6%96%B9%E6%A1%88"><span class="toc-text">Hugo迁移方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%86%85%E5%AE%B9%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">1. 内容格式转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A8%A1%E6%9D%BF%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7"><span class="toc-text">2. 模板转换工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB"><span class="toc-text">媒体文件迁移</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9B%BE%E7%89%87%E6%89%B9%E9%87%8F%E8%BF%81%E7%A7%BB"><span class="toc-text">1. 图片批量迁移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84%E4%BF%AE%E5%A4%8D"><span class="toc-text">2. 图片路径修复</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SEO%E8%BF%81%E7%A7%BB%E7%AD%96%E7%95%A5"><span class="toc-text">SEO迁移策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-URL%E9%87%8D%E5%AE%9A%E5%90%91%E6%98%A0%E5%B0%84"><span class="toc-text">1. URL重定向映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%94%9F%E6%88%90%E9%87%8D%E5%AE%9A%E5%90%91%E8%A7%84%E5%88%99"><span class="toc-text">2. 生成重定向规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81%E5%92%8C%E6%B5%8B%E8%AF%95"><span class="toc-text">数据验证和测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%BF%81%E7%A7%BB%E9%AA%8C%E8%AF%81%E8%84%9A%E6%9C%AC"><span class="toc-text">1. 迁移验证脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="toc-text">2. 自动化测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%81%E7%A7%BB%E5%90%8E%E4%BC%98%E5%8C%96"><span class="toc-text">迁移后优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-text">1. 性能优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SEO%E6%A3%80%E6%9F%A5"><span class="toc-text">2. SEO检查</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="toc-text">常见问题解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98"><span class="toc-text">1. 编码问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E5%A4%84%E7%90%86"><span class="toc-text">2. 特殊字符处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%81%E7%A7%BB%E5%90%8E%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95"><span class="toc-text">迁移后检查清单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8A%9F%E8%83%BD%E9%AA%8C%E8%AF%81"><span class="toc-text">1. 功能验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SEO%E9%AA%8C%E8%AF%81"><span class="toc-text">2. SEO验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-text">结语</span></a></li></ol></li></ol>
+    </div>
+  </div>
+</section>
+
+<style>
+.post-toc-wrap {
+  margin-top: 20px;
+}
+
+.post-toc-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #24292e;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.post-toc-content {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.post-toc-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.post-toc-content ul ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.post-toc-content ul ul ul {
+  padding-left: 15px;
+}
+
+.post-toc-content li {
+  margin-bottom: 5px;
+}
+
+.post-toc-content a {
+  color: #586069;
+  text-decoration: none;
+  display: block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.post-toc-content a:hover {
+  color: #0366d6;
+  background-color: #f6f8fa;
+  text-decoration: none;
+}
+
+.post-toc-content .toc-level-1 > a {
+  font-weight: 600;
+  color: #24292e;
+}
+
+.post-toc-content .toc-level-2 > a {
+  font-size: 13px;
+}
+
+.post-toc-content .toc-level-3 > a {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+/* 修复重复序号问题 */
+.post-toc-content ol,
+.post-toc-content ul {
+  counter-reset: none;
+  list-style-type: none;
+}
+
+.post-toc-content li::before {
+  content: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .post-toc-wrap {
+    margin-top: 15px;
+  }
+  
+  .post-toc-title {
+    font-size: 14px;
+  }
+  
+  .post-toc-content {
+    font-size: 13px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  'use strict';
+  
+  // 修复TOC中的重复编号问题
+  function fixTocNumbering() {
+    var tocContent = document.getElementById('post-toc-content');
+    if (!tocContent) return;
+    
+    // 移除所有可能的编号
+    var links = tocContent.querySelectorAll('a');
+    links.forEach(function(link) {
+      // 移除链接文本中的编号
+      var text = link.textContent;
+      text = text.replace(/^\d+\.\s*/, ''); // 移除 "1. " 这样的前缀
+      text = text.replace(/^\d+\s*/, '');   // 移除 "1 " 这样的前缀
+      link.textContent = text;
+    });
+    
+    // 确保没有ol元素的编号
+    var lists = tocContent.querySelectorAll('ol');
+    lists.forEach(function(list) {
+      list.style.listStyle = 'none';
+      list.style.counterReset = 'none';
+    });
+  }
+  
+  // 高亮当前阅读位置
+  function highlightCurrentSection() {
+    var tocLinks = document.querySelectorAll('.post-toc-content a');
+    var headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3');
+    
+    if (!tocLinks.length || !headings.length) return;
+    
+    function updateActiveLink() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var activeFound = false;
+      
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var heading = headings[i];
+        var rect = heading.getBoundingClientRect();
+        var top = rect.top + scrollTop;
+        
+        if (scrollTop >= top - 100) {
+          tocLinks.forEach(function(link) {
+            link.classList.remove('active');
+          });
+          
+          var id = heading.getAttribute('id');
+          var activeLink = document.querySelector('.post-toc-content a[href="#' + id + '"]');
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+          
+          activeFound = true;
+          break;
+        }
+      }
+      
+      if (!activeFound) {
+        tocLinks.forEach(function(link) {
+          link.classList.remove('active');
+        });
+      }
+    }
+    
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink(); // 初始调用
+  }
+  
+  // 初始化
+  document.addEventListener('DOMContentLoaded', function() {
+    fixTocNumbering();
+    highlightCurrentSection();
+  });
+})();
+</script>
+
+
+  </div>
+</aside>
+
+      </div>
+    </div>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 Muscle<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      | Theme - <a href="https://github.com/yourusername/hexo-theme-github-style" target="_blank">GitHub Style</a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  
+<script src="/js/main.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sidebarToggle = document.querySelector('.sidebar-toggle');
+    var sidebar = document.querySelector('#sidebar');
+    
+    if (sidebarToggle && sidebar) {
+      sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('sidebar-active');
+      });
+    }
+    
+    var searchBtn = document.querySelector('#nav-search-btn');
+    var searchForm = document.querySelector('#search-form-wrap');
+    
+    if (searchBtn && searchForm) {
+      searchBtn.addEventListener('click', function() {
+        searchForm.classList.toggle('on');
+        if (searchForm.classList.contains('on')) {
+          searchForm.querySelector('.search-form-input').focus();
+        }
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Hexo+Cline+Moonshot博客开发完全指南：从零开始构建现代化技术博客 | Moonshot Blog</title>
+<meta name="author" content="Muscle">
+<meta name="description" content="一个关于技术和生活的博客">
+<meta name="keywords" content="technology, blog, programming">
+
+<meta name="description" content="Hexo+Cline+Moonshot博客开发完全指南：从零开始构建现代化技术博客前言在当今数字化时代，拥有一个专业的技术博客不仅是展示个人技术能力的窗口，更是与全球开发者社区交流的重要平台。本文将详细介绍如何利用Hexo静态博客框架、Cline智能开发助手和Moonshot主题，从零开始构建一个现代化的技术博客。 为什么选择这个技术栈？Hexo：极速静态博客框架Hexo是一个基于Node.js的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo+Cline+Moonshot博客开发完全指南：从零开始构建现代化技术博客">
+<meta property="og:url" content="https://zhangmengweimuscle.github.io/2025/07/18/01-hexo-cline-moonshot-setup-guide/">
+<meta property="og:site_name" content="Moonshot Blog">
+<meta property="og:description" content="Hexo+Cline+Moonshot博客开发完全指南：从零开始构建现代化技术博客前言在当今数字化时代，拥有一个专业的技术博客不仅是展示个人技术能力的窗口，更是与全球开发者社区交流的重要平台。本文将详细介绍如何利用Hexo静态博客框架、Cline智能开发助手和Moonshot主题，从零开始构建一个现代化的技术博客。 为什么选择这个技术栈？Hexo：极速静态博客框架Hexo是一个基于Node.js的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-18T14:00:00.000Z">
+<meta property="article:modified_time" content="2025-07-18T14:51:34.388Z">
+<meta property="article:author" content="Muscle">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="cline">
+<meta property="article:tag" content="moonshot">
+<meta property="article:tag" content="博客开发">
+<meta property="article:tag" content="技术教程">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400,700">
+
+<script src="/js/url-search.js"></script>
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner">
+    <div class="banner-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    <div class="banner-pattern"></div>
+    <div class="banner-signature"></div>
+  </div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moonshot Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">技术分享与思考</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a id="nav-github-link" class="nav-icon" target="_blank" rel="noopener" href="https://github.com/zhangmengweimuscle/" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          
+        
+          
+            <a id="nav-twitter-link" class="nav-icon" target="_blank" rel="noopener" href="https://x.com/zhangmuscle/" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          
+        
+          
+            <a id="nav-email-link" class="nav-icon" href="mailto:zhangmengweimusclea@email.com" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索">
+          <i class="fas fa-search"></i>
+        </a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="搜索...">
+          <button type="submit" class="search-form-submit">&#xF002;</button>
+          <input type="hidden" name="sitesearch" value="https://zhangmengweimuscle.github.io">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+          <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Hexo+Cline+Moonshot博客开发完全指南：从零开始构建现代化技术博客</h1>
+    
+    <div class="post-meta">
+      <span class="post-time">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar"></i>
+        </span>
+        <span class="post-meta-item-text">发表于</span>
+        <time itemprop="dateCreated" datetime="2025-07-18T14:00:00.000Z" content="2025-07-18T14:00:00.000Z">
+          2025-07-18
+        </time>
+      </span>
+      
+      
+        <span class="post-time">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="far fa-calendar-check"></i>
+          </span>
+          <span class="post-meta-item-text">编辑于</span>
+          <time itemprop="dateModified" datetime="2025-07-18T14:51:34.388Z" content="2025-07-18T14:51:34.388Z">
+            2025-07-18
+          </time>
+        </span>
+      
+      
+      
+        <span class="post-category">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="far fa-folder"></i>
+          </span>
+          <span class="post-meta-item-text">分类于</span>
+          
+            <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                <span itemprop="name">技术</span>
+              </a>
+            </span>
+            
+          
+        </span>
+      
+      
+      
+        <span class="post-tags">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="fas fa-tags"></i>
+          </span>
+          <span class="post-meta-item-text">Tags</span>
+          
+            <a href="/tags/hexo/" rel="index">
+              <span class="post-meta-item-text">hexo</span>
+            </a>
+            , 
+          
+            <a href="/tags/cline/" rel="index">
+              <span class="post-meta-item-text">cline</span>
+            </a>
+            , 
+          
+            <a href="/tags/moonshot/" rel="index">
+              <span class="post-meta-item-text">moonshot</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91/" rel="index">
+              <span class="post-meta-item-text">博客开发</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/" rel="index">
+              <span class="post-meta-item-text">技术教程</span>
+            </a>
+            
+          
+        </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-body" itemprop="articleBody">
+    <h1 id="Hexo-Cline-Moonshot博客开发完全指南：从零开始构建现代化技术博客"><a href="#Hexo-Cline-Moonshot博客开发完全指南：从零开始构建现代化技术博客" class="headerlink" title="Hexo+Cline+Moonshot博客开发完全指南：从零开始构建现代化技术博客"></a>Hexo+Cline+Moonshot博客开发完全指南：从零开始构建现代化技术博客</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在当今数字化时代，拥有一个专业的技术博客不仅是展示个人技术能力的窗口，更是与全球开发者社区交流的重要平台。本文将详细介绍如何利用Hexo静态博客框架、Cline智能开发助手和Moonshot主题，从零开始构建一个现代化的技术博客。</p>
+<h2 id="为什么选择这个技术栈？"><a href="#为什么选择这个技术栈？" class="headerlink" title="为什么选择这个技术栈？"></a>为什么选择这个技术栈？</h2><h3 id="Hexo：极速静态博客框架"><a href="#Hexo：极速静态博客框架" class="headerlink" title="Hexo：极速静态博客框架"></a>Hexo：极速静态博客框架</h3><p>Hexo是一个基于Node.js的静态博客框架，具有以下优势：</p>
+<ul>
+<li><strong>极速生成</strong>：数百篇文章可在几秒内生成完成</li>
+<li><strong>Markdown支持</strong>：完美的Markdown渲染，支持数学公式、流程图等</li>
+<li><strong>插件生态</strong>：丰富的插件系统，支持搜索、评论、SEO等功能</li>
+<li><strong>主题多样</strong>：大量精美主题可供选择</li>
+</ul>
+<h3 id="Cline：AI驱动的开发助手"><a href="#Cline：AI驱动的开发助手" class="headerlink" title="Cline：AI驱动的开发助手"></a>Cline：AI驱动的开发助手</h3><p>Cline作为AI驱动的开发助手，在博客开发中发挥重要作用：</p>
+<ul>
+<li><strong>智能代码补全</strong>：基于上下文的代码建议</li>
+<li><strong>错误诊断</strong>：实时发现并修复代码问题</li>
+<li><strong>重构建议</strong>：提供代码优化方案</li>
+<li><strong>文档生成</strong>：自动生成API文档和注释</li>
+</ul>
+<h3 id="Moonshot：现代化GitHub风格主题"><a href="#Moonshot：现代化GitHub风格主题" class="headerlink" title="Moonshot：现代化GitHub风格主题"></a>Moonshot：现代化GitHub风格主题</h3><p>Moonshot主题专为技术博客设计：</p>
+<ul>
+<li><strong>GitHub风格</strong>：熟悉的界面，降低学习成本</li>
+<li><strong>响应式设计</strong>：完美适配各种设备</li>
+<li><strong>SEO优化</strong>：内置搜索引擎优化</li>
+<li><strong>性能卓越</strong>：极快的加载速度</li>
+</ul>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><h3 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h3><ul>
+<li>Node.js 14.0+</li>
+<li>Git 2.0+</li>
+<li>现代浏览器（Chrome&#x2F;Firefox&#x2F;Safari）</li>
+</ul>
+<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows</span></span><br><span class="line">winget install OpenJS.NodeJS</span><br><span class="line"></span><br><span class="line"><span class="comment"># macOS</span></span><br><span class="line">brew install node</span><br><span class="line"></span><br><span class="line"><span class="comment"># Linux (Ubuntu/Debian)</span></span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install nodejs npm</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node --version</span><br><span class="line">npm --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h2><h3 id="1-安装Hexo-CLI"><a href="#1-安装Hexo-CLI" class="headerlink" title="1. 安装Hexo CLI"></a>1. 安装Hexo CLI</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-创建博客项目"><a href="#2-创建博客项目" class="headerlink" title="2. 创建博客项目"></a>2. 创建博客项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init my-tech-blog</span><br><span class="line"><span class="built_in">cd</span> my-tech-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-安装Moonshot主题"><a href="#3-安装Moonshot主题" class="headerlink" title="3. 安装Moonshot主题"></a>3. 安装Moonshot主题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/moonshot-theme/hexo-theme-moonshot.git themes/moonshot</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-配置主题"><a href="#4-配置主题" class="headerlink" title="4. 配置主题"></a>4. 配置主题</h3><p>编辑<code>_config.yml</code>文件：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 站点配置</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">My</span> <span class="string">Tech</span> <span class="string">Blog</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">技术分享与思考</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">专注于前端开发、DevOps和云原生技术</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Your</span> <span class="string">Name</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">Asia/Shanghai</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主题配置</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">moonshot</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署配置</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/yourusername/yourusername.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Cline集成开发"><a href="#Cline集成开发" class="headerlink" title="Cline集成开发"></a>Cline集成开发</h2><h3 id="1-安装Cline插件"><a href="#1-安装Cline插件" class="headerlink" title="1. 安装Cline插件"></a>1. 安装Cline插件</h3><p>在VS Code中安装Cline插件，获得AI辅助开发能力。</p>
+<h3 id="2-配置开发环境"><a href="#2-配置开发环境" class="headerlink" title="2. 配置开发环境"></a>2. 配置开发环境</h3><p>创建<code>.cline.json</code>配置文件：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;projectType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;framework&quot;</span><span class="punctuation">:</span> <span class="string">&quot;nodejs&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;features&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;markdown&quot;</span><span class="punctuation">,</span> <span class="string">&quot;git&quot;</span><span class="punctuation">,</span> <span class="string">&quot;github-pages&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;preferences&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;codeStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;standard&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;indentSize&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;quoteStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;single&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-智能开发工作流"><a href="#3-智能开发工作流" class="headerlink" title="3. 智能开发工作流"></a>3. 智能开发工作流</h3><p>使用Cline的AI能力加速开发：</p>
+<ul>
+<li><strong>代码生成</strong>：描述需求，自动生成代码</li>
+<li><strong>错误修复</strong>：智能诊断和修复问题</li>
+<li><strong>性能优化</strong>：提供性能改进建议</li>
+</ul>
+<h2 id="高级配置"><a href="#高级配置" class="headerlink" title="高级配置"></a>高级配置</h2><h3 id="1-插件系统"><a href="#1-插件系统" class="headerlink" title="1. 插件系统"></a>1. 插件系统</h3><p>安装必备插件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-配置插件"><a href="#2-配置插件" class="headerlink" title="2. 配置插件"></a>2. 配置插件</h3><p>编辑<code>_config.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Feed配置</span></span><br><span class="line"><span class="attr">feed:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">atom</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">atom.xml</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Sitemap配置</span></span><br><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Abbrlink配置</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-自定义主题"><a href="#3-自定义主题" class="headerlink" title="3. 自定义主题"></a>3. 自定义主题</h3><p>使用Cline辅助自定义主题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建自定义样式</span></span><br><span class="line"><span class="built_in">touch</span> <span class="built_in">source</span>/css/custom.css</span><br></pre></td></tr></table></figure>
+
+<h2 id="内容创作工作流"><a href="#内容创作工作流" class="headerlink" title="内容创作工作流"></a>内容创作工作流</h2><h3 id="1-创建新文章"><a href="#1-创建新文章" class="headerlink" title="1. 创建新文章"></a>1. 创建新文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">&quot;文章标题&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-使用Cline优化内容"><a href="#2-使用Cline优化内容" class="headerlink" title="2. 使用Cline优化内容"></a>2. 使用Cline优化内容</h3><ul>
+<li><strong>语法检查</strong>：自动检查Markdown语法</li>
+<li><strong>SEO优化</strong>：建议关键词和描述</li>
+<li><strong>图片优化</strong>：自动压缩和优化图片</li>
+</ul>
+<h3 id="3-预览和发布"><a href="#3-预览和发布" class="headerlink" title="3. 预览和发布"></a>3. 预览和发布</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo server  <span class="comment"># 本地预览</span></span><br><span class="line">hexo generate  <span class="comment"># 生成静态文件</span></span><br><span class="line">hexo deploy  <span class="comment"># 部署到GitHub Pages</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><h3 id="1-图片优化"><a href="#1-图片优化" class="headerlink" title="1. 图片优化"></a>1. 图片优化</h3><p>使用Cline建议的图片优化策略：</p>
+<ul>
+<li>WebP格式转换</li>
+<li>响应式图片</li>
+<li>懒加载实现</li>
+</ul>
+<h3 id="2-代码优化"><a href="#2-代码优化" class="headerlink" title="2. 代码优化"></a>2. 代码优化</h3><ul>
+<li>压缩CSS和JavaScript</li>
+<li>启用Gzip压缩</li>
+<li>CDN加速</li>
+</ul>
+<h3 id="3-SEO优化"><a href="#3-SEO优化" class="headerlink" title="3. SEO优化"></a>3. SEO优化</h3><ul>
+<li>结构化数据</li>
+<li>Open Graph标签</li>
+<li>Twitter Cards</li>
+</ul>
+<h2 id="部署和持续集成"><a href="#部署和持续集成" class="headerlink" title="部署和持续集成"></a>部署和持续集成</h2><h3 id="1-GitHub-Actions配置"><a href="#1-GitHub-Actions配置" class="headerlink" title="1. GitHub Actions配置"></a>1. GitHub Actions配置</h3><p>创建<code>.github/workflows/deploy.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">Hexo</span> <span class="string">Blog</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [ <span class="string">main</span> ]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build-and-deploy:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    </span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">    </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Node.js</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/setup-node@v2</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="string">&#x27;16&#x27;</span></span><br><span class="line">    </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">dependencies</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">    </span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        hexo generate</span></span><br><span class="line"><span class="string">        hexo deploy</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-自动化部署"><a href="#2-自动化部署" class="headerlink" title="2. 自动化部署"></a>2. 自动化部署</h3><p>配置GitHub Pages自动部署，每次推送代码自动更新博客。</p>
+<h2 id="监控和分析"><a href="#监控和分析" class="headerlink" title="监控和分析"></a>监控和分析</h2><h3 id="1-访问统计"><a href="#1-访问统计" class="headerlink" title="1. 访问统计"></a>1. 访问统计</h3><p>集成Google Analytics：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">google_analytics:</span> <span class="string">UA-XXXXXXXXX-X</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-性能监控"><a href="#2-性能监控" class="headerlink" title="2. 性能监控"></a>2. 性能监控</h3><p>使用Lighthouse CI监控性能指标。</p>
+<h2 id="最佳实践总结"><a href="#最佳实践总结" class="headerlink" title="最佳实践总结"></a>最佳实践总结</h2><h3 id="1-内容策略"><a href="#1-内容策略" class="headerlink" title="1. 内容策略"></a>1. 内容策略</h3><ul>
+<li>定期更新技术文章</li>
+<li>建立内容分类体系</li>
+<li>优化文章SEO</li>
+</ul>
+<h3 id="2-技术维护"><a href="#2-技术维护" class="headerlink" title="2. 技术维护"></a>2. 技术维护</h3><ul>
+<li>定期更新依赖</li>
+<li>监控性能指标</li>
+<li>备份重要数据</li>
+</ul>
+<h3 id="3-社区互动"><a href="#3-社区互动" class="headerlink" title="3. 社区互动"></a>3. 社区互动</h3><ul>
+<li>开启评论系统</li>
+<li>社交媒体分享</li>
+<li>技术社区推广</li>
+</ul>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过Hexo+Cline+Moonshot的技术栈，我们成功构建了一个现代化、高性能的技术博客。这个组合不仅提供了优秀的开发体验，还确保了博客的可维护性和扩展性。随着技术的不断发展，这个博客将成为你技术成长的重要见证。</p>
+<p>记住，优秀的技术博客不仅是内容的展示，更是技术实力的体现。持续学习，持续分享，让我们一起在技术道路上不断前行！</p>
+
+  </div>
+  
+  <footer class="post-footer">
+    <div class="post-nav">
+      
+        <a href="/2025/07/18/02-hexo-theme-customization-deep-dive/" rel="prev" title="Hexo主题深度定制：Moonshot主题个性化改造完全指南">
+          <i class="fas fa-angle-left"></i>
+          Hexo主题深度定制：Moonshot主题个性化改造完全指南
+        </a>
+      
+      
+      
+    </div>
+  </footer>
+</article>
+
+        </section>
+        <aside id="sidebar">
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line"></span>
+      <span class="sidebar-toggle-line"></span>
+      <span class="sidebar-toggle-line"></span>
+    </div>
+  </div>
+  
+  <div id="sidebar-inner">
+    <section class="site-overview-wrap sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Muscle">
+        <p class="site-author-name" itemprop="name">Muscle</p>
+        <p class="site-description motion-element" itemprop="description">一个关于技术和生活的博客</p>
+      </div>
+      
+      <nav class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <a href="/archives">
+            <span class="site-state-item-count">12</span>
+            <span class="site-state-item-name">文章</span>
+          </a>
+        </div>
+        
+        <div class="site-state-item site-state-categories">
+          <a href="/categories">
+            <span class="site-state-item-count">2</span>
+            <span class="site-state-item-name">分类</span>
+          </a>
+        </div>
+        
+        <div class="site-state-item site-state-tags">
+          <a href="/tags">
+            <span class="site-state-item-count">48</span>
+            <span class="site-state-item-name">标签</span>
+          </a>
+        </div>
+      </nav>
+      
+      
+        <div class="links-of-author motion-element">
+          
+            <span class="links-of-author-item">
+              <a href="https://github.com/zhangmengweimuscle/" target="_blank" title="GitHub">
+                
+                  <i class="fab fa-github"></i>GitHub
+                
+              </a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="https://x.com/zhangmuscle/" target="_blank" title="Twitter">
+                
+                  <i class="fab fa-twitter"></i>Twitter
+                
+              </a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="mailto:zhangmengweimusclea@email.com" target="_blank" title="Email">
+                
+                  <i class="fas fa-envelope"></i>Email
+                
+              </a>
+            </span>
+          
+        </div>
+      
+    </section>
+    
+    
+<section class="post-toc-wrap sidebar-panel">
+  <div class="post-toc motion-element">
+    <p class="post-toc-title">文章目录</p>
+    <div class="post-toc-content" id="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo-Cline-Moonshot%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%EF%BC%9A%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%9E%84%E5%BB%BA%E7%8E%B0%E4%BB%A3%E5%8C%96%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2"><span class="toc-text">Hexo+Cline+Moonshot博客开发完全指南：从零开始构建现代化技术博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9%E8%BF%99%E4%B8%AA%E6%8A%80%E6%9C%AF%E6%A0%88%EF%BC%9F"><span class="toc-text">为什么选择这个技术栈？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo%EF%BC%9A%E6%9E%81%E9%80%9F%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6"><span class="toc-text">Hexo：极速静态博客框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cline%EF%BC%9AAI%E9%A9%B1%E5%8A%A8%E7%9A%84%E5%BC%80%E5%8F%91%E5%8A%A9%E6%89%8B"><span class="toc-text">Cline：AI驱动的开发助手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Moonshot%EF%BC%9A%E7%8E%B0%E4%BB%A3%E5%8C%96GitHub%E9%A3%8E%E6%A0%BC%E4%B8%BB%E9%A2%98"><span class="toc-text">Moonshot：现代化GitHub风格主题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-text">环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82"><span class="toc-text">系统要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Node-js"><span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85"><span class="toc-text">验证安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">项目初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85Hexo-CLI"><span class="toc-text">1. 安装Hexo CLI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE"><span class="toc-text">2. 创建博客项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85Moonshot%E4%B8%BB%E9%A2%98"><span class="toc-text">3. 安装Moonshot主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E4%B8%BB%E9%A2%98"><span class="toc-text">4. 配置主题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cline%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91"><span class="toc-text">Cline集成开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85Cline%E6%8F%92%E4%BB%B6"><span class="toc-text">1. 安装Cline插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-text">2. 配置开发环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%99%BA%E8%83%BD%E5%BC%80%E5%8F%91%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-text">3. 智能开发工作流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE"><span class="toc-text">高级配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8F%92%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">1. 插件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE%E6%8F%92%E4%BB%B6"><span class="toc-text">2. 配置插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98"><span class="toc-text">3. 自定义主题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-text">内容创作工作流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E6%96%B0%E6%96%87%E7%AB%A0"><span class="toc-text">1. 创建新文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8Cline%E4%BC%98%E5%8C%96%E5%86%85%E5%AE%B9"><span class="toc-text">2. 使用Cline优化内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%A2%84%E8%A7%88%E5%92%8C%E5%8F%91%E5%B8%83"><span class="toc-text">3. 预览和发布</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-text">性能优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9B%BE%E7%89%87%E4%BC%98%E5%8C%96"><span class="toc-text">1. 图片优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96"><span class="toc-text">2. 代码优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-SEO%E4%BC%98%E5%8C%96"><span class="toc-text">3. SEO优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%92%8C%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90"><span class="toc-text">部署和持续集成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-GitHub-Actions%E9%85%8D%E7%BD%AE"><span class="toc-text">1. GitHub Actions配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-text">2. 自动化部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E5%92%8C%E5%88%86%E6%9E%90"><span class="toc-text">监控和分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%AE%BF%E9%97%AE%E7%BB%9F%E8%AE%A1"><span class="toc-text">1. 访问统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7"><span class="toc-text">2. 性能监控</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E6%80%BB%E7%BB%93"><span class="toc-text">最佳实践总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%86%85%E5%AE%B9%E7%AD%96%E7%95%A5"><span class="toc-text">1. 内容策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8A%80%E6%9C%AF%E7%BB%B4%E6%8A%A4"><span class="toc-text">2. 技术维护</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%A4%BE%E5%8C%BA%E4%BA%92%E5%8A%A8"><span class="toc-text">3. 社区互动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-text">结语</span></a></li></ol></li></ol>
+    </div>
+  </div>
+</section>
+
+<style>
+.post-toc-wrap {
+  margin-top: 20px;
+}
+
+.post-toc-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #24292e;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.post-toc-content {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.post-toc-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.post-toc-content ul ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.post-toc-content ul ul ul {
+  padding-left: 15px;
+}
+
+.post-toc-content li {
+  margin-bottom: 5px;
+}
+
+.post-toc-content a {
+  color: #586069;
+  text-decoration: none;
+  display: block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.post-toc-content a:hover {
+  color: #0366d6;
+  background-color: #f6f8fa;
+  text-decoration: none;
+}
+
+.post-toc-content .toc-level-1 > a {
+  font-weight: 600;
+  color: #24292e;
+}
+
+.post-toc-content .toc-level-2 > a {
+  font-size: 13px;
+}
+
+.post-toc-content .toc-level-3 > a {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+/* 修复重复序号问题 */
+.post-toc-content ol,
+.post-toc-content ul {
+  counter-reset: none;
+  list-style-type: none;
+}
+
+.post-toc-content li::before {
+  content: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .post-toc-wrap {
+    margin-top: 15px;
+  }
+  
+  .post-toc-title {
+    font-size: 14px;
+  }
+  
+  .post-toc-content {
+    font-size: 13px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  'use strict';
+  
+  // 修复TOC中的重复编号问题
+  function fixTocNumbering() {
+    var tocContent = document.getElementById('post-toc-content');
+    if (!tocContent) return;
+    
+    // 移除所有可能的编号
+    var links = tocContent.querySelectorAll('a');
+    links.forEach(function(link) {
+      // 移除链接文本中的编号
+      var text = link.textContent;
+      text = text.replace(/^\d+\.\s*/, ''); // 移除 "1. " 这样的前缀
+      text = text.replace(/^\d+\s*/, '');   // 移除 "1 " 这样的前缀
+      link.textContent = text;
+    });
+    
+    // 确保没有ol元素的编号
+    var lists = tocContent.querySelectorAll('ol');
+    lists.forEach(function(list) {
+      list.style.listStyle = 'none';
+      list.style.counterReset = 'none';
+    });
+  }
+  
+  // 高亮当前阅读位置
+  function highlightCurrentSection() {
+    var tocLinks = document.querySelectorAll('.post-toc-content a');
+    var headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3');
+    
+    if (!tocLinks.length || !headings.length) return;
+    
+    function updateActiveLink() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var activeFound = false;
+      
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var heading = headings[i];
+        var rect = heading.getBoundingClientRect();
+        var top = rect.top + scrollTop;
+        
+        if (scrollTop >= top - 100) {
+          tocLinks.forEach(function(link) {
+            link.classList.remove('active');
+          });
+          
+          var id = heading.getAttribute('id');
+          var activeLink = document.querySelector('.post-toc-content a[href="#' + id + '"]');
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+          
+          activeFound = true;
+          break;
+        }
+      }
+      
+      if (!activeFound) {
+        tocLinks.forEach(function(link) {
+          link.classList.remove('active');
+        });
+      }
+    }
+    
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink(); // 初始调用
+  }
+  
+  // 初始化
+  document.addEventListener('DOMContentLoaded', function() {
+    fixTocNumbering();
+    highlightCurrentSection();
+  });
+})();
+</script>
+
+
+  </div>
+</aside>
+
+      </div>
+    </div>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 Muscle<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      | Theme - <a href="https://github.com/yourusername/hexo-theme-github-style" target="_blank">GitHub Style</a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  
+<script src="/js/main.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sidebarToggle = document.querySelector('.sidebar-toggle');
+    var sidebar = document.querySelector('#sidebar');
+    
+    if (sidebarToggle && sidebar) {
+      sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('sidebar-active');
+      });
+    }
+    
+    var searchBtn = document.querySelector('#nav-search-btn');
+    var searchForm = document.querySelector('#search-form-wrap');
+    
+    if (searchBtn && searchForm) {
+      searchBtn.addEventListener('click', function() {
+        searchForm.classList.toggle('on');
+        if (searchForm.classList.contains('on')) {
+          searchForm.querySelector('.search-form-input').focus();
+        }
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

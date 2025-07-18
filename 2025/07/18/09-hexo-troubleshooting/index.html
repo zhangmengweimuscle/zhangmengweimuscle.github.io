@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Hexo故障排除完全指南：常见问题诊断与解决方案 | Moonshot Blog</title>
+<meta name="author" content="Muscle">
+<meta name="description" content="一个关于技术和生活的博客">
+<meta name="keywords" content="technology, blog, programming">
+
+<meta name="description" content="Hexo故障排除完全指南：常见问题诊断与解决方案前言在Hexo博客的开发和维护过程中，遇到各种问题是不可避免的。本文将系统性地总结Hexo常见问题的诊断方法和解决方案，帮助你快速定位和解决各种问题。 环境相关问题1. Node.js版本问题问题现象12ERROR: Node.js version mismatchERROR: Cannot find module &#x27;hexo&#x27;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo故障排除完全指南：常见问题诊断与解决方案">
+<meta property="og:url" content="https://zhangmengweimuscle.github.io/2025/07/18/09-hexo-troubleshooting/">
+<meta property="og:site_name" content="Moonshot Blog">
+<meta property="og:description" content="Hexo故障排除完全指南：常见问题诊断与解决方案前言在Hexo博客的开发和维护过程中，遇到各种问题是不可避免的。本文将系统性地总结Hexo常见问题的诊断方法和解决方案，帮助你快速定位和解决各种问题。 环境相关问题1. Node.js版本问题问题现象12ERROR: Node.js version mismatchERROR: Cannot find module &#x27;hexo&#x27;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-18T14:40:00.000Z">
+<meta property="article:modified_time" content="2025-07-18T15:35:14.748Z">
+<meta property="article:author" content="Muscle">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="故障排除">
+<meta property="article:tag" content="调试技巧">
+<meta property="article:tag" content="常见问题">
+<meta property="article:tag" content="解决方案">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400,700">
+
+<script src="/js/url-search.js"></script>
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner">
+    <div class="banner-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    <div class="banner-pattern"></div>
+    <div class="banner-signature"></div>
+  </div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moonshot Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">技术分享与思考</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a id="nav-github-link" class="nav-icon" target="_blank" rel="noopener" href="https://github.com/zhangmengweimuscle/" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          
+        
+          
+            <a id="nav-twitter-link" class="nav-icon" target="_blank" rel="noopener" href="https://x.com/zhangmuscle/" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          
+        
+          
+            <a id="nav-email-link" class="nav-icon" href="mailto:zhangmengweimusclea@email.com" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索">
+          <i class="fas fa-search"></i>
+        </a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="搜索...">
+          <button type="submit" class="search-form-submit">&#xF002;</button>
+          <input type="hidden" name="sitesearch" value="https://zhangmengweimuscle.github.io">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+          <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Hexo故障排除完全指南：常见问题诊断与解决方案</h1>
+    
+    <div class="post-meta">
+      <span class="post-time">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar"></i>
+        </span>
+        <span class="post-meta-item-text">发表于</span>
+        <time itemprop="dateCreated" datetime="2025-07-18T14:40:00.000Z" content="2025-07-18T14:40:00.000Z">
+          2025-07-18
+        </time>
+      </span>
+      
+      
+        <span class="post-time">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="far fa-calendar-check"></i>
+          </span>
+          <span class="post-meta-item-text">编辑于</span>
+          <time itemprop="dateModified" datetime="2025-07-18T15:35:14.748Z" content="2025-07-18T15:35:14.748Z">
+            2025-07-18
+          </time>
+        </span>
+      
+      
+      
+        <span class="post-category">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="far fa-folder"></i>
+          </span>
+          <span class="post-meta-item-text">分类于</span>
+          
+            <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                <span itemprop="name">技术</span>
+              </a>
+            </span>
+            
+          
+        </span>
+      
+      
+      
+        <span class="post-tags">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="fas fa-tags"></i>
+          </span>
+          <span class="post-meta-item-text">Tags</span>
+          
+            <a href="/tags/hexo/" rel="index">
+              <span class="post-meta-item-text">hexo</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4/" rel="index">
+              <span class="post-meta-item-text">故障排除</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" rel="index">
+              <span class="post-meta-item-text">调试技巧</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" rel="index">
+              <span class="post-meta-item-text">常见问题</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="index">
+              <span class="post-meta-item-text">解决方案</span>
+            </a>
+            
+          
+        </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-body" itemprop="articleBody">
+    <h1 id="Hexo故障排除完全指南：常见问题诊断与解决方案"><a href="#Hexo故障排除完全指南：常见问题诊断与解决方案" class="headerlink" title="Hexo故障排除完全指南：常见问题诊断与解决方案"></a>Hexo故障排除完全指南：常见问题诊断与解决方案</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Hexo博客的开发和维护过程中，遇到各种问题是不可避免的。本文将系统性地总结Hexo常见问题的诊断方法和解决方案，帮助你快速定位和解决各种问题。</p>
+<h2 id="环境相关问题"><a href="#环境相关问题" class="headerlink" title="环境相关问题"></a>环境相关问题</h2><h3 id="1-Node-js版本问题"><a href="#1-Node-js版本问题" class="headerlink" title="1. Node.js版本问题"></a>1. Node.js版本问题</h3><h4 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR: Node.js version mismatch</span><br><span class="line">ERROR: Cannot find module <span class="string">&#x27;hexo&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查Node.js版本</span></span><br><span class="line">node --version</span><br><span class="line">npm --version</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用nvm管理Node.js版本</span></span><br><span class="line">nvm install 18</span><br><span class="line">nvm use 18</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理npm缓存</span></span><br><span class="line">npm cache clean --force</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新安装Hexo</span></span><br><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h4 id="版本兼容性表"><a href="#版本兼容性表" class="headerlink" title="版本兼容性表"></a>版本兼容性表</h4><table>
+<thead>
+<tr>
+<th>Hexo版本</th>
+<th>Node.js版本</th>
+<th>兼容性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>6.x</td>
+<td>14.x+</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>5.x</td>
+<td>12.x+</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>4.x</td>
+<td>10.x+</td>
+<td>⚠️</td>
+</tr>
+</tbody></table>
+<h3 id="2-权限问题"><a href="#2-权限问题" class="headerlink" title="2. 权限问题"></a>2. 权限问题</h3><h4 id="问题现象-1"><a href="#问题现象-1" class="headerlink" title="问题现象"></a>问题现象</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EACCES: permission denied</span><br><span class="line">Error: EACCES: permission denied, <span class="built_in">mkdir</span> <span class="string">&#x27;/usr/local/lib/node_modules/hexo&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># macOS/Linux</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R $(<span class="built_in">whoami</span>) /usr/local/lib/node_modules</span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows (以管理员身份运行)</span></span><br><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&quot;<span class="variable">$&#123;APPDATA&#125;</span>/npm&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用npx避免全局安装</span></span><br><span class="line">npx hexo-cli init my-blog</span><br></pre></td></tr></table></figure>
+
+<h2 id="构建错误"><a href="#构建错误" class="headerlink" title="构建错误"></a>构建错误</h2><h3 id="1-依赖冲突"><a href="#1-依赖冲突" class="headerlink" title="1. 依赖冲突"></a>1. 依赖冲突</h3><h4 id="问题诊断"><a href="#问题诊断" class="headerlink" title="问题诊断"></a>问题诊断</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查依赖树</span></span><br><span class="line">npm <span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看冲突详情</span></span><br><span class="line">npm <span class="built_in">ls</span> --depth=0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查过时依赖</span></span><br><span class="line">npm outdated</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理并重新安装</span></span><br><span class="line"><span class="built_in">rm</span> -rf node_modules package-lock.json</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用npm-force-resolutions</span></span><br><span class="line">npm install --legacy-peer-deps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新特定依赖</span></span><br><span class="line">npm update hexo-renderer-marked</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-内存不足"><a href="#2-内存不足" class="headerlink" title="2. 内存不足"></a>2. 内存不足</h3><h4 id="问题现象-2"><a href="#问题现象-2" class="headerlink" title="问题现象"></a>问题现象</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FATAL ERROR: JavaScript heap out of memory</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-3"><a href="#解决方案-3" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 增加Node.js内存限制</span></span><br><span class="line"><span class="built_in">export</span> NODE_OPTIONS=<span class="string">&quot;--max-old-space-size=4096&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows</span></span><br><span class="line"><span class="built_in">set</span> NODE_OPTIONS=--max-old-space-size=4096</span><br><span class="line"></span><br><span class="line"><span class="comment"># 永久设置</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export NODE_OPTIONS=&#x27;--max-old-space-size=4096&#x27;&quot;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h2 id="主题相关问题"><a href="#主题相关问题" class="headerlink" title="主题相关问题"></a>主题相关问题</h2><h3 id="1-主题不生效"><a href="#1-主题不生效" class="headerlink" title="1. 主题不生效"></a>1. 主题不生效</h3><h4 id="问题诊断-1"><a href="#问题诊断-1" class="headerlink" title="问题诊断"></a>问题诊断</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查主题配置</span></span><br><span class="line">hexo config theme</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证主题目录</span></span><br><span class="line"><span class="built_in">ls</span> themes/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查主题配置文件</span></span><br><span class="line"><span class="built_in">cat</span> themes/your-theme/_config.yml</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-4"><a href="#解决方案-4" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">your-theme-name</span>  <span class="comment"># 确保主题名称正确</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新安装主题</span></span><br><span class="line"><span class="string">cd</span> <span class="string">themes/</span></span><br><span class="line"><span class="string">git</span> <span class="string">clone</span> <span class="string">https://github.com/theme-author/hexo-theme-name.git</span> <span class="string">your-theme-name</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-样式加载失败"><a href="#2-样式加载失败" class="headerlink" title="2. 样式加载失败"></a>2. 样式加载失败</h3><h4 id="问题诊断-2"><a href="#问题诊断-2" class="headerlink" title="问题诊断"></a>问题诊断</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查构建输出</span></span><br><span class="line">hexo generate --debug</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查文件权限</span></span><br><span class="line"><span class="built_in">ls</span> -la themes/your-theme/source/css/</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-5"><a href="#解决方案-5" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理缓存</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新生成</span></span><br><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查文件路径</span></span><br><span class="line"><span class="comment"># 确保CSS文件路径正确</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="插件问题"><a href="#插件问题" class="headerlink" title="插件问题"></a>插件问题</h2><h3 id="1-插件安装失败"><a href="#1-插件安装失败" class="headerlink" title="1. 插件安装失败"></a>1. 插件安装失败</h3><h4 id="问题现象-3"><a href="#问题现象-3" class="headerlink" title="问题现象"></a>问题现象</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! code ELIFECYCLE</span><br><span class="line">npm ERR! errno 1</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-6"><a href="#解决方案-6" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查Node.js和npm版本</span></span><br><span class="line">node --version</span><br><span class="line">npm --version</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用淘宝镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理缓存</span></span><br><span class="line">npm cache clean --force</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新安装</span></span><br><span class="line">npm install hexo-plugin-name --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-插件冲突"><a href="#2-插件冲突" class="headerlink" title="2. 插件冲突"></a>2. 插件冲突</h3><h4 id="问题诊断-3"><a href="#问题诊断-3" class="headerlink" title="问题诊断"></a>问题诊断</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建调试脚本</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Hexo</span> = <span class="built_in">require</span>(<span class="string">&#x27;hexo&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> hexo = <span class="keyword">new</span> <span class="title class_">Hexo</span>(process.<span class="title function_">cwd</span>(), &#123;&#125;);</span><br><span class="line"></span><br><span class="line">hexo.<span class="title function_">init</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Loaded plugins:&#x27;</span>, hexo.<span class="property">extend</span>.<span class="title function_">list</span>());</span><br><span class="line">&#125;).<span class="title function_">catch</span>(<span class="variable language_">console</span>.<span class="property">error</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-7"><a href="#解决方案-7" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 逐个禁用插件测试</span></span><br><span class="line"><span class="comment"># 在_config.yml中注释掉可疑插件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用npm ls检查依赖</span></span><br><span class="line">npm <span class="built_in">ls</span> hexo-plugin-name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 回滚到稳定版本</span></span><br><span class="line">npm install hexo-plugin-name@previous-version</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署问题"><a href="#部署问题" class="headerlink" title="部署问题"></a>部署问题</h2><h3 id="1-GitHub-Pages部署失败"><a href="#1-GitHub-Pages部署失败" class="headerlink" title="1. GitHub Pages部署失败"></a>1. GitHub Pages部署失败</h3><h4 id="问题诊断-4"><a href="#问题诊断-4" class="headerlink" title="问题诊断"></a>问题诊断</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查部署配置</span></span><br><span class="line"><span class="built_in">cat</span> _config.yml | grep deploy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证Git配置</span></span><br><span class="line">git remote -v</span><br><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-8"><a href="#解决方案-8" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/username/username.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置Git凭据</span></span><br><span class="line">git config --global user.email <span class="string">&quot;your-email@example.com&quot;</span></span><br><span class="line">git config --global user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 手动部署测试</span></span><br><span class="line">hexo deploy --generate</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-自定义域名问题"><a href="#2-自定义域名问题" class="headerlink" title="2. 自定义域名问题"></a>2. 自定义域名问题</h3><h4 id="问题诊断-5"><a href="#问题诊断-5" class="headerlink" title="问题诊断"></a>问题诊断</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查CNAME文件</span></span><br><span class="line"><span class="built_in">cat</span> <span class="built_in">source</span>/CNAME</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证DNS解析</span></span><br><span class="line">nslookup yourdomain.com</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-9"><a href="#解决方案-9" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建CNAME文件</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;yourdomain.com&quot;</span> &gt; <span class="built_in">source</span>/CNAME</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查GitHub Pages设置</span></span><br><span class="line"><span class="comment"># Settings -&gt; Pages -&gt; Custom domain</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h2><h3 id="1-构建缓慢"><a href="#1-构建缓慢" class="headerlink" title="1. 构建缓慢"></a>1. 构建缓慢</h3><h4 id="问题诊断-6"><a href="#问题诊断-6" class="headerlink" title="问题诊断"></a>问题诊断</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用--debug查看详细日志</span></span><br><span class="line">hexo generate --debug</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查大文件</span></span><br><span class="line">find <span class="built_in">source</span> -<span class="built_in">type</span> f -size +10M</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查图片数量</span></span><br><span class="line">find <span class="built_in">source</span> -name <span class="string">&quot;*.jpg&quot;</span> -o -name <span class="string">&quot;*.png&quot;</span> | <span class="built_in">wc</span> -l</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-10"><a href="#解决方案-10" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 优化构建配置</span></span><br><span class="line"><span class="comment">// _config.yml</span></span><br><span class="line"><span class="attr">concurrency</span>: <span class="number">4</span></span><br><span class="line"><span class="attr">cache</span>:</span><br><span class="line">  <span class="attr">type</span>: memory</span><br><span class="line">  <span class="attr">timeout</span>: <span class="number">30000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用增量构建</span></span><br><span class="line">npm install hexo-incremental --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-内存泄漏"><a href="#2-内存泄漏" class="headerlink" title="2. 内存泄漏"></a>2. 内存泄漏</h3><h4 id="问题诊断-7"><a href="#问题诊断-7" class="headerlink" title="问题诊断"></a>问题诊断</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 内存监控脚本</span></span><br><span class="line"><span class="keyword">const</span> v8 = <span class="built_in">require</span>(<span class="string">&#x27;v8&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> heapStats = v8.<span class="title function_">getHeapStatistics</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Heap size:&#x27;</span>, heapStats.<span class="property">total_heap_size</span> / <span class="number">1024</span> / <span class="number">1024</span>, <span class="string">&#x27;MB&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-11"><a href="#解决方案-11" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 限制并发</span></span><br><span class="line">hexo generate --concurrency 2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分批处理</span></span><br><span class="line">hexo generate --<span class="built_in">limit</span> 50</span><br></pre></td></tr></table></figure>
+
+<h2 id="内容渲染问题"><a href="#内容渲染问题" class="headerlink" title="内容渲染问题"></a>内容渲染问题</h2><h3 id="1-Markdown渲染异常"><a href="#1-Markdown渲染异常" class="headerlink" title="1. Markdown渲染异常"></a>1. Markdown渲染异常</h3><h4 id="问题诊断-8"><a href="#问题诊断-8" class="headerlink" title="问题诊断"></a>问题诊断</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查渲染器</span></span><br><span class="line">npm <span class="built_in">ls</span> hexo-renderer-marked</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试渲染</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# Test&quot;</span> | npx hexo-renderer-marked</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-12"><a href="#解决方案-12" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新渲染器</span></span><br><span class="line">npm install hexo-renderer-marked@latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换渲染器</span></span><br><span class="line">npm uninstall hexo-renderer-marked</span><br><span class="line">npm install hexo-renderer-markdown-it --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-代码高亮问题"><a href="#2-代码高亮问题" class="headerlink" title="2. 代码高亮问题"></a>2. 代码高亮问题</h3><h4 id="配置检查"><a href="#配置检查" class="headerlink" title="配置检查"></a>配置检查</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">highlight:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">auto_detect:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">tab_replace:</span> <span class="string">&#x27;  &#x27;</span></span><br><span class="line">  <span class="attr">wrap:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">hljs:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-13"><a href="#解决方案-13" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装highlight.js</span></span><br><span class="line">npm install hexo-prism-plugin --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置_prism.yml</span></span><br><span class="line">plugins:</span><br><span class="line">  prism:</span><br><span class="line">    theme: default</span><br><span class="line">    line_number: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="网络问题"><a href="#网络问题" class="headerlink" title="网络问题"></a>网络问题</h2><h3 id="1-网络超时"><a href="#1-网络超时" class="headerlink" title="1. 网络超时"></a>1. 网络超时</h3><h4 id="问题诊断-9"><a href="#问题诊断-9" class="headerlink" title="问题诊断"></a>问题诊断</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查网络连接</span></span><br><span class="line">ping registry.npmjs.org</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查代理设置</span></span><br><span class="line">npm config get proxy</span><br><span class="line">npm config get https-proxy</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决方案-14"><a href="#解决方案-14" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置国内镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置代理（如果需要）</span></span><br><span class="line">npm config <span class="built_in">set</span> proxy http://proxy.company.com:8080</span><br><span class="line">npm config <span class="built_in">set</span> https-proxy http://proxy.company.com:8080</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用yarn替代</span></span><br><span class="line">npm install -g yarn</span><br><span class="line">yarn install</span><br></pre></td></tr></table></figure>
+
+<h2 id="调试工具"><a href="#调试工具" class="headerlink" title="调试工具"></a>调试工具</h2><h3 id="1-日志调试"><a href="#1-日志调试" class="headerlink" title="1. 日志调试"></a>1. 日志调试</h3><h4 id="启用详细日志"><a href="#启用详细日志" class="headerlink" title="启用详细日志"></a>启用详细日志</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置日志级别</span></span><br><span class="line"><span class="built_in">export</span> DEBUG=hexo:*</span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows</span></span><br><span class="line"><span class="built_in">set</span> DEBUG=hexo:*</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行调试</span></span><br><span class="line">hexo generate --debug</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-断点调试"><a href="#2-断点调试" class="headerlink" title="2. 断点调试"></a>2. 断点调试</h3><h4 id="使用Node-js调试器"><a href="#使用Node-js调试器" class="headerlink" title="使用Node.js调试器"></a>使用Node.js调试器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用--inspect标志</span></span><br><span class="line">node --inspect-brk $(<span class="built_in">which</span> hexo) generate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在Chrome中打开 chrome://inspect</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-自定义调试脚本"><a href="#3-自定义调试脚本" class="headerlink" title="3. 自定义调试脚本"></a>3. 自定义调试脚本</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// debug.js</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Hexo</span> = <span class="built_in">require</span>(<span class="string">&#x27;hexo&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> hexo = <span class="keyword">new</span> <span class="title class_">Hexo</span>(process.<span class="title function_">cwd</span>(), &#123; <span class="attr">debug</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line">hexo.<span class="title function_">init</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> hexo.<span class="title function_">load</span>();</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> hexo.<span class="title function_">call</span>(<span class="string">&#x27;generate&#x27;</span>, &#123;&#125;);</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Generation complete&#x27;</span>);</span><br><span class="line">&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Error:&#x27;</span>, err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="常见错误代码"><a href="#常见错误代码" class="headerlink" title="常见错误代码"></a>常见错误代码</h2><h3 id="1-错误代码对照表"><a href="#1-错误代码对照表" class="headerlink" title="1. 错误代码对照表"></a>1. 错误代码对照表</h3><table>
+<thead>
+<tr>
+<th>错误代码</th>
+<th>描述</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EACCES</td>
+<td>权限错误</td>
+<td>检查文件权限</td>
+</tr>
+<tr>
+<td>ENOENT</td>
+<td>文件不存在</td>
+<td>检查文件路径</td>
+</tr>
+<tr>
+<td>ECONNREFUSED</td>
+<td>连接被拒绝</td>
+<td>检查网络连接</td>
+</tr>
+<tr>
+<td>ELIFECYCLE</td>
+<td>生命周期错误</td>
+<td>清理依赖重新安装</td>
+</tr>
+</tbody></table>
+<h3 id="2-错误处理脚本"><a href="#2-错误处理脚本" class="headerlink" title="2. 错误处理脚本"></a>2. 错误处理脚本</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// error-handler.js</span></span><br><span class="line">process.<span class="title function_">on</span>(<span class="string">&#x27;uncaughtException&#x27;</span>, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Uncaught Exception:&#x27;</span>, error);</span><br><span class="line">  process.<span class="title function_">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">process.<span class="title function_">on</span>(<span class="string">&#x27;unhandledRejection&#x27;</span>, <span class="function">(<span class="params">reason, promise</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Unhandled Rejection at:&#x27;</span>, promise, <span class="string">&#x27;reason:&#x27;</span>, reason);</span><br><span class="line">  process.<span class="title function_">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="性能监控"><a href="#性能监控" class="headerlink" title="性能监控"></a>性能监控</h2><h3 id="1-构建时间监控"><a href="#1-构建时间监控" class="headerlink" title="1. 构建时间监控"></a>1. 构建时间监控</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// build-monitor.js</span></span><br><span class="line"><span class="keyword">const</span> &#123; performance &#125; = <span class="built_in">require</span>(<span class="string">&#x27;perf_hooks&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BuildMonitor</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">startTime</span> = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">start</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">startTime</span> = performance.<span class="title function_">now</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">end</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> endTime = performance.<span class="title function_">now</span>();</span><br><span class="line">    <span class="keyword">const</span> duration = endTime - <span class="variable language_">this</span>.<span class="property">startTime</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Build completed in <span class="subst">$&#123;duration.toFixed(<span class="number">2</span>)&#125;</span>ms`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-资源使用监控"><a href="#2-资源使用监控" class="headerlink" title="2. 资源使用监控"></a>2. 资源使用监控</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用系统监控</span></span><br><span class="line">top -p $(pgrep node)</span><br><span class="line">htop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用Node.js监控</span></span><br><span class="line">npm install -g clinic</span><br><span class="line">clinic doctor -- node $(<span class="built_in">which</span> hexo) generate</span><br></pre></td></tr></table></figure>
+
+<h2 id="备份和恢复"><a href="#备份和恢复" class="headerlink" title="备份和恢复"></a>备份和恢复</h2><h3 id="1-自动备份脚本"><a href="#1-自动备份脚本" class="headerlink" title="1. 自动备份脚本"></a>1. 自动备份脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># backup.sh</span></span><br><span class="line"></span><br><span class="line">BACKUP_DIR=<span class="string">&quot;backup-<span class="subst">$(date +%Y%m%d-%H%M%S)</span>&quot;</span></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$BACKUP_DIR</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份配置文件</span></span><br><span class="line"><span class="built_in">cp</span> _config.yml <span class="variable">$BACKUP_DIR</span>/</span><br><span class="line"><span class="built_in">cp</span> package.json <span class="variable">$BACKUP_DIR</span>/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份文章</span></span><br><span class="line"><span class="built_in">cp</span> -r <span class="built_in">source</span>/_posts <span class="variable">$BACKUP_DIR</span>/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份主题</span></span><br><span class="line"><span class="built_in">cp</span> -r themes <span class="variable">$BACKUP_DIR</span>/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份数据库（如果有）</span></span><br><span class="line"><span class="keyword">if</span> [ -f db.json ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">cp</span> db.json <span class="variable">$BACKUP_DIR</span>/</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩备份</span></span><br><span class="line">tar -czf <span class="variable">$BACKUP_DIR</span>.tar.gz <span class="variable">$BACKUP_DIR</span></span><br><span class="line"><span class="built_in">rm</span> -rf <span class="variable">$BACKUP_DIR</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Backup completed: <span class="variable">$BACKUP_DIR</span>.tar.gz&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-恢复脚本"><a href="#2-恢复脚本" class="headerlink" title="2. 恢复脚本"></a>2. 恢复脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># restore.sh</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$1</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;Usage: ./restore.sh backup-file.tar.gz&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">BACKUP_FILE=<span class="variable">$1</span></span><br><span class="line">BACKUP_DIR=$(<span class="built_in">basename</span> <span class="variable">$BACKUP_FILE</span> .tar.gz)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压备份</span></span><br><span class="line">tar -xzf <span class="variable">$BACKUP_FILE</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复文件</span></span><br><span class="line"><span class="built_in">cp</span> -r <span class="variable">$BACKUP_DIR</span>/_config.yml ./</span><br><span class="line"><span class="built_in">cp</span> -r <span class="variable">$BACKUP_DIR</span>/package.json ./</span><br><span class="line"><span class="built_in">cp</span> -r <span class="variable">$BACKUP_DIR</span>/_posts/* <span class="built_in">source</span>/_posts/</span><br><span class="line"><span class="built_in">cp</span> -r <span class="variable">$BACKUP_DIR</span>/themes/* themes/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理</span></span><br><span class="line"><span class="built_in">rm</span> -rf <span class="variable">$BACKUP_DIR</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Restore completed from <span class="variable">$BACKUP_FILE</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="社区资源"><a href="#社区资源" class="headerlink" title="社区资源"></a>社区资源</h2><h3 id="1-官方文档"><a href="#1-官方文档" class="headerlink" title="1. 官方文档"></a>1. 官方文档</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/docs/">Hexo官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub Issues</a></li>
+</ul>
+<h3 id="2-社区支持"><a href="#2-社区支持" class="headerlink" title="2. 社区支持"></a>2. 社区支持</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/tagged/hexo">Stack Overflow</a></li>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">中文社区</a></li>
+</ul>
+<h3 id="3-调试工具推荐"><a href="#3-调试工具推荐" class="headerlink" title="3. 调试工具推荐"></a>3. 调试工具推荐</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/docs/guides/debugging-getting-started/">Node.js调试指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/chrome-devtools">Chrome DevTools</a></li>
+</ul>
+<h2 id="故障排除流程"><a href="#故障排除流程" class="headerlink" title="故障排除流程"></a>故障排除流程</h2><h3 id="1-系统化排查步骤"><a href="#1-系统化排查步骤" class="headerlink" title="1. 系统化排查步骤"></a>1. 系统化排查步骤</h3><ol>
+<li><strong>收集信息</strong>: 错误消息、日志、环境信息</li>
+<li><strong>重现问题</strong>: 确保问题可重现</li>
+<li><strong>缩小范围</strong>: 逐步排除可能原因</li>
+<li><strong>验证假设</strong>: 测试可能的解决方案</li>
+<li><strong>实施修复</strong>: 应用最终解决方案</li>
+<li><strong>验证结果</strong>: 确认问题已解决</li>
+</ol>
+<h3 id="2-问题报告模板"><a href="#2-问题报告模板" class="headerlink" title="2. 问题报告模板"></a>2. 问题报告模板</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 问题描述</span></span><br><span class="line">[清晰描述遇到的问题]</span><br><span class="line"></span><br><span class="line"><span class="section">## 环境信息</span></span><br><span class="line"><span class="bullet">-</span> Hexo版本: </span><br><span class="line"><span class="bullet">-</span> Node.js版本: </span><br><span class="line"><span class="bullet">-</span> 操作系统: </span><br><span class="line"><span class="bullet">-</span> 主题: </span><br><span class="line"></span><br><span class="line"><span class="section">## 错误日志</span></span><br></pre></td></tr></table></figure>
+<p>[粘贴完整的错误日志]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 重现步骤</span><br><span class="line">1. [步骤1]</span><br><span class="line">2. [步骤2]</span><br><span class="line">3. [步骤3]</span><br><span class="line"></span><br><span class="line">## 已尝试的解决方案</span><br><span class="line">- [解决方案1]</span><br><span class="line">- [解决方案2]</span><br></pre></td></tr></table></figure>
+
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>故障排除是技术博客维护的重要技能。通过系统化的排查方法和丰富的调试工具，你可以快速解决遇到的各种问题。记住，每个问题都是学习的机会，保持耐心，逐步分析，最终都能找到解决方案。</p>
+<p>遇到问题不要慌，系统排查，精准定位，高效解决！</p>
+
+  </div>
+  
+  <footer class="post-footer">
+    <div class="post-nav">
+      
+        <a href="/2025/07/18/10-hexo-future-roadmap/" rel="prev" title="Hexo技术博客未来路线图：从个人博客到技术品牌的演进">
+          <i class="fas fa-angle-left"></i>
+          Hexo技术博客未来路线图：从个人博客到技术品牌的演进
+        </a>
+      
+      
+      
+        <a href="/2025/07/18/08-hexo-migration-guide/" rel="next" title="Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案">
+          Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案
+          <i class="fas fa-angle-right"></i>
+        </a>
+      
+    </div>
+  </footer>
+</article>
+
+        </section>
+        <aside id="sidebar">
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line"></span>
+      <span class="sidebar-toggle-line"></span>
+      <span class="sidebar-toggle-line"></span>
+    </div>
+  </div>
+  
+  <div id="sidebar-inner">
+    <section class="site-overview-wrap sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Muscle">
+        <p class="site-author-name" itemprop="name">Muscle</p>
+        <p class="site-description motion-element" itemprop="description">一个关于技术和生活的博客</p>
+      </div>
+      
+      <nav class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <a href="/archives">
+            <span class="site-state-item-count">12</span>
+            <span class="site-state-item-name">文章</span>
+          </a>
+        </div>
+        
+        <div class="site-state-item site-state-categories">
+          <a href="/categories">
+            <span class="site-state-item-count">2</span>
+            <span class="site-state-item-name">分类</span>
+          </a>
+        </div>
+        
+        <div class="site-state-item site-state-tags">
+          <a href="/tags">
+            <span class="site-state-item-count">48</span>
+            <span class="site-state-item-name">标签</span>
+          </a>
+        </div>
+      </nav>
+      
+      
+        <div class="links-of-author motion-element">
+          
+            <span class="links-of-author-item">
+              <a href="https://github.com/zhangmengweimuscle/" target="_blank" title="GitHub">
+                
+                  <i class="fab fa-github"></i>GitHub
+                
+              </a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="https://x.com/zhangmuscle/" target="_blank" title="Twitter">
+                
+                  <i class="fab fa-twitter"></i>Twitter
+                
+              </a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="mailto:zhangmengweimusclea@email.com" target="_blank" title="Email">
+                
+                  <i class="fas fa-envelope"></i>Email
+                
+              </a>
+            </span>
+          
+        </div>
+      
+    </section>
+    
+    
+<section class="post-toc-wrap sidebar-panel">
+  <div class="post-toc motion-element">
+    <p class="post-toc-title">文章目录</p>
+    <div class="post-toc-content" id="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%EF%BC%9A%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%AF%8A%E6%96%AD%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">Hexo故障排除完全指南：常见问题诊断与解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="toc-text">环境相关问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Node-js%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="toc-text">1. Node.js版本问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98"><span class="toc-text">2. 权限问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E9%94%99%E8%AF%AF"><span class="toc-text">构建错误</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81"><span class="toc-text">1. 依赖冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%86%85%E5%AD%98%E4%B8%8D%E8%B6%B3"><span class="toc-text">2. 内存不足</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="toc-text">主题相关问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%BB%E9%A2%98%E4%B8%8D%E7%94%9F%E6%95%88"><span class="toc-text">1. 主题不生效</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A0%B7%E5%BC%8F%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5"><span class="toc-text">2. 样式加载失败</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E9%97%AE%E9%A2%98"><span class="toc-text">插件问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5"><span class="toc-text">1. 插件安装失败</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8F%92%E4%BB%B6%E5%86%B2%E7%AA%81"><span class="toc-text">2. 插件冲突</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E9%97%AE%E9%A2%98"><span class="toc-text">部署问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-GitHub-Pages%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5"><span class="toc-text">1. GitHub Pages部署失败</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E9%97%AE%E9%A2%98"><span class="toc-text">2. 自定义域名问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-text">性能问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9E%84%E5%BB%BA%E7%BC%93%E6%85%A2"><span class="toc-text">1. 构建缓慢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="toc-text">2. 内存泄漏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E6%B8%B2%E6%9F%93%E9%97%AE%E9%A2%98"><span class="toc-text">内容渲染问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Markdown%E6%B8%B2%E6%9F%93%E5%BC%82%E5%B8%B8"><span class="toc-text">1. Markdown渲染异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E9%97%AE%E9%A2%98"><span class="toc-text">2. 代码高亮问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98"><span class="toc-text">网络问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BD%91%E7%BB%9C%E8%B6%85%E6%97%B6"><span class="toc-text">1. 网络超时</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7"><span class="toc-text">调试工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%97%A5%E5%BF%97%E8%B0%83%E8%AF%95"><span class="toc-text">1. 日志调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95"><span class="toc-text">2. 断点调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B0%83%E8%AF%95%E8%84%9A%E6%9C%AC"><span class="toc-text">3. 自定义调试脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81"><span class="toc-text">常见错误代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8"><span class="toc-text">1. 错误代码对照表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC"><span class="toc-text">2. 错误处理脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7"><span class="toc-text">性能监控</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9E%84%E5%BB%BA%E6%97%B6%E9%97%B4%E7%9B%91%E6%8E%A7"><span class="toc-text">1. 构建时间监控</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%B5%84%E6%BA%90%E4%BD%BF%E7%94%A8%E7%9B%91%E6%8E%A7"><span class="toc-text">2. 资源使用监控</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D"><span class="toc-text">备份和恢复</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC"><span class="toc-text">1. 自动备份脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%81%A2%E5%A4%8D%E8%84%9A%E6%9C%AC"><span class="toc-text">2. 恢复脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BE%E5%8C%BA%E8%B5%84%E6%BA%90"><span class="toc-text">社区资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-text">1. 官方文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%A4%BE%E5%8C%BA%E6%94%AF%E6%8C%81"><span class="toc-text">2. 社区支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90"><span class="toc-text">3. 调试工具推荐</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4%E6%B5%81%E7%A8%8B"><span class="toc-text">故障排除流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%B3%BB%E7%BB%9F%E5%8C%96%E6%8E%92%E6%9F%A5%E6%AD%A5%E9%AA%A4"><span class="toc-text">1. 系统化排查步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%97%AE%E9%A2%98%E6%8A%A5%E5%91%8A%E6%A8%A1%E6%9D%BF"><span class="toc-text">2. 问题报告模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-text">结语</span></a></li></ol></li></ol>
+    </div>
+  </div>
+</section>
+
+<style>
+.post-toc-wrap {
+  margin-top: 20px;
+}
+
+.post-toc-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #24292e;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.post-toc-content {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.post-toc-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.post-toc-content ul ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.post-toc-content ul ul ul {
+  padding-left: 15px;
+}
+
+.post-toc-content li {
+  margin-bottom: 5px;
+}
+
+.post-toc-content a {
+  color: #586069;
+  text-decoration: none;
+  display: block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.post-toc-content a:hover {
+  color: #0366d6;
+  background-color: #f6f8fa;
+  text-decoration: none;
+}
+
+.post-toc-content .toc-level-1 > a {
+  font-weight: 600;
+  color: #24292e;
+}
+
+.post-toc-content .toc-level-2 > a {
+  font-size: 13px;
+}
+
+.post-toc-content .toc-level-3 > a {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+/* 修复重复序号问题 */
+.post-toc-content ol,
+.post-toc-content ul {
+  counter-reset: none;
+  list-style-type: none;
+}
+
+.post-toc-content li::before {
+  content: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .post-toc-wrap {
+    margin-top: 15px;
+  }
+  
+  .post-toc-title {
+    font-size: 14px;
+  }
+  
+  .post-toc-content {
+    font-size: 13px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  'use strict';
+  
+  // 修复TOC中的重复编号问题
+  function fixTocNumbering() {
+    var tocContent = document.getElementById('post-toc-content');
+    if (!tocContent) return;
+    
+    // 移除所有可能的编号
+    var links = tocContent.querySelectorAll('a');
+    links.forEach(function(link) {
+      // 移除链接文本中的编号
+      var text = link.textContent;
+      text = text.replace(/^\d+\.\s*/, ''); // 移除 "1. " 这样的前缀
+      text = text.replace(/^\d+\s*/, '');   // 移除 "1 " 这样的前缀
+      link.textContent = text;
+    });
+    
+    // 确保没有ol元素的编号
+    var lists = tocContent.querySelectorAll('ol');
+    lists.forEach(function(list) {
+      list.style.listStyle = 'none';
+      list.style.counterReset = 'none';
+    });
+  }
+  
+  // 高亮当前阅读位置
+  function highlightCurrentSection() {
+    var tocLinks = document.querySelectorAll('.post-toc-content a');
+    var headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3');
+    
+    if (!tocLinks.length || !headings.length) return;
+    
+    function updateActiveLink() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var activeFound = false;
+      
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var heading = headings[i];
+        var rect = heading.getBoundingClientRect();
+        var top = rect.top + scrollTop;
+        
+        if (scrollTop >= top - 100) {
+          tocLinks.forEach(function(link) {
+            link.classList.remove('active');
+          });
+          
+          var id = heading.getAttribute('id');
+          var activeLink = document.querySelector('.post-toc-content a[href="#' + id + '"]');
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+          
+          activeFound = true;
+          break;
+        }
+      }
+      
+      if (!activeFound) {
+        tocLinks.forEach(function(link) {
+          link.classList.remove('active');
+        });
+      }
+    }
+    
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink(); // 初始调用
+  }
+  
+  // 初始化
+  document.addEventListener('DOMContentLoaded', function() {
+    fixTocNumbering();
+    highlightCurrentSection();
+  });
+})();
+</script>
+
+
+  </div>
+</aside>
+
+      </div>
+    </div>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 Muscle<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      | Theme - <a href="https://github.com/yourusername/hexo-theme-github-style" target="_blank">GitHub Style</a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  
+<script src="/js/main.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sidebarToggle = document.querySelector('.sidebar-toggle');
+    var sidebar = document.querySelector('#sidebar');
+    
+    if (sidebarToggle && sidebar) {
+      sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('sidebar-active');
+      });
+    }
+    
+    var searchBtn = document.querySelector('#nav-search-btn');
+    var searchForm = document.querySelector('#search-form-wrap');
+    
+    if (searchBtn && searchForm) {
+      searchBtn.addEventListener('click', function() {
+        searchForm.classList.toggle('on');
+        if (searchForm.classList.contains('on')) {
+          searchForm.querySelector('.search-form-input').focus();
+        }
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
