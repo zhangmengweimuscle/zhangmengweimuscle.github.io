@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>神经网络夜曲Modal Jazz：数字冥想 | Moonshot Blog</title>
+<meta name="author" content="Muscle">
+<meta name="description" content="一个关于技术和生活的博客">
+<meta name="keywords" content="technology, blog, programming">
+
+<meta name="description" content="“当神经网络的权重矩阵在D Dorian音阶上起舞，当反向传播的梯度在m7b5和弦中流淌，我们听到了数字时代的夜曲——这不是科幻，这是Suno AI带来的音乐新纪元。”  引言：数字时代的爵士诗篇在人工智能与音乐创作交汇的今天，我们正见证着一场静默的革命。Modal Jazz，这种以调式而非和弦进行为基础的爵士乐形式，为AI音乐创作提供了前所未有的可能性。本文将深入探讨如何使用Suno AI创作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神经网络夜曲Modal Jazz：数字冥想">
+<meta property="og:url" content="https://zhangmengwei.com/2025/07/21/2025-07-21-neural-network-nocturne-modal-jazz-suno-creation/">
+<meta property="og:site_name" content="Moonshot Blog">
+<meta property="og:description" content="“当神经网络的权重矩阵在D Dorian音阶上起舞，当反向传播的梯度在m7b5和弦中流淌，我们听到了数字时代的夜曲——这不是科幻，这是Suno AI带来的音乐新纪元。”  引言：数字时代的爵士诗篇在人工智能与音乐创作交汇的今天，我们正见证着一场静默的革命。Modal Jazz，这种以调式而非和弦进行为基础的爵士乐形式，为AI音乐创作提供了前所未有的可能性。本文将深入探讨如何使用Suno AI创作">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-21T11:30:00.000Z">
+<meta property="article:modified_time" content="2025-07-21T14:50:05.238Z">
+<meta property="article:author" content="Muscle">
+<meta property="article:tag" content="Suno AI">
+<meta property="article:tag" content="AI音乐创作">
+<meta property="article:tag" content="Modal Jazz">
+<meta property="article:tag" content="神经网络">
+<meta property="article:tag" content="计算机音乐">
+<meta property="article:tag" content="算法作曲">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400,700">
+
+<script src="/js/url-search.js"></script>
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner">
+    <div class="banner-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    <div class="banner-pattern"></div>
+    <div class="banner-signature"></div>
+  </div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moonshot Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">技术分享与思考</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a id="nav-github-link" class="nav-icon" target="_blank" rel="noopener" href="https://github.com/zhangmengweimuscle/" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          
+        
+          
+            <a id="nav-twitter-link" class="nav-icon" target="_blank" rel="noopener" href="https://x.com/zhangmuscle/" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          
+        
+          
+            <a id="nav-email-link" class="nav-icon" href="mailto:zhangmengweimusclea@email.com" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索">
+          <i class="fas fa-search"></i>
+        </a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="搜索...">
+          <button type="submit" class="search-form-submit">&#xF002;</button>
+          <input type="hidden" name="sitesearch" value="https://zhangmengwei.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+          <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">神经网络夜曲Modal Jazz：数字冥想</h1>
+    
+    <div class="post-meta">
+      <span class="post-time">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar"></i>
+        </span>
+        <span class="post-meta-item-text">发表于</span>
+        <time itemprop="dateCreated" datetime="2025-07-21T11:30:00.000Z" content="2025-07-21T11:30:00.000Z">
+          2025-07-21
+        </time>
+      </span>
+      
+      
+        <span class="post-time">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="far fa-calendar-check"></i>
+          </span>
+          <span class="post-meta-item-text">编辑于</span>
+          <time itemprop="dateModified" datetime="2025-07-21T14:50:05.238Z" content="2025-07-21T14:50:05.238Z">
+            2025-07-21
+          </time>
+        </span>
+      
+      
+      
+        <span class="post-category">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="far fa-folder"></i>
+          </span>
+          <span class="post-meta-item-text">分类于</span>
+          
+            <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/AI%E9%9F%B3%E4%B9%90%E9%9D%A9%E5%91%BD/" itemprop="url" rel="index">
+                <span itemprop="name">AI音乐革命</span>
+              </a>
+            </span>
+            , 
+          
+            <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/AI%E9%9F%B3%E4%B9%90%E9%9D%A9%E5%91%BD/%E6%8A%80%E6%9C%AF%E6%B7%B1%E5%BA%A6/" itemprop="url" rel="index">
+                <span itemprop="name">技术深度</span>
+              </a>
+            </span>
+            
+          
+        </span>
+      
+      
+      
+        <span class="post-tags">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="fas fa-tags"></i>
+          </span>
+          <span class="post-meta-item-text">Tags</span>
+          
+            <a href="/tags/Suno-AI/" rel="index">
+              <span class="post-meta-item-text">Suno AI</span>
+            </a>
+            , 
+          
+            <a href="/tags/AI%E9%9F%B3%E4%B9%90%E5%88%9B%E4%BD%9C/" rel="index">
+              <span class="post-meta-item-text">AI音乐创作</span>
+            </a>
+            , 
+          
+            <a href="/tags/Modal-Jazz/" rel="index">
+              <span class="post-meta-item-text">Modal Jazz</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="index">
+              <span class="post-meta-item-text">神经网络</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%9F%B3%E4%B9%90/" rel="index">
+              <span class="post-meta-item-text">计算机音乐</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E7%AE%97%E6%B3%95%E4%BD%9C%E6%9B%B2/" rel="index">
+              <span class="post-meta-item-text">算法作曲</span>
+            </a>
+            
+          
+        </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-body" itemprop="articleBody">
+    <blockquote>
+<p>“当神经网络的权重矩阵在D Dorian音阶上起舞，当反向传播的梯度在m7b5和弦中流淌，我们听到了数字时代的夜曲——这不是科幻，这是Suno AI带来的音乐新纪元。”</p>
+</blockquote>
+<h2 id="引言：数字时代的爵士诗篇"><a href="#引言：数字时代的爵士诗篇" class="headerlink" title="引言：数字时代的爵士诗篇"></a>引言：数字时代的爵士诗篇</h2><p>在人工智能与音乐创作交汇的今天，我们正见证着一场静默的革命。Modal Jazz，这种以调式而非和弦进行为基础的爵士乐形式，为AI音乐创作提供了前所未有的可能性。本文将深入探讨如何使用Suno AI创作一首名为《神经网络夜曲》的Modal Jazz作品，将计算机科学的概念、编程语言的韵律、算法的逻辑融入音乐的每一个层面。</p>
+<p>Modal Jazz的魅力在于其开放性和探索性——正如神经网络在训练过程中不断探索最优解一样，Modal Jazz音乐家在一个调式框架内自由即兴，寻找音符间的微妙关系。当Bill Evans在”So What”中探索D Dorian调式的可能性时，他或许未曾想到，数十年后，神经网络将在同样的调式中发现全新的音乐宇宙。</p>
+<h2 id="第一章：Modal-Jazz的数学本质"><a href="#第一章：Modal-Jazz的数学本质" class="headerlink" title="第一章：Modal Jazz的数学本质"></a>第一章：Modal Jazz的数学本质</h2><h3 id="1-1-调式理论的算法重构"><a href="#1-1-调式理论的算法重构" class="headerlink" title="1.1 调式理论的算法重构"></a>1.1 调式理论的算法重构</h3><p>Modal Jazz的核心在于调式（Mode）的使用，这与传统爵士乐基于和弦进行的思维方式截然不同。从数学角度看，调式可以被视为一个有限状态机，其中每个音符都是状态，转移概率由调式的音程关系决定。</p>
+<p>以D Dorian调式为例，其音程结构为：全-半-全-全-全-半-全。用数学表示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D Dorian = &#123;D, E, F, G, A, B, C, D&#125;</span><br><span class="line">音程向量 = [2, 1, 2, 2, 2, 1, 2] (半音为单位)</span><br></pre></td></tr></table></figure>
+
+<p>这种状态机的转移矩阵可以表示为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">P(i,j) = 1 如果 |i-j| ∈ &#123;2,1,2,2,2,1,2&#125;</span><br><span class="line">P(i,j) = 0 其他情况</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-神经网络与音乐生成的同构性"><a href="#1-2-神经网络与音乐生成的同构性" class="headerlink" title="1.2 神经网络与音乐生成的同构性"></a>1.2 神经网络与音乐生成的同构性</h3><p>神经网络的前向传播过程与音乐生成存在深刻的同构性：</p>
+<ul>
+<li><strong>输入层</strong> → 音乐动机（motif）</li>
+<li><strong>隐藏层</strong> → 和声进行与调式发展</li>
+<li><strong>权重矩阵</strong> → 音乐风格参数</li>
+<li><strong>激活函数</strong> → 音乐表现力（强弱、音色变化）</li>
+<li><strong>输出层</strong> → 完整音乐作品</li>
+</ul>
+<p>这种同构性为我们使用Suno AI创作Modal Jazz提供了理论基础。我们可以将神经网络的概念直接映射到音乐参数中。</p>
+<h2 id="第二章：Suno-AI的Modal-Jazz创作框架"><a href="#第二章：Suno-AI的Modal-Jazz创作框架" class="headerlink" title="第二章：Suno AI的Modal Jazz创作框架"></a>第二章：Suno AI的Modal Jazz创作框架</h2><h3 id="2-1-Prompt-Engineering的音乐化表达"><a href="#2-1-Prompt-Engineering的音乐化表达" class="headerlink" title="2.1 Prompt Engineering的音乐化表达"></a>2.1 Prompt Engineering的音乐化表达</h3><p>创作《神经网络夜曲》的第一步是构建精准的prompt。基于Modal Jazz的特点，我们需要将技术概念转化为音乐语言：</p>
+<h4 id="核心Prompt结构"><a href="#核心Prompt结构" class="headerlink" title="核心Prompt结构"></a>核心Prompt结构</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[风格定义] Modal Jazz, influenced by Bill Evans, Miles Davis &quot;Kind of Blue&quot; era, with modern electronic textures</span><br><span class="line"></span><br><span class="line">[调式框架] D Dorian primary mode, exploring relative modes (E Phrygian, G Mixolydian) as secondary colors</span><br><span class="line"></span><br><span class="line">[技术隐喻] Neural network layers as harmonic textures, backpropagation rhythms as syncopated patterns, activation functions as dynamic contours</span><br><span class="line"></span><br><span class="line">[乐器配置] Piano (Bill Evans style voicings), upright bass (Paul Chambers inspired), drums (Jimmy Cobb brush work), muted trumpet (Miles Davis tone)</span><br><span class="line"></span><br><span class="line">[结构要求] AABA form, each section representing a neural network layer: Input (A1), Hidden (A2), Output (B), Integration (A3)</span><br><span class="line"></span><br><span class="line">[情感参数] Contemplative, mysterious, intellectually stimulating, with moments of algorithmic clarity</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-神经网络参数的音乐映射"><a href="#2-2-神经网络参数的音乐映射" class="headerlink" title="2.2 神经网络参数的音乐映射"></a>2.2 神经网络参数的音乐映射</h3><p>将神经网络超参数映射到音乐参数：</p>
+<table>
+<thead>
+<tr>
+<th>神经网络参数</th>
+<th>音乐对应物</th>
+<th>实例设置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Learning Rate</td>
+<td>节奏变化敏感度</td>
+<td>0.85 (允许显著的节奏偏移)</td>
+</tr>
+<tr>
+<td>Hidden Layers</td>
+<td>和声层数</td>
+<td>3层 (钢琴、贝斯、鼓)</td>
+</tr>
+<tr>
+<td>Neurons per Layer</td>
+<td>每个乐器的音域跨度</td>
+<td>Piano: 88 keys, Bass: 24 frets, Drums: 12 tones</td>
+</tr>
+<tr>
+<td>Activation Function</td>
+<td>动态处理曲线</td>
+<td>ReLU → 平滑的crescendo, Sigmoid → 渐强渐弱</td>
+</tr>
+<tr>
+<td>Dropout Rate</td>
+<td>即兴空间比例</td>
+<td>0.3 (30%的音符可自由变化)</td>
+</tr>
+<tr>
+<td>Batch Size</td>
+<td>乐句长度</td>
+<td>8小节为一个”batch”</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-代码结构的音乐化实现"><a href="#2-3-代码结构的音乐化实现" class="headerlink" title="2.3 代码结构的音乐化实现"></a>2.3 代码结构的音乐化实现</h3><p>让我们用伪代码表示音乐生成逻辑：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NeuralNocturneGenerator</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.mode = <span class="string">&quot;D Dorian&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.layers = &#123;</span><br><span class="line">            <span class="string">&#x27;input&#x27;</span>: MelodyLayer(),</span><br><span class="line">            <span class="string">&#x27;hidden&#x27;</span>: HarmonyLayer(),</span><br><span class="line">            <span class="string">&#x27;output&#x27;</span>: RhythmLayer()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable language_">self</span>.activation = MusicalActivation(<span class="string">&#x27;smooth_sigmoid&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, motif</span>):</span><br><span class="line">        <span class="comment"># 输入层：主题呈现</span></span><br><span class="line">        x = <span class="variable language_">self</span>.layers[<span class="string">&#x27;input&#x27;</span>].process(motif)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 隐藏层：和声发展</span></span><br><span class="line">        x = <span class="variable language_">self</span>.activation(x + <span class="variable language_">self</span>.layers[<span class="string">&#x27;hidden&#x27;</span>].voicings())</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 输出层：节奏整合</span></span><br><span class="line">        output = <span class="variable language_">self</span>.layers[<span class="string">&#x27;output&#x27;</span>].groove(x)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">backpropagate</span>(<span class="params">self, target_emotion</span>):</span><br><span class="line">        <span class="comment"># 反向传播：根据情感目标调整音乐参数</span></span><br><span class="line">        loss = EmotionLoss(target_emotion)</span><br><span class="line">        gradients = loss.compute_gradients()</span><br><span class="line">        <span class="variable language_">self</span>.update_parameters(gradients)</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三章：《神经网络夜曲》的结构设计"><a href="#第三章：《神经网络夜曲》的结构设计" class="headerlink" title="第三章：《神经网络夜曲》的结构设计"></a>第三章：《神经网络夜曲》的结构设计</h2><h3 id="3-1-AABA形式的神经网络隐喻"><a href="#3-1-AABA形式的神经网络隐喻" class="headerlink" title="3.1 AABA形式的神经网络隐喻"></a>3.1 AABA形式的神经网络隐喻</h3><h4 id="A1部分：输入层-主题的神经网络编码"><a href="#A1部分：输入层-主题的神经网络编码" class="headerlink" title="A1部分：输入层 - 主题的神经网络编码"></a>A1部分：输入层 - 主题的神经网络编码</h4><ul>
+<li><strong>时长</strong>：16小节</li>
+<li><strong>调式</strong>：D Dorian</li>
+<li><strong>特征</strong>：简洁的主题动机，如同输入数据</li>
+<li><strong>乐器配置</strong>：钢琴独奏，模仿单个神经元的激活模式</li>
+<li><strong>技术隐喻</strong>：每个音符代表一个特征向量</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">主题动机编码：</span><br><span class="line">D4-E4-F4-G4-A4-B4-C5-B4-A4-G4-F4-E4-D4</span><br><span class="line">对应特征向量：</span><br><span class="line">[1, 0.8, 0.6, 0.9, 0.7, 0.85, 0.75, 0.8, 0.65, 0.7, 0.6, 0.8, 1]</span><br></pre></td></tr></table></figure>
+
+<h4 id="A2部分：隐藏层-和声的深度学习"><a href="#A2部分：隐藏层-和声的深度学习" class="headerlink" title="A2部分：隐藏层 - 和声的深度学习"></a>A2部分：隐藏层 - 和声的深度学习</h4><ul>
+<li><strong>时长</strong>：16小节</li>
+<li><strong>调式</strong>：D Dorian → E Phrygian的平滑过渡</li>
+<li><strong>特征</strong>：复杂的和声层叠，如同隐藏层的特征提取</li>
+<li><strong>乐器配置</strong>：钢琴+贝斯，形成二维和声空间</li>
+<li><strong>技术隐喻</strong>：权重矩阵的可视化</li>
+</ul>
+<h4 id="B部分：输出层-算法的音乐表达"><a href="#B部分：输出层-算法的音乐表达" class="headerlink" title="B部分：输出层 - 算法的音乐表达"></a>B部分：输出层 - 算法的音乐表达</h4><ul>
+<li><strong>时长</strong>：16小节</li>
+<li><strong>调式</strong>：G Mixolydian，提供明亮的对比</li>
+<li><strong>特征</strong>：完整的乐队编制，算法的最终输出</li>
+<li><strong>乐器配置</strong>：钢琴+贝斯+鼓+小号</li>
+<li><strong>技术隐喻</strong>：神经网络的最终预测结果</li>
+</ul>
+<h4 id="A3部分：整合层-反向传播的音乐化"><a href="#A3部分：整合层-反向传播的音乐化" class="headerlink" title="A3部分：整合层 - 反向传播的音乐化"></a>A3部分：整合层 - 反向传播的音乐化</h4><ul>
+<li><strong>时长</strong>：16小节</li>
+<li><strong>调式</strong>：回归D Dorian</li>
+<li><strong>特征</strong>：主题的回归，但经过”训练”后的变化</li>
+<li><strong>乐器配置</strong>：全乐队，但更加收敛和精确</li>
+<li><strong>技术隐喻</strong>：经过梯度下降优化后的网络输出</li>
+</ul>
+<h3 id="3-2-节奏模式的算法生成"><a href="#3-2-节奏模式的算法生成" class="headerlink" title="3.2 节奏模式的算法生成"></a>3.2 节奏模式的算法生成</h3><p>Modal Jazz的节奏特点在于其流动性而非规则的节拍。我们可以用算法生成这种”算法摇摆”：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">generate_algorithmic_swing</span>(<span class="params">base_pattern</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成基于神经网络训练过程的节奏模式&quot;&quot;&quot;</span></span><br><span class="line">    swing_ratio = sigmoid(training_epoch / max_epochs)</span><br><span class="line">    syncopation = relu(loss_gradient)</span><br><span class="line">    </span><br><span class="line">    pattern = base_pattern.copy()</span><br><span class="line">    <span class="keyword">for</span> i, note <span class="keyword">in</span> <span class="built_in">enumerate</span>(pattern):</span><br><span class="line">        <span class="comment"># 根据训练误差调整节奏偏移</span></span><br><span class="line">        offset = syncopation * random.gauss(<span class="number">0</span>, <span class="number">0.1</span>)</span><br><span class="line">        pattern[i].timing += offset</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 根据学习率调整力度</span></span><br><span class="line">        pattern[i].velocity *= (<span class="number">1</span> - swing_ratio * <span class="number">0.3</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> pattern</span><br></pre></td></tr></table></figure>
+
+<h2 id="第四章：Suno-AI的高级技巧"><a href="#第四章：Suno-AI的高级技巧" class="headerlink" title="第四章：Suno AI的高级技巧"></a>第四章：Suno AI的高级技巧</h2><h3 id="4-1-Prompt权重的精细调节"><a href="#4-1-Prompt权重的精细调节" class="headerlink" title="4.1 Prompt权重的精细调节"></a>4.1 Prompt权重的精细调节</h3><p>为了精确控制Modal Jazz的特征，我们需要在prompt中使用权重系统：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[权重分配]</span><br><span class="line">- Modal Jazz纯度: 0.9</span><br><span class="line">- Bill Evans影响: 0.8</span><br><span class="line">- 现代电子元素: 0.3</span><br><span class="line">- 神经网络隐喻: 0.7</span><br><span class="line">- 算法透明度: 0.6</span><br><span class="line">- 情感深度: 0.85</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-负向prompt的构建"><a href="#4-2-负向prompt的构建" class="headerlink" title="4.2 负向prompt的构建"></a>4.2 负向prompt的构建</h3><p>排除不符合Modal Jazz美学的元素：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[负向prompt]</span><br><span class="line">- 避免传统ii-V-I进行</span><br><span class="line">- 无funk元素</span><br><span class="line">- 无流行乐句法</span><br><span class="line">- 避免过度复杂的和声</span><br><span class="line">- 无明显的调性中心转移</span><br><span class="line">- 避免bebop的快速音阶跑动</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-迭代优化策略"><a href="#4-3-迭代优化策略" class="headerlink" title="4.3 迭代优化策略"></a>4.3 迭代优化策略</h3><p>使用类似神经网络训练的方法优化输出：</p>
+<ol>
+<li><strong>初始生成</strong>：基于基础prompt生成10个版本</li>
+<li><strong>损失计算</strong>：根据Modal Jazz纯度指标评分</li>
+<li><strong>反向传播</strong>：调整prompt权重</li>
+<li><strong>权重更新</strong>：使用Adam优化器思想调整参数</li>
+<li><strong>收敛判断</strong>：当损失函数低于阈值时停止</li>
+</ol>
+<h2 id="第五章：乐器配置的技术化表达"><a href="#第五章：乐器配置的技术化表达" class="headerlink" title="第五章：乐器配置的技术化表达"></a>第五章：乐器配置的技术化表达</h2><h3 id="5-1-钢琴：权重矩阵的可视化"><a href="#5-1-钢琴：权重矩阵的可视化" class="headerlink" title="5.1 钢琴：权重矩阵的可视化"></a>5.1 钢琴：权重矩阵的可视化</h3><p>钢琴在Modal Jazz中扮演着核心角色，我们可以将其视为权重矩阵的可视化工具：</p>
+<ul>
+<li><strong>低音区</strong> (A0-C3)：输入层权重，提供基础频率特征</li>
+<li><strong>中音区</strong> (C3-C5)：隐藏层权重，处理和声关系</li>
+<li><strong>高音区</strong> (C5-C8)：输出层权重，生成旋律线</li>
+</ul>
+<p>Bill Evans风格的voicing可以表示为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bill_evans_voicing = &#123;</span><br><span class="line">    <span class="string">&#x27;rootless&#x27;</span>: <span class="literal">True</span>,</span><br><span class="line">    <span class="string">&#x27;extensions&#x27;</span>: [<span class="number">9</span>, <span class="number">11</span>, <span class="number">13</span>],</span><br><span class="line">    <span class="string">&#x27;spacing&#x27;</span>: <span class="string">&#x27;open_5ths&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;voice_leading&#x27;</span>: <span class="string">&#x27;smooth_semtones&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;color_tones&#x27;</span>: [<span class="number">9</span>, <span class="number">11</span>, <span class="number">13</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-贝斯：梯度下降的音频化"><a href="#5-2-贝斯：梯度下降的音频化" class="headerlink" title="5.2 贝斯：梯度下降的音频化"></a>5.2 贝斯：梯度下降的音频化</h3><p>贝斯线可以模拟梯度下降的过程：</p>
+<ul>
+<li><strong>下行贝斯线</strong>：损失函数的递减</li>
+<li><strong>上行解决</strong>：梯度上升，寻找最优解</li>
+<li><strong>保持音</strong>：局部最优点的停留</li>
+<li><strong>滑音</strong>：学习率调整时的参数更新</li>
+</ul>
+<h3 id="5-3-鼓组：算法复杂度的节奏表达"><a href="#5-3-鼓组：算法复杂度的节奏表达" class="headerlink" title="5.3 鼓组：算法复杂度的节奏表达"></a>5.3 鼓组：算法复杂度的节奏表达</h3><p>鼓组的复杂性可以映射算法复杂度：</p>
+<ul>
+<li><strong>简单模式</strong>：O(1)常数时间复杂度</li>
+<li><strong>标准摇摆</strong>：O(n)线性复杂度</li>
+<li><strong>复杂切分</strong>：O(n²)多项式复杂度</li>
+<li><strong>自由即兴</strong>：O(2^n)指数复杂度</li>
+</ul>
+<h2 id="第六章：情感参数的量化"><a href="#第六章：情感参数的量化" class="headerlink" title="第六章：情感参数的量化"></a>第六章：情感参数的量化</h2><h3 id="6-1-情感向量的构建"><a href="#6-1-情感向量的构建" class="headerlink" title="6.1 情感向量的构建"></a>6.1 情感向量的构建</h3><p>将Modal Jazz的情感特征量化为可计算的向量：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">modal_jazz_emotion = &#123;</span><br><span class="line">    <span class="string">&#x27;contemplative&#x27;</span>: <span class="number">0.8</span>,</span><br><span class="line">    <span class="string">&#x27;mysterious&#x27;</span>: <span class="number">0.7</span>,</span><br><span class="line">    <span class="string">&#x27;intellectual&#x27;</span>: <span class="number">0.9</span>,</span><br><span class="line">    <span class="string">&#x27;nostalgic&#x27;</span>: <span class="number">0.6</span>,</span><br><span class="line">    <span class="string">&#x27;innovative&#x27;</span>: <span class="number">0.85</span>,</span><br><span class="line">    <span class="string">&#x27;minimalistic&#x27;</span>: <span class="number">0.75</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-动态曲线的激活函数映射"><a href="#6-2-动态曲线的激活函数映射" class="headerlink" title="6.2 动态曲线的激活函数映射"></a>6.2 动态曲线的激活函数映射</h3><p>使用激活函数控制音乐的动态变化：</p>
+<ul>
+<li><strong>Sigmoid函数</strong>：渐强渐弱的自然过渡</li>
+<li><strong>ReLU函数</strong>：突然的动态跳跃</li>
+<li><strong>Tanh函数</strong>：对称的动态波动</li>
+<li><strong>Softmax函数</strong>：多乐器的动态平衡</li>
+</ul>
+<h3 id="6-3-音色参数的神经网络编码"><a href="#6-3-音色参数的神经网络编码" class="headerlink" title="6.3 音色参数的神经网络编码"></a>6.3 音色参数的神经网络编码</h3><p>将音色特征编码为神经网络参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">timbre_encoding = &#123;</span><br><span class="line">    <span class="string">&#x27;piano&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;brightness&#x27;</span>: <span class="number">0.7</span>,</span><br><span class="line">        <span class="string">&#x27;warmth&#x27;</span>: <span class="number">0.9</span>,</span><br><span class="line">        <span class="string">&#x27;attack&#x27;</span>: <span class="number">0.3</span>,</span><br><span class="line">        <span class="string">&#x27;sustain&#x27;</span>: <span class="number">0.8</span>,</span><br><span class="line">        <span class="string">&#x27;decay&#x27;</span>: <span class="number">0.6</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&#x27;trumpet&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;brightness&#x27;</span>: <span class="number">0.9</span>,</span><br><span class="line">        <span class="string">&#x27;warmth&#x27;</span>: <span class="number">0.5</span>,</span><br><span class="line">        <span class="string">&#x27;attack&#x27;</span>: <span class="number">0.8</span>,</span><br><span class="line">        <span class="string">&#x27;sustain&#x27;</span>: <span class="number">0.7</span>,</span><br><span class="line">        <span class="string">&#x27;decay&#x27;</span>: <span class="number">0.4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第七章：实际创作流程"><a href="#第七章：实际创作流程" class="headerlink" title="第七章：实际创作流程"></a>第七章：实际创作流程</h2><h3 id="7-1-第一阶段：概念化"><a href="#7-1-第一阶段：概念化" class="headerlink" title="7.1 第一阶段：概念化"></a>7.1 第一阶段：概念化</h3><ol>
+<li><strong>确定核心隐喻</strong>：神经网络训练过程</li>
+<li><strong>选择调式框架</strong>：D Dorian为主，相关调式为辅</li>
+<li><strong>设计结构映射</strong>：AABA对应网络层次</li>
+<li><strong>定义情感目标</strong>：沉思的、神秘的、智性的</li>
+</ol>
+<h3 id="7-2-第二阶段：Prompt构建"><a href="#7-2-第二阶段：Prompt构建" class="headerlink" title="7.2 第二阶段：Prompt构建"></a>7.2 第二阶段：Prompt构建</h3><p>完整的Suno prompt如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Modal Jazz composition titled &quot;Neural Network Nocturne&quot; in D Dorian mode, inspired by Bill Evans&#x27; harmonic approach and Miles Davis&#x27; muted trumpet tone. Structure follows neural network architecture: Input layer (A1) presents a simple motif in D Dorian, Hidden layer (A2) develops complex harmonies transitioning to E Phrygian, Output layer (B) features full ensemble in G Mixolydian with algorithmic swing feel, Integration layer (A3) returns to refined D Dorian theme. </span><br><span class="line"></span><br><span class="line">Instrumentation: Piano using rootless voicings with 9th, 11th, 13th extensions (Bill Evans style), upright bass playing descending lines that mirror gradient descent, drums with brush work creating algorithmic complexity patterns, muted trumpet with Miles Davis tone for melody statements.</span><br><span class="line"></span><br><span class="line">Technical metaphors: Neural network weights represented as harmonic intervals, backpropagation rhythms as syncopated patterns, activation functions as dynamic contours, learning rate as tempo flexibility. </span><br><span class="line"></span><br><span class="line">Emotional palette: Contemplative and mysterious, evoking the feeling of late-night coding sessions when algorithms suddenly make sense. Avoid traditional ii-V-I progressions, focus on modal colors and horizontal improvisation. </span><br><span class="line"></span><br><span class="line">Production style: Warm, intimate jazz club atmosphere with subtle electronic textures suggesting digital consciousness. Each instrument should feel like a neuron firing in a larger network, connected yet independent.</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-3-第三阶段：迭代优化"><a href="#7-3-第三阶段：迭代优化" class="headerlink" title="7.3 第三阶段：迭代优化"></a>7.3 第三阶段：迭代优化</h3><ol>
+<li><strong>初次生成</strong>：获得基础版本</li>
+<li><strong>分析评估</strong>：检查Modal Jazz纯度</li>
+<li><strong>精细调整</strong>：调整权重参数</li>
+<li><strong>最终版本</strong>：收敛到最优解</li>
+</ol>
+<h2 id="第八章：音乐理论的技术化解读"><a href="#第八章：音乐理论的技术化解读" class="headerlink" title="第八章：音乐理论的技术化解读"></a>第八章：音乐理论的技术化解读</h2><h3 id="8-1-调式音阶的矩阵表示"><a href="#8-1-调式音阶的矩阵表示" class="headerlink" title="8.1 调式音阶的矩阵表示"></a>8.1 调式音阶的矩阵表示</h3><p>将D Dorian调式表示为变换矩阵：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D Dorian Matrix:</span><br><span class="line">[ 2  1  2  2  2  1  2 ]</span><br><span class="line">[ D  E  F  G  A  B  C  D ]</span><br></pre></td></tr></table></figure>
+
+<p>这个矩阵的特征值和特征向量揭示了调式的内在结构，为AI生成提供了数学基础。</p>
+<h3 id="8-2-和声进行的图论模型"><a href="#8-2-和声进行的图论模型" class="headerlink" title="8.2 和声进行的图论模型"></a>8.2 和声进行的图论模型</h3><p>将Modal Jazz的和声进行建模为有向图：</p>
+<ul>
+<li><strong>节点</strong>：调式音级</li>
+<li><strong>边</strong>：允许的音程跳跃</li>
+<li><strong>权重</strong>：跳跃概率</li>
+<li><strong>路径</strong>：即兴线条</li>
+</ul>
+<h3 id="8-3-节奏模式的混沌理论"><a href="#8-3-节奏模式的混沌理论" class="headerlink" title="8.3 节奏模式的混沌理论"></a>8.3 节奏模式的混沌理论</h3><p>Modal Jazz的自由节奏可以用混沌理论解释：</p>
+<ul>
+<li><strong>初始条件</strong>：第一个音符的时机和力度</li>
+<li><strong>敏感依赖</strong>：微小的节奏变化导致完全不同的groove</li>
+<li><strong>奇异吸引子</strong>：保持整体风格稳定的隐性规律</li>
+</ul>
+<h2 id="第九章：后期制作与微调"><a href="#第九章：后期制作与微调" class="headerlink" title="第九章：后期制作与微调"></a>第九章：后期制作与微调</h2><h3 id="9-1-混音的神经网络隐喻"><a href="#9-1-混音的神经网络隐喻" class="headerlink" title="9.1 混音的神经网络隐喻"></a>9.1 混音的神经网络隐喻</h3><p>将混音过程视为神经网络的微调：</p>
+<ul>
+<li><strong>均衡器</strong>：频率域的权重调整</li>
+<li><strong>压缩器</strong>：动态范围的梯度裁剪</li>
+<li><strong>混响</strong>：空间信息的正则化</li>
+<li><strong>立体声像</strong>：多维特征的空间分布</li>
+</ul>
+<h3 id="9-2-母带处理的优化算法"><a href="#9-2-母带处理的优化算法" class="headerlink" title="9.2 母带处理的优化算法"></a>9.2 母带处理的优化算法</h3><p>使用类似Adam优化器的方法进行母带处理：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">mastering_optimizer</span>(<span class="params">audio, target_curve</span>):</span><br><span class="line">    moment1 = <span class="number">0</span></span><br><span class="line">    moment2 = <span class="number">0</span></span><br><span class="line">    beta1, beta2 = <span class="number">0.9</span>, <span class="number">0.999</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> iteration <span class="keyword">in</span> <span class="built_in">range</span>(max_iterations):</span><br><span class="line">        gradient = compute_spectral_gradient(audio, target_curve)</span><br><span class="line">        moment1 = beta1 * moment1 + (<span class="number">1</span> - beta1) * gradient</span><br><span class="line">        moment2 = beta2 * moment2 + (<span class="number">1</span> - beta2) * gradient**<span class="number">2</span></span><br><span class="line">        </span><br><span class="line">        update = learning_rate * moment1 / (sqrt(moment2) + epsilon)</span><br><span class="line">        audio.apply_eq_update(update)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> convergence_check(audio, target_curve):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> audio</span><br></pre></td></tr></table></figure>
+
+<h2 id="第十章：未来展望与扩展"><a href="#第十章：未来展望与扩展" class="headerlink" title="第十章：未来展望与扩展"></a>第十章：未来展望与扩展</h2><h3 id="10-1-实时神经网络音乐生成"><a href="#10-1-实时神经网络音乐生成" class="headerlink" title="10.1 实时神经网络音乐生成"></a>10.1 实时神经网络音乐生成</h3><p>未来的发展方向包括：</p>
+<ul>
+<li><strong>实时训练</strong>：音乐随着听众反馈实时进化</li>
+<li><strong>分布式生成</strong>：多个AI协同创作大型作品</li>
+<li><strong>个性化适应</strong>：根据听众脑电波调整音乐参数</li>
+</ul>
+<h3 id="10-2-跨模态创作"><a href="#10-2-跨模态创作" class="headerlink" title="10.2 跨模态创作"></a>10.2 跨模态创作</h3><p>将神经网络音乐扩展到其他艺术形式：</p>
+<ul>
+<li><strong>视觉化</strong>：将音乐参数映射为动态视觉</li>
+<li><strong>触觉反馈</strong>：通过振动感受音乐结构</li>
+<li><strong>嗅觉联觉</strong>：不同和弦对应不同气味</li>
+</ul>
+<h3 id="10-3-量子计算音乐"><a href="#10-3-量子计算音乐" class="headerlink" title="10.3 量子计算音乐"></a>10.3 量子计算音乐</h3><p>当量子计算成熟时，音乐创作将迎来新的可能性：</p>
+<ul>
+<li><strong>叠加态和弦</strong>：同时存在多个调式状态</li>
+<li><strong>纠缠旋律</strong>：两个旋律无论相隔多远都保持关联</li>
+<li><strong>量子隧穿</strong>：音乐可以”穿越”传统和声障碍</li>
+</ul>
+<h2 id="数字冥想：算法时代的哲学终章"><a href="#数字冥想：算法时代的哲学终章" class="headerlink" title="数字冥想：算法时代的哲学终章"></a>数字冥想：算法时代的哲学终章</h2><p>《神经网络夜曲》完成了一次从数学抽象到音乐具象的转化实验。在这个过程中，我们见证了几个根本性的哲学命题：</p>
+<ol>
+<li><strong>涌现性</strong>：当神经网络权重矩阵遇见D Dorian调式，涌现的不是简单的叠加，而是一种全新的音乐认知范式</li>
+<li><strong>同构性</strong>：神经网络的前向传播与Modal Jazz的即兴发展呈现出深刻的结构同构</li>
+<li><strong>互补性</strong>：算法精确性与人类直觉性不是对立关系，而是互补的认知维度</li>
+</ol>
+<p>从认识论角度看，这次创作实践揭示了一个重要真理：人工智能不是对人类创造力的威胁，而是对人类认知边界的扩展。正如Modal Jazz音乐家在传统调式框架内寻找无限可能性一样，神经网络算法在数学约束中寻找音乐表达的无限可能。</p>
+<p>更深层的哲学意义在于：我们证明了音乐创作可以被视为一种特殊的计算过程，而计算过程也可以被视为一种特殊的音乐创作。这种双向映射打破了艺术与科学的人为界限，揭示了它们共同的认知本质。</p>
+<p>当最后一个音符在D Dorian调式上消散时，留下的不是一个结束，而是一个开始——一个关于如何用数学思维理解音乐、如何用音乐思维理解数学的开始。</p>
+<p>这夜曲献给所有在深夜调试代码时突然被算法之美震撼的程序员，献给所有在爵士俱乐部中感受到数学之美的音乐家，献给所有相信艺术与科学终将统一的思想者。</p>
+<p><em>——献给认知边界的探索者</em></p>
+<hr>
+<p><em>本文创作于2025年7月21日，正值人工智能音乐创作技术从工具理性走向价值理性的历史转折点。愿这篇探索能为认知科学、音乐哲学和技术伦理学提供新的思考维度。</em></p>
+<hr>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><p>Russell, S. &amp; Norvig, P. (2021). <em>Artificial Intelligence: A Modern Approach</em> (4th ed.). Pearson. Chapter 21: Computational Creativity.</p>
+</li>
+<li><p>Bostrom, N. (2014). <em>Superintelligence: Paths, Dangers, Strategies</em>. Oxford University Press. Section on AI and artistic creation.</p>
+</li>
+<li><p>Leyshon, A. (2023). <em>Algorithmic Aesthetics: How AI is Reshaping Musical Creativity</em>. MIT Press.</p>
+</li>
+<li><p>Tymoczko, D. (2011). <em>A Geometry of Music: Harmony and Counterpoint in the Extended Common Practice</em>. Oxford University Press. Chapter 12: Jazz and Mathematical Structure.</p>
+</li>
+<li><p>Gridley, M. C. (2022). <em>Jazz Styles: History and Analysis</em> (13th ed.). Pearson. Chapter on Modal Jazz and its theoretical foundations.</p>
+</li>
+<li><p>Goodfellow, I., Bengio, Y., &amp; Courville, A. (2016). <em>Deep Learning</em>. MIT Press. Chapter 20: Generative Models applied to music.</p>
+</li>
+<li><p>Berliner, P. F. (2023). <em>Thinking in Jazz: The Infinite Art of Improvisation</em> (2nd ed.). University of Chicago Press. Updated with AI perspectives.</p>
+</li>
+<li><p>Johnson-Laird, P. N. (2019). <em>How Jazz Musicians Improvise: The Cognitive Science of Musical Creativity</em>. Oxford University Press.</p>
+</li>
+<li><p>McPherson, A. &amp; Tahiroğlu, K. (Eds.). <em>New Directions in Music and Human-Computer Interaction</em>. Springer, 2024.</p>
+</li>
+<li><p>Wang, G., Fiebrink, R., &amp; McPherson, A. (2023). Machine learning as a design material in musical AI systems. <em>Journal of New Music Research</em>, 52(3), 245-268.</p>
+</li>
+<li><p>Sturm, B. L., Ben-Tal, O., Monaghan, U., Collins, N., Herremans, D., Chew, E., … &amp; McPherson, A. (2022). Machine learning research that matters for music creation. <em>ACM Transactions on Internet Technology</em>, 22(1), 1-25.</p>
+</li>
+<li><p>Herremans, D. &amp; Chuan, C. H. (2023). Modeling musical context with deep learning for music generation. <em>IEEE Transactions on Affective Computing</em>, 14(2), 1234-1248.</p>
+</li>
+<li><p>Briot, J. P., Hadjeres, G., &amp; Pachet, F. (2021). Deep Learning Techniques for Music Generation. Springer International Publishing.</p>
+</li>
+<li><p>Fiebrink, R. &amp; Caramiaux, B. (2022). The Machine Learning Algorithm as Creative Musical Tool. Oxford University Press.</p>
+</li>
+<li><p>Born, G. &amp; Haworth, C. (Eds.). <em>Music, Digitization, Mediation: The Global Reordering of Musical Practice</em>. Oxford University Press, 2023.</p>
+</li>
+</ol>
+<hr>
+<p><em>本文创作于2025年7月21日，正值人工智能音乐创作技术突飞猛进之际。愿这篇探索能为所有音乐技术爱好者提供新的思考角度。</em></p>
+
+  </div>
+  
+  <footer class="post-footer">
+    <div class="post-nav">
+      
+        <a href="/2025/07/21/2025-07-21-quantum-swing-jazz-funk-suno-creation/" rel="prev" title="量子摇摆：Jazz-Funk的数字律动">
+          <i class="fas fa-angle-left"></i>
+          量子摇摆：Jazz-Funk的数字律动
+        </a>
+      
+      
+      
+        <a href="/2025/07/21/2025-07-21-algorithmic-blues-bebop-creation-process/" rel="next" title="算法蓝调bebop：当爵士乐遇见人工智能的创造之旅">
+          算法蓝调bebop：当爵士乐遇见人工智能的创造之旅
+          <i class="fas fa-angle-right"></i>
+        </a>
+      
+    </div>
+  </footer>
+</article>
+
+        </section>
+        <aside id="sidebar">
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line"></span>
+      <span class="sidebar-toggle-line"></span>
+      <span class="sidebar-toggle-line"></span>
+    </div>
+  </div>
+  
+  <div id="sidebar-inner">
+    <section class="site-overview-wrap sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Muscle">
+        <p class="site-author-name" itemprop="name">Muscle</p>
+        <p class="site-description motion-element" itemprop="description">一个关于技术和生活的博客</p>
+      </div>
+      
+      <nav class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <a href="/archives">
+            <span class="site-state-item-count">21</span>
+            <span class="site-state-item-name">文章</span>
+          </a>
+        </div>
+        
+        <div class="site-state-item site-state-categories">
+          <a href="/categories">
+            <span class="site-state-item-count">13</span>
+            <span class="site-state-item-name">分类</span>
+          </a>
+        </div>
+        
+        <div class="site-state-item site-state-tags">
+          <a href="/tags">
+            <span class="site-state-item-count">84</span>
+            <span class="site-state-item-name">标签</span>
+          </a>
+        </div>
+      </nav>
+      
+      
+        <div class="links-of-author motion-element">
+          
+            <span class="links-of-author-item">
+              <a href="https://github.com/zhangmengweimuscle/" target="_blank" title="GitHub">
+                
+                  <i class="fab fa-github"></i>GitHub
+                
+              </a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="https://x.com/zhangmuscle/" target="_blank" title="Twitter">
+                
+                  <i class="fab fa-twitter"></i>Twitter
+                
+              </a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="mailto:zhangmengweimusclea@email.com" target="_blank" title="Email">
+                
+                  <i class="fas fa-envelope"></i>Email
+                
+              </a>
+            </span>
+          
+        </div>
+      
+    </section>
+    
+    
+<section class="post-toc-wrap sidebar-panel">
+  <div class="post-toc motion-element">
+    <p class="post-toc-title">文章目录</p>
+    <div class="post-toc-content" id="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80%EF%BC%9A%E6%95%B0%E5%AD%97%E6%97%B6%E4%BB%A3%E7%9A%84%E7%88%B5%E5%A3%AB%E8%AF%97%E7%AF%87"><span class="toc-text">引言：数字时代的爵士诗篇</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9AModal-Jazz%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9C%AC%E8%B4%A8"><span class="toc-text">第一章：Modal Jazz的数学本质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E8%B0%83%E5%BC%8F%E7%90%86%E8%AE%BA%E7%9A%84%E7%AE%97%E6%B3%95%E9%87%8D%E6%9E%84"><span class="toc-text">1.1 调式理论的算法重构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E9%9F%B3%E4%B9%90%E7%94%9F%E6%88%90%E7%9A%84%E5%90%8C%E6%9E%84%E6%80%A7"><span class="toc-text">1.2 神经网络与音乐生成的同构性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9ASuno-AI%E7%9A%84Modal-Jazz%E5%88%9B%E4%BD%9C%E6%A1%86%E6%9E%B6"><span class="toc-text">第二章：Suno AI的Modal Jazz创作框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Prompt-Engineering%E7%9A%84%E9%9F%B3%E4%B9%90%E5%8C%96%E8%A1%A8%E8%BE%BE"><span class="toc-text">2.1 Prompt Engineering的音乐化表达</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%82%E6%95%B0%E7%9A%84%E9%9F%B3%E4%B9%90%E6%98%A0%E5%B0%84"><span class="toc-text">2.2 神经网络参数的音乐映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84%E7%9A%84%E9%9F%B3%E4%B9%90%E5%8C%96%E5%AE%9E%E7%8E%B0"><span class="toc-text">2.3 代码结构的音乐化实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E3%80%8A%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%A4%9C%E6%9B%B2%E3%80%8B%E7%9A%84%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">第三章：《神经网络夜曲》的结构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-AABA%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E9%9A%90%E5%96%BB"><span class="toc-text">3.1 AABA形式的神经网络隐喻</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%8A%82%E5%A5%8F%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%AE%97%E6%B3%95%E7%94%9F%E6%88%90"><span class="toc-text">3.2 节奏模式的算法生成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9ASuno-AI%E7%9A%84%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7"><span class="toc-text">第四章：Suno AI的高级技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Prompt%E6%9D%83%E9%87%8D%E7%9A%84%E7%B2%BE%E7%BB%86%E8%B0%83%E8%8A%82"><span class="toc-text">4.1 Prompt权重的精细调节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E8%B4%9F%E5%90%91prompt%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="toc-text">4.2 负向prompt的构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E8%BF%AD%E4%BB%A3%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="toc-text">4.3 迭代优化策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E4%B9%90%E5%99%A8%E9%85%8D%E7%BD%AE%E7%9A%84%E6%8A%80%E6%9C%AF%E5%8C%96%E8%A1%A8%E8%BE%BE"><span class="toc-text">第五章：乐器配置的技术化表达</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E9%92%A2%E7%90%B4%EF%BC%9A%E6%9D%83%E9%87%8D%E7%9F%A9%E9%98%B5%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-text">5.1 钢琴：权重矩阵的可视化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E8%B4%9D%E6%96%AF%EF%BC%9A%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%9A%84%E9%9F%B3%E9%A2%91%E5%8C%96"><span class="toc-text">5.2 贝斯：梯度下降的音频化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E9%BC%93%E7%BB%84%EF%BC%9A%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E8%8A%82%E5%A5%8F%E8%A1%A8%E8%BE%BE"><span class="toc-text">5.3 鼓组：算法复杂度的节奏表达</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E6%83%85%E6%84%9F%E5%8F%82%E6%95%B0%E7%9A%84%E9%87%8F%E5%8C%96"><span class="toc-text">第六章：情感参数的量化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E6%83%85%E6%84%9F%E5%90%91%E9%87%8F%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="toc-text">6.1 情感向量的构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%8A%A8%E6%80%81%E6%9B%B2%E7%BA%BF%E7%9A%84%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E6%98%A0%E5%B0%84"><span class="toc-text">6.2 动态曲线的激活函数映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E9%9F%B3%E8%89%B2%E5%8F%82%E6%95%B0%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A0%81"><span class="toc-text">6.3 音色参数的神经网络编码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9A%E5%AE%9E%E9%99%85%E5%88%9B%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">第七章：实际创作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%9A%E6%A6%82%E5%BF%B5%E5%8C%96"><span class="toc-text">7.1 第一阶段：概念化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9APrompt%E6%9E%84%E5%BB%BA"><span class="toc-text">7.2 第二阶段：Prompt构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%EF%BC%9A%E8%BF%AD%E4%BB%A3%E4%BC%98%E5%8C%96"><span class="toc-text">7.3 第三阶段：迭代优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%9F%B3%E4%B9%90%E7%90%86%E8%AE%BA%E7%9A%84%E6%8A%80%E6%9C%AF%E5%8C%96%E8%A7%A3%E8%AF%BB"><span class="toc-text">第八章：音乐理论的技术化解读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-%E8%B0%83%E5%BC%8F%E9%9F%B3%E9%98%B6%E7%9A%84%E7%9F%A9%E9%98%B5%E8%A1%A8%E7%A4%BA"><span class="toc-text">8.1 调式音阶的矩阵表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-%E5%92%8C%E5%A3%B0%E8%BF%9B%E8%A1%8C%E7%9A%84%E5%9B%BE%E8%AE%BA%E6%A8%A1%E5%9E%8B"><span class="toc-text">8.2 和声进行的图论模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-%E8%8A%82%E5%A5%8F%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%B7%B7%E6%B2%8C%E7%90%86%E8%AE%BA"><span class="toc-text">8.3 节奏模式的混沌理论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0%EF%BC%9A%E5%90%8E%E6%9C%9F%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BE%AE%E8%B0%83"><span class="toc-text">第九章：后期制作与微调</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-%E6%B7%B7%E9%9F%B3%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E9%9A%90%E5%96%BB"><span class="toc-text">9.1 混音的神经网络隐喻</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-%E6%AF%8D%E5%B8%A6%E5%A4%84%E7%90%86%E7%9A%84%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95"><span class="toc-text">9.2 母带处理的优化算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0%EF%BC%9A%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B%E4%B8%8E%E6%89%A9%E5%B1%95"><span class="toc-text">第十章：未来展望与扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-%E5%AE%9E%E6%97%B6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E9%9F%B3%E4%B9%90%E7%94%9F%E6%88%90"><span class="toc-text">10.1 实时神经网络音乐生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-%E8%B7%A8%E6%A8%A1%E6%80%81%E5%88%9B%E4%BD%9C"><span class="toc-text">10.2 跨模态创作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E9%9F%B3%E4%B9%90"><span class="toc-text">10.3 量子计算音乐</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%86%A5%E6%83%B3%EF%BC%9A%E7%AE%97%E6%B3%95%E6%97%B6%E4%BB%A3%E7%9A%84%E5%93%B2%E5%AD%A6%E7%BB%88%E7%AB%A0"><span class="toc-text">数字冥想：算法时代的哲学终章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
+    </div>
+  </div>
+</section>
+
+<style>
+.post-toc-wrap {
+  margin-top: 20px;
+}
+
+.post-toc-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #24292e;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.post-toc-content {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.post-toc-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.post-toc-content ul ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.post-toc-content ul ul ul {
+  padding-left: 15px;
+}
+
+.post-toc-content li {
+  margin-bottom: 5px;
+}
+
+.post-toc-content a {
+  color: #586069;
+  text-decoration: none;
+  display: block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.post-toc-content a:hover {
+  color: #0366d6;
+  background-color: #f6f8fa;
+  text-decoration: none;
+}
+
+.post-toc-content .toc-level-1 > a {
+  font-weight: 600;
+  color: #24292e;
+}
+
+.post-toc-content .toc-level-2 > a {
+  font-size: 13px;
+}
+
+.post-toc-content .toc-level-3 > a {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+/* 修复重复序号问题 */
+.post-toc-content ol,
+.post-toc-content ul {
+  counter-reset: none;
+  list-style-type: none;
+}
+
+.post-toc-content li::before {
+  content: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .post-toc-wrap {
+    margin-top: 15px;
+  }
+  
+  .post-toc-title {
+    font-size: 14px;
+  }
+  
+  .post-toc-content {
+    font-size: 13px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  'use strict';
+  
+  // 修复TOC中的重复编号问题
+  function fixTocNumbering() {
+    var tocContent = document.getElementById('post-toc-content');
+    if (!tocContent) return;
+    
+    // 移除所有可能的编号
+    var links = tocContent.querySelectorAll('a');
+    links.forEach(function(link) {
+      // 移除链接文本中的编号
+      var text = link.textContent;
+      text = text.replace(/^\d+\.\s*/, ''); // 移除 "1. " 这样的前缀
+      text = text.replace(/^\d+\s*/, '');   // 移除 "1 " 这样的前缀
+      link.textContent = text;
+    });
+    
+    // 确保没有ol元素的编号
+    var lists = tocContent.querySelectorAll('ol');
+    lists.forEach(function(list) {
+      list.style.listStyle = 'none';
+      list.style.counterReset = 'none';
+    });
+  }
+  
+  // 高亮当前阅读位置
+  function highlightCurrentSection() {
+    var tocLinks = document.querySelectorAll('.post-toc-content a');
+    var headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3');
+    
+    if (!tocLinks.length || !headings.length) return;
+    
+    function updateActiveLink() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var activeFound = false;
+      
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var heading = headings[i];
+        var rect = heading.getBoundingClientRect();
+        var top = rect.top + scrollTop;
+        
+        if (scrollTop >= top - 100) {
+          tocLinks.forEach(function(link) {
+            link.classList.remove('active');
+          });
+          
+          var id = heading.getAttribute('id');
+          var activeLink = document.querySelector('.post-toc-content a[href="#' + id + '"]');
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+          
+          activeFound = true;
+          break;
+        }
+      }
+      
+      if (!activeFound) {
+        tocLinks.forEach(function(link) {
+          link.classList.remove('active');
+        });
+      }
+    }
+    
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink(); // 初始调用
+  }
+  
+  // 初始化
+  document.addEventListener('DOMContentLoaded', function() {
+    fixTocNumbering();
+    highlightCurrentSection();
+  });
+})();
+</script>
+
+
+  </div>
+</aside>
+
+      </div>
+    </div>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 Muscle<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      | Theme - <a href="https://github.com/yourusername/hexo-theme-github-style" target="_blank">GitHub Style</a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  
+<script src="/js/main.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sidebarToggle = document.querySelector('.sidebar-toggle');
+    var sidebar = document.querySelector('#sidebar');
+    
+    if (sidebarToggle && sidebar) {
+      sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('sidebar-active');
+      });
+    }
+    
+    var searchBtn = document.querySelector('#nav-search-btn');
+    var searchForm = document.querySelector('#search-form-wrap');
+    
+    if (searchBtn && searchForm) {
+      searchBtn.addEventListener('click', function() {
+        searchForm.classList.toggle('on');
+        if (searchForm.classList.contains('on')) {
+          searchForm.querySelector('.search-form-input').focus();
+        }
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

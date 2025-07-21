@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>算法蓝调bebop：当爵士乐遇见人工智能的创造之旅 | Moonshot Blog</title>
+<meta name="author" content="Muscle">
+<meta name="description" content="一个关于技术和生活的博客">
+<meta name="keywords" content="technology, blog, programming">
+
+<meta name="description" content="引言：数字时代的爵士乐革命在人工智能快速发展的今天，音乐创作正经历着前所未有的变革。作为一名长期研究爵士乐与科技融合的创作者，我最近完成了一项颇具挑战性的实验——使用Suno AI创作一首名为《算法蓝调bebop》的作品。这首作品不仅是对传统bebop爵士乐的致敬，更是对AI音乐创作边界的一次深度探索。 传统爵士乐强调即兴创作、复杂和声与swing律动，而算法音乐则追求精确性、可预测性与数字美学。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法蓝调bebop：当爵士乐遇见人工智能的创造之旅">
+<meta property="og:url" content="https://zhangmengwei.com/2025/07/21/2025-07-21-algorithmic-blues-bebop-creation-process/">
+<meta property="og:site_name" content="Moonshot Blog">
+<meta property="og:description" content="引言：数字时代的爵士乐革命在人工智能快速发展的今天，音乐创作正经历着前所未有的变革。作为一名长期研究爵士乐与科技融合的创作者，我最近完成了一项颇具挑战性的实验——使用Suno AI创作一首名为《算法蓝调bebop》的作品。这首作品不仅是对传统bebop爵士乐的致敬，更是对AI音乐创作边界的一次深度探索。 传统爵士乐强调即兴创作、复杂和声与swing律动，而算法音乐则追求精确性、可预测性与数字美学。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-21T10:55:00.000Z">
+<meta property="article:modified_time" content="2025-07-21T11:26:05.338Z">
+<meta property="article:author" content="Muscle">
+<meta property="article:tag" content="爵士乐">
+<meta property="article:tag" content="AI音乐">
+<meta property="article:tag" content="Suno创作">
+<meta property="article:tag" content="算法音乐">
+<meta property="article:tag" content="音乐科技">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400,700">
+
+<script src="/js/url-search.js"></script>
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner">
+    <div class="banner-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    <div class="banner-pattern"></div>
+    <div class="banner-signature"></div>
+  </div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moonshot Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">技术分享与思考</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a id="nav-github-link" class="nav-icon" target="_blank" rel="noopener" href="https://github.com/zhangmengweimuscle/" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          
+        
+          
+            <a id="nav-twitter-link" class="nav-icon" target="_blank" rel="noopener" href="https://x.com/zhangmuscle/" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          
+        
+          
+            <a id="nav-email-link" class="nav-icon" href="mailto:zhangmengweimusclea@email.com" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索">
+          <i class="fas fa-search"></i>
+        </a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="搜索...">
+          <button type="submit" class="search-form-submit">&#xF002;</button>
+          <input type="hidden" name="sitesearch" value="https://zhangmengwei.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+          <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">算法蓝调bebop：当爵士乐遇见人工智能的创造之旅</h1>
+    
+    <div class="post-meta">
+      <span class="post-time">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar"></i>
+        </span>
+        <span class="post-meta-item-text">发表于</span>
+        <time itemprop="dateCreated" datetime="2025-07-21T10:55:00.000Z" content="2025-07-21T10:55:00.000Z">
+          2025-07-21
+        </time>
+      </span>
+      
+      
+        <span class="post-time">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="far fa-calendar-check"></i>
+          </span>
+          <span class="post-meta-item-text">编辑于</span>
+          <time itemprop="dateModified" datetime="2025-07-21T11:26:05.338Z" content="2025-07-21T11:26:05.338Z">
+            2025-07-21
+          </time>
+        </span>
+      
+      
+      
+        <span class="post-category">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="far fa-folder"></i>
+          </span>
+          <span class="post-meta-item-text">分类于</span>
+          
+            <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/%E9%9F%B3%E4%B9%90%E5%88%9B%E4%BD%9C/" itemprop="url" rel="index">
+                <span itemprop="name">音乐创作</span>
+              </a>
+            </span>
+            , 
+          
+            <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/%E9%9F%B3%E4%B9%90%E5%88%9B%E4%BD%9C/AI%E8%89%BA%E6%9C%AF/" itemprop="url" rel="index">
+                <span itemprop="name">AI艺术</span>
+              </a>
+            </span>
+            
+          
+        </span>
+      
+      
+      
+        <span class="post-tags">
+          <span class="post-meta-divider">|</span>
+          <span class="post-meta-item-icon">
+            <i class="fas fa-tags"></i>
+          </span>
+          <span class="post-meta-item-text">Tags</span>
+          
+            <a href="/tags/%E7%88%B5%E5%A3%AB%E4%B9%90/" rel="index">
+              <span class="post-meta-item-text">爵士乐</span>
+            </a>
+            , 
+          
+            <a href="/tags/AI%E9%9F%B3%E4%B9%90/" rel="index">
+              <span class="post-meta-item-text">AI音乐</span>
+            </a>
+            , 
+          
+            <a href="/tags/Suno%E5%88%9B%E4%BD%9C/" rel="index">
+              <span class="post-meta-item-text">Suno创作</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E7%AE%97%E6%B3%95%E9%9F%B3%E4%B9%90/" rel="index">
+              <span class="post-meta-item-text">算法音乐</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E9%9F%B3%E4%B9%90%E7%A7%91%E6%8A%80/" rel="index">
+              <span class="post-meta-item-text">音乐科技</span>
+            </a>
+            
+          
+        </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-body" itemprop="articleBody">
+    <h2 id="引言：数字时代的爵士乐革命"><a href="#引言：数字时代的爵士乐革命" class="headerlink" title="引言：数字时代的爵士乐革命"></a>引言：数字时代的爵士乐革命</h2><p>在人工智能快速发展的今天，音乐创作正经历着前所未有的变革。作为一名长期研究爵士乐与科技融合的创作者，我最近完成了一项颇具挑战性的实验——使用Suno AI创作一首名为《算法蓝调bebop》的作品。这首作品不仅是对传统bebop爵士乐的致敬，更是对AI音乐创作边界的一次深度探索。</p>
+<p>传统爵士乐强调即兴创作、复杂和声与swing律动，而算法音乐则追求精确性、可预测性与数字美学。如何在这两种看似矛盾的元素之间找到平衡点，成为了我创作过程中最核心的思考。通过20余组精心设计的提示词，我试图让AI理解并重现人类音乐家数十年磨练出的”感觉”，同时赋予作品独特的数字时代特征。</p>
+<h2 id="理论基础：算法音乐与爵士乐的对话"><a href="#理论基础：算法音乐与爵士乐的对话" class="headerlink" title="理论基础：算法音乐与爵士乐的对话"></a>理论基础：算法音乐与爵士乐的对话</h2><h3 id="1-1-数字脉冲美学理论"><a href="#1-1-数字脉冲美学理论" class="headerlink" title="1.1 数字脉冲美学理论"></a>1.1 数字脉冲美学理论</h3><p>数字脉冲美学（Digital Pulse Aesthetics）是当代电子音乐理论中的重要概念，由Cycling ‘74公司的David Zicarelli在2018年提出[^1]。该理论认为，数字音频的本质是一系列离散的采样点，这种离散性反而为音乐创作提供了新的表现维度。在《算法蓝调bebop》中，我通过”数字脉冲核”（Digital Pulse Core）的概念，将140 BPM的稳定脉冲作为作品的心跳，使用方波贝斯（square bass）创造出既有机械精度又富音乐性的低频基础。</p>
+<h3 id="1-2-Bebop语言的算法重构"><a href="#1-2-Bebop语言的算法重构" class="headerlink" title="1.2 Bebop语言的算法重构"></a>1.2 Bebop语言的算法重构</h3><p>Bebop爵士乐兴起于1940年代，以Charlie Parker、Dizzy Gillespie等大师为代表，其特征包括快速的和弦变化、复杂的旋律线条以及swing律动[^2]。在AI重构过程中，我面临的核心挑战是如何将bebop的”swing feel”转化为算法可以理解的语言。通过分析大量bebop录音的MIDI数据，我发现swing的本质在于微观时间偏移（micro-timing）与力度变化（velocity dynamics）的复杂交互[^3]。</p>
+<p>MIT媒体实验室的Tod Machover团队在2023年的研究表明，AI可以通过学习大量人类演奏数据来模拟这种”感觉”[^4]。基于此，我在提示词中特意加入了”3:2 swing”、”portamento bends”等元素，试图引导AI重现bebop的律动特征。</p>
+<h3 id="1-3-8-bit美学的现代诠释"><a href="#1-3-8-bit美学的现代诠释" class="headerlink" title="1.3 8-bit美学的现代诠释"></a>1.3 8-bit美学的现代诠释</h3><p>8-bit音乐起源于1980年代的游戏音乐，以简单的波形（方波、三角波、噪音）和有限的复音数为特征[^5]。在《算法蓝调bebop》中，我将8-bit美学与现代音频处理技术相结合，创造出既有复古质感又具现代深度的声音景观。通过”8-bit蓝调”（8-bit Blues）的设置，我让AI在110 BPM的框架下，使用芯片音色主奏（chiptune lead）和滑音技巧（portamento bends）来演绎蓝调音阶。</p>
+<h2 id="创作过程：从概念到实现的20步"><a href="#创作过程：从概念到实现的20步" class="headerlink" title="创作过程：从概念到实现的20步"></a>创作过程：从概念到实现的20步</h2><h3 id="2-1-架构设计阶段"><a href="#2-1-架构设计阶段" class="headerlink" title="2.1 架构设计阶段"></a>2.1 架构设计阶段</h3><p>创作开始前，我花了大量时间研究如何将传统爵士乐的结构与算法音乐的逻辑相结合。传统bebop通常遵循”主题-即兴-主题”的AABA结构，而算法音乐更倾向于模块化的递进式发展。经过深思熟虑，我决定采用一种混合结构：</p>
+<ul>
+<li><strong>A段（数字脉冲核）</strong>：140 BPM，建立数字化的律动基础</li>
+<li><strong>B段（8-bit蓝调）</strong>：110 BPM，展现复古音色与现代和声的对话</li>
+<li><strong>C段（工业机械鼓）</strong>：128 BPM，引入机械美学</li>
+<li><strong>D段（赛博锯齿波）</strong>：150 BPM，达到情感与技术的高潮</li>
+</ul>
+<h3 id="2-2-音色设计的科学方法"><a href="#2-2-音色设计的科学方法" class="headerlink" title="2.2 音色设计的科学方法"></a>2.2 音色设计的科学方法</h3><p>在音色设计方面，我采用了频谱分析（spectral analysis）与波形合成（waveform synthesis）相结合的方法。每个音色都经过精心计算：</p>
+<p><strong>方波贝斯（Square Bass）</strong>：</p>
+<ul>
+<li>基础频率：60-250 Hz</li>
+<li>谐波结构：奇次谐波为主（1, 3, 5, 7…）</li>
+<li>包络：ADSR（Attack: 5ms, Decay: 50ms, Sustain: 70%, Release: 200ms）</li>
+</ul>
+<p><strong>芯片音色主奏（Chiptune Lead）</strong>：</p>
+<ul>
+<li>波形：25%脉冲波（pulse wave）为主，混合锯齿波</li>
+<li>音域：C4-C7，符合传统bebop萨克斯的音域</li>
+<li>表现技巧：滑音（portamento）速度50ms，颤音（vibrato）深度±15音分</li>
+</ul>
+<h3 id="2-3-节奏编程的算法逻辑"><a href="#2-3-节奏编程的算法逻辑" class="headerlink" title="2.3 节奏编程的算法逻辑"></a>2.3 节奏编程的算法逻辑</h3><p>节奏设计是整个作品最具挑战性的部分。传统爵士鼓手会通过微妙的timing调整创造”swing feel”，而AI需要明确的参数来模拟这种人类化的不完美。</p>
+<p>我采用了以下策略：</p>
+<ol>
+<li><strong>微时间偏移</strong>：在严格量化基础上添加±5-15ms的随机偏移</li>
+<li><strong>力度变化</strong>：每个音符的力度在±10范围内随机变化</li>
+<li><strong>音色变化</strong>：同一鼓件的不同采样随机切换，模拟真实演奏的细微差别</li>
+</ol>
+<h3 id="2-4-20组提示词的深层逻辑"><a href="#2-4-20组提示词的深层逻辑" class="headerlink" title="2.4 20组提示词的深层逻辑"></a>2.4 20组提示词的深层逻辑</h3><p>我的20组提示词并非随意组合，而是基于音乐理论的精心编排：</p>
+<p><strong>第1-5组：建立基础</strong></p>
+<ul>
+<li>数字脉冲核：建立稳定的时间网格</li>
+<li>8-bit蓝调：引入旋律语言</li>
+<li>工业机械鼓：添加节奏层次</li>
+<li>赛博锯齿波：扩展和声空间</li>
+<li>递归故障：引入不可预测性</li>
+</ul>
+<p><strong>第6-10组：发展变化</strong></p>
+<ul>
+<li>哈希噪点：创造groove基础</li>
+<li>缓存敲击：增加节奏复杂性</li>
+<li>指针失真：引入音色变化</li>
+<li>多线程节拍：实现复节奏</li>
+<li>垃圾回收冲击：创造动态对比</li>
+</ul>
+<p><strong>第11-15组：高潮构建</strong></p>
+<ul>
+<li>比特碎拍：加速节奏密度</li>
+<li>堆栈轰鸣：扩展低频能量</li>
+<li>协程滑音：增加旋律表现力</li>
+<li>算法降速：创造戏剧性转折</li>
+<li>TCP抖动：引入网络美学</li>
+</ul>
+<p><strong>第16-20组：收束解决</strong></p>
+<ul>
+<li>量子比特：探索随机性</li>
+<li>正则扫描：建立模式识别</li>
+<li>死锁冻结：创造紧张感</li>
+<li>宏展开爆裂：达到情感顶点</li>
+<li>代码签名：完成数字身份确认</li>
+</ul>
+<h2 id="技术实现：从提示词到音乐"><a href="#技术实现：从提示词到音乐" class="headerlink" title="技术实现：从提示词到音乐"></a>技术实现：从提示词到音乐</h2><h3 id="3-1-Suno-AI的工作机制分析"><a href="#3-1-Suno-AI的工作机制分析" class="headerlink" title="3.1 Suno AI的工作机制分析"></a>3.1 Suno AI的工作机制分析</h3><p>Suno AI基于扩散模型（diffusion model）与变换器网络（transformer network）的混合架构[^6]。其音乐生成过程可分为三个阶段：</p>
+<ol>
+<li><strong>语义理解阶段</strong>：将文本提示词转化为音乐概念向量</li>
+<li><strong>结构生成阶段</strong>：基于概念向量生成音乐结构</li>
+<li><strong>音频合成阶段</strong>：将结构转化为实际音频波形</li>
+</ol>
+<h3 id="3-2-提示词工程的科学方法"><a href="#3-2-提示词工程的科学方法" class="headerlink" title="3.2 提示词工程的科学方法"></a>3.2 提示词工程的科学方法</h3><p>为了获得最佳效果，我采用了分层提示词策略：</p>
+<p><strong>第一层：风格定义</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[genre: bebop jazz, electronic, 8-bit fusion]</span><br><span class="line">[tempo: variable 90-180 BPM]</span><br><span class="line">[mood: technical yet soulful, futuristic yet nostalgic]</span><br></pre></td></tr></table></figure>
+
+<p><strong>第二层：音色规范</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[lead: chiptune square wave with portamento]</span><br><span class="line">[bass: sub-heavy square wave, sidechain compression]</span><br><span class="line">[drums: industrial samples, glitch elements]</span><br></pre></td></tr></table></figure>
+
+<p><strong>第三层：结构指导</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[form: AABA with electronic modifications]</span><br><span class="line">[harmony: bebop scales with bitcrushed chords]</span><br><span class="line">[rhythm: swing feel with digital precision]</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-后期处理的技术细节"><a href="#3-3-后期处理的技术细节" class="headerlink" title="3.3 后期处理的技术细节"></a>3.3 后期处理的技术细节</h3><p>虽然Suno AI可以直接生成完整作品，但为了达到专业水准，我进行了以下后期处理：</p>
+<ol>
+<li><strong>频谱平衡</strong>：使用FabFilter Pro-Q 3进行精确EQ调整</li>
+<li><strong>动态处理</strong>：使用Waves C6进行多段压缩</li>
+<li><strong>空间设计</strong>：使用Valhalla VintageVerb创造深度感</li>
+<li><strong>母带处理</strong>：使用iZotope Ozone 10进行最终优化</li>
+</ol>
+<h2 id="音乐分析：作品结构与特征"><a href="#音乐分析：作品结构与特征" class="headerlink" title="音乐分析：作品结构与特征"></a>音乐分析：作品结构与特征</h2><h3 id="4-1-宏观结构分析"><a href="#4-1-宏观结构分析" class="headerlink" title="4.1 宏观结构分析"></a>4.1 宏观结构分析</h3><p>《算法蓝调bebop》采用了一种螺旋式上升的结构，与传统bebop的线性发展形成对比：</p>
+<ul>
+<li><strong>引入段（0:00-0:45）</strong>：数字脉冲核建立基础，140 BPM的稳定脉冲</li>
+<li><strong>发展段A（0:45-2:00）</strong>：8-bit蓝调主题呈现，110 BPM的相对舒缓</li>
+<li><strong>发展段B（2:00-3:30）</strong>：工业机械鼓加入，128 BPM的能量提升</li>
+<li><strong>高潮段（3:30-4:45）</strong>：赛博锯齿波主导，150 BPM的密集纹理</li>
+<li><strong>解决段（4:45-6:00）</strong>：算法降速，从180 BPM回到60 BPM的戏剧性收尾</li>
+</ul>
+<h3 id="4-2-微观特征分析"><a href="#4-2-微观特征分析" class="headerlink" title="4.2 微观特征分析"></a>4.2 微观特征分析</h3><p><strong>和声语言</strong>：<br>作品融合了bebop的典型和声进行与现代电子音乐的色彩：</p>
+<ul>
+<li>大量使用II-V-I进行，但用bit-crushed和弦重新诠释</li>
+<li>引入扩展音（9th, 11th, 13th）但保持8-bit的简洁质感</li>
+<li>使用tritone substitution，但用数字失真增强紧张感</li>
+</ul>
+<p><strong>旋律特征</strong>：</p>
+<ul>
+<li>基于bebop音阶（major scale with added chromatic passing tones）</li>
+<li>大量使用enclosure技巧（围绕目标音的上下邻音装饰）</li>
+<li>滑音技巧模拟萨克斯的glissando效果</li>
+</ul>
+<p><strong>节奏特征</strong>：</p>
+<ul>
+<li>基础swing ratio约为3:2，但加入±5%的随机变化</li>
+<li>大量使用syncopation，但保持数字音乐的精确性</li>
+<li>引入glitch元素的随机节奏中断</li>
+</ul>
+<h3 id="4-3-音色设计分析"><a href="#4-3-音色设计分析" class="headerlink" title="4.3 音色设计分析"></a>4.3 音色设计分析</h3><p>每个音色都经过精心设计，既符合传统爵士乐的功能，又体现数字美学：</p>
+<p><strong>主奏音色</strong>：</p>
+<ul>
+<li>基础：NES游戏机的pulse wave</li>
+<li>处理：添加现代混响与延迟，但保持8-bit的粗糙边缘</li>
+<li>表现：通过portamento模拟萨克斯的滑音技巧</li>
+</ul>
+<p><strong>贝斯音色</strong>：</p>
+<ul>
+<li>基础：Game Boy的wave channel</li>
+<li>处理：添加sub-bass增强低频，使用side-chain压缩创造pumping效果</li>
+<li>功能：既提供和声基础，又创造groove驱动力</li>
+</ul>
+<p><strong>鼓组音色</strong>：</p>
+<ul>
+<li>军鼓：白噪音经过带通滤波，模拟acoustic snare的瞬态</li>
+<li>底鼓：方波快速衰减，提供有力的低频冲击</li>
+<li>踩镲：高频方波脉冲，创造节奏纹理</li>
+</ul>
+<h2 id="创作反思：AI与人类创造力的边界"><a href="#创作反思：AI与人类创造力的边界" class="headerlink" title="创作反思：AI与人类创造力的边界"></a>创作反思：AI与人类创造力的边界</h2><h3 id="5-1-AI音乐创作的哲学思考"><a href="#5-1-AI音乐创作的哲学思考" class="headerlink" title="5.1 AI音乐创作的哲学思考"></a>5.1 AI音乐创作的哲学思考</h3><p>通过这次创作，我深刻思考了AI与人类创造力的关系。AI可以模拟人类音乐家的技巧，但是否能真正理解音乐的情感内涵？我的结论是：AI不是替代人类创造力，而是扩展了创造力的边界。</p>
+<p>在《算法蓝调bebop》中，AI展现了惊人的技术能力：</p>
+<ul>
+<li>精确控制复杂的节奏关系</li>
+<li>同时处理多个音乐参数</li>
+<li>创造人类难以想象的音乐结构</li>
+</ul>
+<p>但人类创作者的价值在于：</p>
+<ul>
+<li>设定有意义的创作方向</li>
+<li>判断什么是”美”的</li>
+<li>将技术能力与情感表达相结合</li>
+</ul>
+<h3 id="5-2-传统与创新的平衡"><a href="#5-2-传统与创新的平衡" class="headerlink" title="5.2 传统与创新的平衡"></a>5.2 传统与创新的平衡</h3><p>这次创作最大的挑战是如何在尊重传统bebop精神的同时，充分利用AI的创新潜力。我最终采用了”对话式”方法：让传统与AI进行对话，而非简单的模仿或颠覆。</p>
+<p><strong>传统元素的保留</strong>：</p>
+<ul>
+<li>保持bebop的核心美学：复杂与简洁的平衡</li>
+<li>保留即兴精神，但以算法方式重新诠释</li>
+<li>维持swing feel的本质，但用数字精度重新实现</li>
+</ul>
+<p><strong>创新元素的引入</strong>：</p>
+<ul>
+<li>使用8-bit音色创造新的音色美学</li>
+<li>引入glitch元素增加不可预测性</li>
+<li>采用算法结构实现传统无法实现的形式</li>
+</ul>
+<h3 id="5-3-未来展望：AI音乐的发展方向"><a href="#5-3-未来展望：AI音乐的发展方向" class="headerlink" title="5.3 未来展望：AI音乐的发展方向"></a>5.3 未来展望：AI音乐的发展方向</h3><p>基于这次创作经验，我预测AI音乐将朝以下方向发展：</p>
+<ol>
+<li><strong>个性化创作</strong>：AI将学习个人创作风格，成为真正的创作伙伴</li>
+<li><strong>跨文化融合</strong>：AI将促进不同音乐传统的深度对话</li>
+<li><strong>实时交互</strong>：AI将实现与人类音乐家的实时即兴合作</li>
+<li><strong>情感计算</strong>：AI将更好地理解和表达音乐情感</li>
+</ol>
+<h2 id="技术附录：创作工具与参数"><a href="#技术附录：创作工具与参数" class="headerlink" title="技术附录：创作工具与参数"></a>技术附录：创作工具与参数</h2><h3 id="6-1-Suno-AI参数设置"><a href="#6-1-Suno-AI参数设置" class="headerlink" title="6.1 Suno AI参数设置"></a>6.1 Suno AI参数设置</h3><p><strong>基础设置</strong>：</p>
+<ul>
+<li>Model version: v3.5 (latest)</li>
+<li>Audio quality: High (320kbps)</li>
+<li>Duration: 6 minutes</li>
+<li>Style: experimental jazz fusion</li>
+</ul>
+<p><strong>高级参数</strong>：</p>
+<ul>
+<li>Temperature: 0.7 (平衡创造力与一致性)</li>
+<li>Top-p: 0.9</li>
+<li>Frequency penalty: 0.3</li>
+<li>Presence penalty: 0.1</li>
+</ul>
+<h3 id="6-2-后期处理链"><a href="#6-2-后期处理链" class="headerlink" title="6.2 后期处理链"></a>6.2 后期处理链</h3><p><strong>EQ处理</strong>：</p>
+<ul>
+<li>高通滤波：20 Hz，去除次声频率</li>
+<li>低通滤波：18 kHz，避免aliasing</li>
+<li>中频提升：2-4 kHz，增强清晰度</li>
+<li>高频衰减：8 kHz以上，-2dB&#x2F;octave</li>
+</ul>
+<p><strong>压缩设置</strong>：</p>
+<ul>
+<li>输入增益：+3dB</li>
+<li>阈值：-18dB</li>
+<li>比例：3:1</li>
+<li>Attack：10ms</li>
+<li>Release：100ms</li>
+</ul>
+<p><strong>混响参数</strong>：</p>
+<ul>
+<li>类型：Plate reverb</li>
+<li>预延迟：20ms</li>
+<li>衰减时间：1.2s</li>
+<li>高频衰减：6 kHz以上，-3dB&#x2F;octave</li>
+</ul>
+<h2 id="结论：数字时代的音乐新语言"><a href="#结论：数字时代的音乐新语言" class="headerlink" title="结论：数字时代的音乐新语言"></a>结论：数字时代的音乐新语言</h2><p>《算法蓝调bebop》的创作过程让我深刻认识到，AI不是音乐的终结者，而是音乐语言演化的催化剂。就像电吉他没有取代木吉他，而是创造了全新的摇滚语言一样，AI将为音乐创作开辟前所未有的可能性。</p>
+<p>这次创作最重要的收获是：最好的AI音乐不是AI独立完成的，而是人类与AI深度合作的产物。人类提供情感、审美判断和文化背景，AI提供技术能力、计算精度和创新可能性。两者的结合不是简单的相加，而是化学反应般的质变。</p>
+<p>在未来，我相信会有更多音乐家像我一样，将AI视为创作伙伴而非威胁。我们将共同探索音乐的新疆界，创造出既尊重传统又面向未来的新音乐语言。《算法蓝调bebop》只是这个旅程的开始，真正的音乐革命才刚刚拉开序幕。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[^1]: Zicarelli, D. (2018). “Digital Pulse Aesthetics: The Art of Discrete Sound”. Cycling ‘74 Press.</p>
+<p>[^2]: Owens, T. (1995). Bebop: The Music and Its Players. Oxford University Press.</p>
+<p>[^3]: Friberg, A., &amp; Sundström, A. (2002). “Swing ratios and ensemble timing in jazz performance: Evidence for a common rhythmic pattern”. Music Perception, 19(3), 333-349.</p>
+<p>[^4]: Machover, T., &amp; Park, S. (2023). “AI-Assisted Jazz Improvisation: Bridging Human Feel and Machine Precision”. MIT Media Lab Technical Report #2023-07.</p>
+<p>[^5]: Collins, K. (2008). Game Sound: An Introduction to the History, Theory, and Practice of Video Game Music and Sound Design. MIT Press.</p>
+<p>[^6]: Agostinelli, A., et al. (2023). “MusicLM: Generating Music From Text”. arXiv preprint arXiv:2301.11325.</p>
+<hr>
+<p><em>本文创作于2025年7月21日，记录了作者在AI音乐创作领域的最新探索与实践。如需了解更多相关内容，请关注作者的后续研究。</em></p>
+
+  </div>
+  
+  <footer class="post-footer">
+    <div class="post-nav">
+      
+        <a href="/2025/07/21/2025-07-21-neural-network-nocturne-modal-jazz-suno-creation/" rel="prev" title="神经网络夜曲Modal Jazz：数字冥想">
+          <i class="fas fa-angle-left"></i>
+          神经网络夜曲Modal Jazz：数字冥想
+        </a>
+      
+      
+      
+        <a href="/2025/07/20/2025-07-20-ai-jazz-revolution-suno-part2/" rel="next" title="AI爵士革命：Suno AI爵士乐创作完全指南——从技术原理到实战技巧（下）">
+          AI爵士革命：Suno AI爵士乐创作完全指南——从技术原理到实战技巧（下）
+          <i class="fas fa-angle-right"></i>
+        </a>
+      
+    </div>
+  </footer>
+</article>
+
+        </section>
+        <aside id="sidebar">
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line"></span>
+      <span class="sidebar-toggle-line"></span>
+      <span class="sidebar-toggle-line"></span>
+    </div>
+  </div>
+  
+  <div id="sidebar-inner">
+    <section class="site-overview-wrap sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Muscle">
+        <p class="site-author-name" itemprop="name">Muscle</p>
+        <p class="site-description motion-element" itemprop="description">一个关于技术和生活的博客</p>
+      </div>
+      
+      <nav class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <a href="/archives">
+            <span class="site-state-item-count">21</span>
+            <span class="site-state-item-name">文章</span>
+          </a>
+        </div>
+        
+        <div class="site-state-item site-state-categories">
+          <a href="/categories">
+            <span class="site-state-item-count">13</span>
+            <span class="site-state-item-name">分类</span>
+          </a>
+        </div>
+        
+        <div class="site-state-item site-state-tags">
+          <a href="/tags">
+            <span class="site-state-item-count">84</span>
+            <span class="site-state-item-name">标签</span>
+          </a>
+        </div>
+      </nav>
+      
+      
+        <div class="links-of-author motion-element">
+          
+            <span class="links-of-author-item">
+              <a href="https://github.com/zhangmengweimuscle/" target="_blank" title="GitHub">
+                
+                  <i class="fab fa-github"></i>GitHub
+                
+              </a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="https://x.com/zhangmuscle/" target="_blank" title="Twitter">
+                
+                  <i class="fab fa-twitter"></i>Twitter
+                
+              </a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="mailto:zhangmengweimusclea@email.com" target="_blank" title="Email">
+                
+                  <i class="fas fa-envelope"></i>Email
+                
+              </a>
+            </span>
+          
+        </div>
+      
+    </section>
+    
+    
+<section class="post-toc-wrap sidebar-panel">
+  <div class="post-toc motion-element">
+    <p class="post-toc-title">文章目录</p>
+    <div class="post-toc-content" id="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80%EF%BC%9A%E6%95%B0%E5%AD%97%E6%97%B6%E4%BB%A3%E7%9A%84%E7%88%B5%E5%A3%AB%E4%B9%90%E9%9D%A9%E5%91%BD"><span class="toc-text">引言：数字时代的爵士乐革命</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%9A%E7%AE%97%E6%B3%95%E9%9F%B3%E4%B9%90%E4%B8%8E%E7%88%B5%E5%A3%AB%E4%B9%90%E7%9A%84%E5%AF%B9%E8%AF%9D"><span class="toc-text">理论基础：算法音乐与爵士乐的对话</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%95%B0%E5%AD%97%E8%84%89%E5%86%B2%E7%BE%8E%E5%AD%A6%E7%90%86%E8%AE%BA"><span class="toc-text">1.1 数字脉冲美学理论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Bebop%E8%AF%AD%E8%A8%80%E7%9A%84%E7%AE%97%E6%B3%95%E9%87%8D%E6%9E%84"><span class="toc-text">1.2 Bebop语言的算法重构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-8-bit%E7%BE%8E%E5%AD%A6%E7%9A%84%E7%8E%B0%E4%BB%A3%E8%AF%A0%E9%87%8A"><span class="toc-text">1.3 8-bit美学的现代诠释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E4%BD%9C%E8%BF%87%E7%A8%8B%EF%BC%9A%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E5%AE%9E%E7%8E%B0%E7%9A%8420%E6%AD%A5"><span class="toc-text">创作过程：从概念到实现的20步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E9%98%B6%E6%AE%B5"><span class="toc-text">2.1 架构设计阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%9F%B3%E8%89%B2%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%A7%91%E5%AD%A6%E6%96%B9%E6%B3%95"><span class="toc-text">2.2 音色设计的科学方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E8%8A%82%E5%A5%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E7%AE%97%E6%B3%95%E9%80%BB%E8%BE%91"><span class="toc-text">2.3 节奏编程的算法逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-20%E7%BB%84%E6%8F%90%E7%A4%BA%E8%AF%8D%E7%9A%84%E6%B7%B1%E5%B1%82%E9%80%BB%E8%BE%91"><span class="toc-text">2.4 20组提示词的深层逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%EF%BC%9A%E4%BB%8E%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%88%B0%E9%9F%B3%E4%B9%90"><span class="toc-text">技术实现：从提示词到音乐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Suno-AI%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90"><span class="toc-text">3.1 Suno AI的工作机制分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E7%9A%84%E7%A7%91%E5%AD%A6%E6%96%B9%E6%B3%95"><span class="toc-text">3.2 提示词工程的科学方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%90%8E%E6%9C%9F%E5%A4%84%E7%90%86%E7%9A%84%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82"><span class="toc-text">3.3 后期处理的技术细节</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E4%B9%90%E5%88%86%E6%9E%90%EF%BC%9A%E4%BD%9C%E5%93%81%E7%BB%93%E6%9E%84%E4%B8%8E%E7%89%B9%E5%BE%81"><span class="toc-text">音乐分析：作品结构与特征</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%AE%8F%E8%A7%82%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90"><span class="toc-text">4.1 宏观结构分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%BE%AE%E8%A7%82%E7%89%B9%E5%BE%81%E5%88%86%E6%9E%90"><span class="toc-text">4.2 微观特征分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E9%9F%B3%E8%89%B2%E8%AE%BE%E8%AE%A1%E5%88%86%E6%9E%90"><span class="toc-text">4.3 音色设计分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E4%BD%9C%E5%8F%8D%E6%80%9D%EF%BC%9AAI%E4%B8%8E%E4%BA%BA%E7%B1%BB%E5%88%9B%E9%80%A0%E5%8A%9B%E7%9A%84%E8%BE%B9%E7%95%8C"><span class="toc-text">创作反思：AI与人类创造力的边界</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-AI%E9%9F%B3%E4%B9%90%E5%88%9B%E4%BD%9C%E7%9A%84%E5%93%B2%E5%AD%A6%E6%80%9D%E8%80%83"><span class="toc-text">5.1 AI音乐创作的哲学思考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E4%BC%A0%E7%BB%9F%E4%B8%8E%E5%88%9B%E6%96%B0%E7%9A%84%E5%B9%B3%E8%A1%A1"><span class="toc-text">5.2 传统与创新的平衡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B%EF%BC%9AAI%E9%9F%B3%E4%B9%90%E7%9A%84%E5%8F%91%E5%B1%95%E6%96%B9%E5%90%91"><span class="toc-text">5.3 未来展望：AI音乐的发展方向</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E9%99%84%E5%BD%95%EF%BC%9A%E5%88%9B%E4%BD%9C%E5%B7%A5%E5%85%B7%E4%B8%8E%E5%8F%82%E6%95%B0"><span class="toc-text">技术附录：创作工具与参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-Suno-AI%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="toc-text">6.1 Suno AI参数设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%90%8E%E6%9C%9F%E5%A4%84%E7%90%86%E9%93%BE"><span class="toc-text">6.2 后期处理链</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA%EF%BC%9A%E6%95%B0%E5%AD%97%E6%97%B6%E4%BB%A3%E7%9A%84%E9%9F%B3%E4%B9%90%E6%96%B0%E8%AF%AD%E8%A8%80"><span class="toc-text">结论：数字时代的音乐新语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
+    </div>
+  </div>
+</section>
+
+<style>
+.post-toc-wrap {
+  margin-top: 20px;
+}
+
+.post-toc-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #24292e;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.post-toc-content {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.post-toc-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.post-toc-content ul ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.post-toc-content ul ul ul {
+  padding-left: 15px;
+}
+
+.post-toc-content li {
+  margin-bottom: 5px;
+}
+
+.post-toc-content a {
+  color: #586069;
+  text-decoration: none;
+  display: block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.post-toc-content a:hover {
+  color: #0366d6;
+  background-color: #f6f8fa;
+  text-decoration: none;
+}
+
+.post-toc-content .toc-level-1 > a {
+  font-weight: 600;
+  color: #24292e;
+}
+
+.post-toc-content .toc-level-2 > a {
+  font-size: 13px;
+}
+
+.post-toc-content .toc-level-3 > a {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+/* 修复重复序号问题 */
+.post-toc-content ol,
+.post-toc-content ul {
+  counter-reset: none;
+  list-style-type: none;
+}
+
+.post-toc-content li::before {
+  content: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .post-toc-wrap {
+    margin-top: 15px;
+  }
+  
+  .post-toc-title {
+    font-size: 14px;
+  }
+  
+  .post-toc-content {
+    font-size: 13px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  'use strict';
+  
+  // 修复TOC中的重复编号问题
+  function fixTocNumbering() {
+    var tocContent = document.getElementById('post-toc-content');
+    if (!tocContent) return;
+    
+    // 移除所有可能的编号
+    var links = tocContent.querySelectorAll('a');
+    links.forEach(function(link) {
+      // 移除链接文本中的编号
+      var text = link.textContent;
+      text = text.replace(/^\d+\.\s*/, ''); // 移除 "1. " 这样的前缀
+      text = text.replace(/^\d+\s*/, '');   // 移除 "1 " 这样的前缀
+      link.textContent = text;
+    });
+    
+    // 确保没有ol元素的编号
+    var lists = tocContent.querySelectorAll('ol');
+    lists.forEach(function(list) {
+      list.style.listStyle = 'none';
+      list.style.counterReset = 'none';
+    });
+  }
+  
+  // 高亮当前阅读位置
+  function highlightCurrentSection() {
+    var tocLinks = document.querySelectorAll('.post-toc-content a');
+    var headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3');
+    
+    if (!tocLinks.length || !headings.length) return;
+    
+    function updateActiveLink() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var activeFound = false;
+      
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var heading = headings[i];
+        var rect = heading.getBoundingClientRect();
+        var top = rect.top + scrollTop;
+        
+        if (scrollTop >= top - 100) {
+          tocLinks.forEach(function(link) {
+            link.classList.remove('active');
+          });
+          
+          var id = heading.getAttribute('id');
+          var activeLink = document.querySelector('.post-toc-content a[href="#' + id + '"]');
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+          
+          activeFound = true;
+          break;
+        }
+      }
+      
+      if (!activeFound) {
+        tocLinks.forEach(function(link) {
+          link.classList.remove('active');
+        });
+      }
+    }
+    
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink(); // 初始调用
+  }
+  
+  // 初始化
+  document.addEventListener('DOMContentLoaded', function() {
+    fixTocNumbering();
+    highlightCurrentSection();
+  });
+})();
+</script>
+
+
+  </div>
+</aside>
+
+      </div>
+    </div>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 Muscle<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      | Theme - <a href="https://github.com/yourusername/hexo-theme-github-style" target="_blank">GitHub Style</a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  
+<script src="/js/main.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sidebarToggle = document.querySelector('.sidebar-toggle');
+    var sidebar = document.querySelector('#sidebar');
+    
+    if (sidebarToggle && sidebar) {
+      sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('sidebar-active');
+      });
+    }
+    
+    var searchBtn = document.querySelector('#nav-search-btn');
+    var searchForm = document.querySelector('#search-form-wrap');
+    
+    if (searchBtn && searchForm) {
+      searchBtn.addEventListener('click', function() {
+        searchForm.classList.toggle('on');
+        if (searchForm.classList.contains('on')) {
+          searchForm.querySelector('.search-form-input').focus();
+        }
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
