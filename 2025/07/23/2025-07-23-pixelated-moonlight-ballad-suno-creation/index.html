@@ -408,9 +408,9 @@
   <footer class="post-footer">
     <div class="post-nav">
       
-        <a href="/2026/01/06/2026-01-06-chinese-sunflower-seeds-culture-and-jazz-harmony/" rel="prev" title="瓜子的禅意：从春节传统到爵士即兴的东西方文化对话">
+        <a href="/2026/01/07/2026-01-07-nanjing-peanuts-jazz-new-year-reflections/" rel="prev" title="甬城瓜子声中的文化变奏：春节窗边的跨文化音乐沉思">
           <i class="fas fa-angle-left"></i>
-          瓜子的禅意：从春节传统到爵士即兴的东西方文化对话
+          甬城瓜子声中的文化变奏：春节窗边的跨文化音乐沉思
         </a>
       
       
@@ -445,21 +445,21 @@
       <nav class="site-state motion-element">
         <div class="site-state-item site-state-posts">
           <a href="/archives">
-            <span class="site-state-item-count">23</span>
+            <span class="site-state-item-count">24</span>
             <span class="site-state-item-name">文章</span>
           </a>
         </div>
         
         <div class="site-state-item site-state-categories">
           <a href="/categories">
-            <span class="site-state-item-count">18</span>
+            <span class="site-state-item-count">20</span>
             <span class="site-state-item-name">分类</span>
           </a>
         </div>
         
         <div class="site-state-item site-state-tags">
           <a href="/tags">
-            <span class="site-state-item-count">91</span>
+            <span class="site-state-item-count">95</span>
             <span class="site-state-item-name">标签</span>
           </a>
         </div>
@@ -697,6 +697,29 @@
   </div>
   
 <script src="/js/main.js"></script>
+
+<!-- Mermaid support for flowcharts, sequence diagrams, etc. -->
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Mermaid with simple configuration
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'default'
+      });
+      
+      // Optional: Hide raw mermaid code blocks after rendering
+      setTimeout(function() {
+        var mermaidBlocks = document.querySelectorAll('.language-mermaid');
+        mermaidBlocks.forEach(function(block) {
+          if (block.nextElementSibling && block.nextElementSibling.classList.contains('mermaid')) {
+            block.style.display = 'none';
+          }
+        });
+      }, 1000);
+    });
+  </script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {

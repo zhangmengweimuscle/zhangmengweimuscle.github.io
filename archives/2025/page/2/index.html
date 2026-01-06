@@ -114,7 +114,7 @@
           <div class="archive-container">
   <div class="archive-header">
     <h1 class="archive-title">文章归档</h1>
-    <p class="archive-subtitle">共 23 篇文章</p>
+    <p class="archive-subtitle">共 24 篇文章</p>
   </div>
 
   <!-- 搜索和过滤 -->
@@ -145,17 +145,17 @@
         
           <option value="文化研究">文化研究</option>
         
-          <option value="科学哲学">科学哲学</option>
-        
-          <option value="音乐评论">音乐评论</option>
-        
           <option value="音乐技术">音乐技术</option>
-        
-          <option value="技术教程">技术教程</option>
         
           <option value="音乐创作">音乐创作</option>
         
+          <option value="技术教程">技术教程</option>
+        
+          <option value="科学哲学">科学哲学</option>
+        
           <option value="AI音乐革命">AI音乐革命</option>
+        
+          <option value="技术文档">技术文档</option>
         
           <option value="文化研究">文化研究</option>
         
@@ -163,9 +163,11 @@
         
           <option value="文化观察">文化观察</option>
         
-          <option value="音乐制作">音乐制作</option>
+          <option value="音乐评论">音乐评论</option>
         
           <option value="AI艺术">AI艺术</option>
+        
+          <option value="音乐制作">音乐制作</option>
         
           <option value="技术深度">技术深度</option>
         
@@ -175,6 +177,8 @@
         
           <option value="数字艺术">数字艺术</option>
         
+          <option value="城市生活">城市生活</option>
+        
       </select>
     </div>
   </div>
@@ -183,15 +187,15 @@
   <div class="archive-stats">
     <div class="archive-stats-grid">
       <div class="archive-stat-item">
-        <div class="archive-stat-number">23</div>
+        <div class="archive-stat-number">24</div>
         <div class="archive-stat-label">总文章数</div>
       </div>
       <div class="archive-stat-item">
-        <div class="archive-stat-number">18</div>
+        <div class="archive-stat-number">20</div>
         <div class="archive-stat-label">分类</div>
       </div>
       <div class="archive-stat-item">
-        <div class="archive-stat-number">91</div>
+        <div class="archive-stat-number">95</div>
         <div class="archive-stat-label">标签</div>
       </div>
     </div>
@@ -724,21 +728,21 @@
       <nav class="site-state motion-element">
         <div class="site-state-item site-state-posts">
           <a href="/archives">
-            <span class="site-state-item-count">23</span>
+            <span class="site-state-item-count">24</span>
             <span class="site-state-item-name">文章</span>
           </a>
         </div>
         
         <div class="site-state-item site-state-categories">
           <a href="/categories">
-            <span class="site-state-item-count">18</span>
+            <span class="site-state-item-count">20</span>
             <span class="site-state-item-name">分类</span>
           </a>
         </div>
         
         <div class="site-state-item site-state-tags">
           <a href="/tags">
-            <span class="site-state-item-count">91</span>
+            <span class="site-state-item-count">95</span>
             <span class="site-state-item-name">标签</span>
           </a>
         </div>
@@ -795,6 +799,29 @@
   </div>
   
 <script src="/js/main.js"></script>
+
+<!-- Mermaid support for flowcharts, sequence diagrams, etc. -->
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Mermaid with simple configuration
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'default'
+      });
+      
+      // Optional: Hide raw mermaid code blocks after rendering
+      setTimeout(function() {
+        var mermaidBlocks = document.querySelectorAll('.language-mermaid');
+        mermaidBlocks.forEach(function(block) {
+          if (block.nextElementSibling && block.nextElementSibling.classList.contains('mermaid')) {
+            block.style.display = 'none';
+          }
+        });
+      }, 1000);
+    });
+  </script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
