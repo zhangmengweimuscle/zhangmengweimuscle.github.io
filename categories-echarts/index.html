@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>分类统计 | Moonshot Blog</title>
+<meta name="author" content="Muscle">
+<meta name="description" content="一个关于技术和生活的博客">
+<meta name="keywords" content="technology, blog, programming">
+
+<meta name="description" content="数据驱动的文章分类可视化分析页面。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="分类统计">
+<meta property="og:url" content="https://zhangmengwei.com/categories-echarts/">
+<meta property="og:site_name" content="Moonshot Blog">
+<meta property="og:description" content="数据驱动的文章分类可视化分析页面。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-09T13:48:00.951Z">
+<meta property="article:author" content="Muscle">
+<meta property="article:tag" content="technology, blog, programming">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400,700">
+
+<script src="/js/url-search.js"></script>
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner">
+    <div class="banner-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    <div class="banner-pattern"></div>
+    <div class="banner-signature"></div>
+    <div class="banner-decorator-top"></div>
+    <div class="banner-decorator-base"></div>
+  </div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moonshot Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">技术分享与思考</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/categories-echarts">分类</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a id="nav-github-link" class="nav-icon" target="_blank" rel="noopener" href="https://github.com/zhangmengweimuscle/" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          
+        
+          
+            <a id="nav-twitter-link" class="nav-icon" target="_blank" rel="noopener" href="https://x.com/zhangmuscle/" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          
+        
+          
+            <a id="nav-email-link" class="nav-icon" href="mailto:zhangmengweimusclea@email.com" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索">
+          <i class="fas fa-search"></i>
+        </a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="搜索...">
+          <button type="submit" class="search-form-submit">&#xF002;</button>
+          <input type="hidden" name="sitesearch" value="https://zhangmengwei.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+          
+
+
+
+<!-- ECharts 样式 -->
+<style>
+  .categories-echarts-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: var(--github-bg);
+  }
+
+  .categories-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--github-border);
+  }
+
+  .categories-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--github-text);
+    margin-bottom: 8px;
+  }
+
+  .categories-subtitle {
+    font-size: 16px;
+    color: var(--github-text-secondary);
+  }
+
+  /* 创意统计卡片 */
+  .creative-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .creative-stat-card {
+    background: var(--github-bg);
+    border: 1px solid var(--github-border);
+    border-radius: 6px;
+    padding: 28px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .creative-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border-color: var(--github-link);
+  }
+
+  .creative-stat-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .creative-stat-title {
+    font-size: 14px;
+    color: var(--github-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .creative-stat-value {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--github-link);
+    margin-bottom: 6px;
+  }
+
+  .creative-stat-subtitle {
+    font-size: 12px;
+    color: var(--github-text-secondary);
+    opacity: 0.8;
+  }
+
+  /* 图表区域 */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+  }
+
+  .chart-container {
+    background: var(--github-bg);
+    border: 1px solid var(--github-border);
+    border-radius: 6px;
+    padding: 24px;
+    transition: all 0.2s ease;
+  }
+
+  .chart-container:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .chart-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--github-text);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .chart-wrapper {
+    width: 100%;
+    height: 300px;
+  }
+
+  .chart-full-width {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 768px) {
+    .charts-grid { grid-template-columns: 1fr; }
+    .chart-wrapper { height: 250px; }
+    .creative-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<!-- ECharts CDN -->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+<!-- ECharts统计页面内容 -->
+<div class="categories-echarts-container">
+  <div class="categories-header">
+    <h1 class="categories-title">📊 文章分类统计</h1>
+    <p class="categories-subtitle">探索博客内容的数字化足迹</p>
+  </div>
+  
+  <!-- 创意统计区域 - 全新内容避开文章/分类/标签数 -->
+  <div class="creative-stats">
+    <!-- 写作跨度分析 -->
+    <div class="creative-stat-card">
+      <i class="creative-stat-icon">📅</i>
+      <div class="creative-stat-content">
+        <div class="creative-stat-title">创作历程</div>
+        <div class="creative-stat-value">6</div>
+        <div class="creative-stat-subtitle">个月持续创作</div>
+        <div class="creative-stat-trend">
+          <span>⏰</span>稳步前行
+        </div>
+      </div>
+    </div>
+
+    <!-- 内容深度分析 -->
+    <div class="creative-stat-card">
+      <i class="creative-stat-icon">📝</i>
+      <div class="creative-stat-content">
+        <div class="creative-stat-title">内容深度</div>
+        <div class="creative-stat-value">1009K</div>
+        <div class="creative-stat-subtitle">千字符号长度</div>
+        <div class="creative-stat-trend trend-up">
+          <span>🧠</span>深度思考
+        </div>
+      </div>
+    </div>
+
+    <!-- 更新频率分析 -->
+    <div class="creative-stat-card">
+      <i class="creative-stat-icon">🚀</i>
+      <div class="creative-stat-content">
+        <div class="creative-stat-title">创作节奏</div>
+        <div class="creative-stat-value">4.5</div>
+        <div class="creative-stat-subtitle">篇/月更新频率</div>
+        <div class="creative-stat-trend">
+          <span>⭐</span>持续稳定
+        </div>
+      </div>
+    </div>
+
+    <!-- 主题专长分析 -->
+    <div class="creative-stat-card">
+      <i class="creative-stat-icon">💡</i>
+      <div class="creative-stat-content">
+        <div class="creative-stat-title">主题专长</div>
+        <div class="creative-stat-value">技术</div>
+        <div class="creative-stat-subtitle">核心创作领域</div>
+        <div class="creative-stat-trend trend-up">
+          <span>🎯</span>专注精深
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ECharts图表区域 -->
+  <div class="charts-grid">
+    <!-- 分类分布饼图 -->
+    <div class="chart-container">
+      <h3 class="chart-title">📈 分类分布饼图</h3>
+      <div class="chart-wrapper" id="category-pie-chart"></div>
+    </div>
+
+    <!-- 文章数量柱状图 -->
+    <div class="chart-container">
+      <h3 class="chart-title">📊 文章数量柱状图</h3>
+      <div class="chart-wrapper" id="category-bar-chart"></div>
+    </div>
+
+    <!-- 分类时间趋势图 -->
+    <div class="chart-container chart-full-width">
+      <h3 class="chart-title">📅 分类时间趋势图</h3>
+      <div class="chart-wrapper chart-wrapper-large" id="category-trend-chart"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 预定义的数据 -->
+<script>
+  const categoryData = [
+    
+      { name: 'AI艺术', value: 1 },
+    
+      { name: 'AI音乐创作', value: 1 },
+    
+      { name: 'AI音乐革命', value: 3 },
+    
+      { name: '城市生活', value: 1 },
+    
+      { name: '技术', value: 10 },
+    
+      { name: '技术哲学', value: 1 },
+    
+      { name: '技术教程', value: 1 },
+    
+      { name: '技术文档', value: 1 },
+    
+      { name: '技术深度', value: 3 },
+    
+      { name: '数字艺术', value: 1 },
+    
+      { name: '文化', value: 2 },
+    
+      { name: '文化研究', value: 3 },
+    
+      { name: '文化研究', value: 1 },
+    
+      { name: '文化观察', value: 1 },
+    
+      { name: '深度分析', value: 1 },
+    
+      { name: '爵士乐评', value: 2 },
+    
+      { name: '科学哲学', value: 2 },
+    
+      { name: '音乐创作', value: 1 },
+    
+      { name: '音乐制作', value: 1 },
+    
+      { name: '音乐技术', value: 1 },
+    
+      { name: '音乐探索', value: 1 },
+    
+      { name: '音乐研究', value: 2 },
+    
+      { name: '音乐评论', value: 1 }
+    
+  ];
+  
+  const postData = [
+    
+      { date: '2025-07', category: '技术' },
+    
+      { date: '2025-07', category: '技术' },
+    
+      { date: '2025-07', category: '技术' },
+    
+      { date: '2025-07', category: '技术' },
+    
+      { date: '2025-07', category: '技术' },
+    
+      { date: '2025-07', category: '技术' },
+    
+      { date: '2025-07', category: '技术' },
+    
+      { date: '2025-07', category: '技术' },
+    
+      { date: '2025-07', category: '技术' },
+    
+      { date: '2025-07', category: '技术' },
+    
+      { date: '2025-07', category: '文化' },
+    
+      { date: '2025-07', category: '文化' },
+    
+      { date: '2026-01', category: '音乐研究' },
+    
+      { date: '2026-01', category: '音乐研究' },
+    
+      { date: '2025-07', category: '文化研究' },
+    
+      { date: '2025-07', category: '文化研究' },
+    
+      { date: '2025-07', category: '音乐技术' },
+    
+      { date: '2025-07', category: '文化研究' },
+    
+      { date: '2025-07', category: '技术教程' },
+    
+      { date: '2025-07', category: '音乐创作' },
+    
+      { date: '2025-07', category: 'AI音乐革命' },
+    
+      { date: '2025-07', category: 'AI音乐革命' },
+    
+      { date: '2025-07', category: 'AI音乐革命' },
+    
+      { date: '2026-01', category: '技术文档' },
+    
+      { date: '2025-07', category: 'AI音乐创作' },
+    
+      { date: '2026-01', category: '文化观察' },
+    
+      { date: '2026-01', category: '深度分析' }
+    
+  ];
+  
+  // 动态生成分类数组，确保包含所有时间段的主要分类
+  var topCategories = [];
+  
+  // 首先按文章数量排序的主要分类
+  var mainCategories = [
+    
+      '技术',
+    
+      '文化研究',
+    
+      'AI音乐革命',
+    
+      '技术深度',
+    
+      '文化'
+    
+  ];
+  
+  // 获取所有文章中使用的主要分类（确保包含最新文章的分类）
+  var usedCategories = [];
+  postData.forEach(function(post) {
+    if (usedCategories.indexOf(post.category) === -1) {
+      usedCategories.push(post.category);
+    }
+  });
+  
+  // 合并并去重，优先保留主要分类
+  topCategories = mainCategories.slice(); // 复制主要分类
+  usedCategories.forEach(function(cat) {
+    if (topCategories.indexOf(cat) === -1) {
+      topCategories.push(cat);
+    }
+  });
+  
+  // 限制图表显示的分类数量
+  if (topCategories.length > 8) {
+    topCategories = topCategories.slice(0, 8);
+  }
+</script>
+
+<script>
+  // ECharts图表配置
+  const charts = {};
+
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeCharts();
+  });
+
+  function initializeCharts() {
+    // 延迟加载确保DOM完全渲染
+    setTimeout(function() {
+      renderCategoryPieChart();
+      renderCategoryBarChart();
+      renderCategoryTrendChart();
+      setupResponsive();
+    }, 100);
+  }
+
+  function renderCategoryPieChart() {
+    const chart = echarts.init(document.getElementById('category-pie-chart'));
+    
+    const categories = categoryData
+      .filter(cat => cat.value > 0)
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 8);
+
+    const option = {
+      title: {
+        text: '分类分布饼图',
+        left: 'center',
+        textStyle: { fontSize: 16, fontWeight: 'bold' }
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {c} ({d}%)'
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'right',
+        top: 'center'
+      },
+      series: [{
+        type: 'pie',
+        radius: ['40%', '70%'],
+        itemStyle: {
+          borderRadius: 6,
+          borderColor: '#fff',
+          borderWidth: 2
+        },
+        data: categories,
+        color: ['#0366d6', '#28a745', '#6f42c1', '#fd7e14', '#20c997', '#e83e8c', '#17a2b8', '#ffc107']
+      }]
+    };
+
+    chart.setOption(option);
+    charts.pie = chart;
+  }
+
+  function renderCategoryBarChart() {
+    const chart = echarts.init(document.getElementById('category-bar-chart'));
+    
+    const data = categoryData
+      .filter(cat => cat.value > 0)
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 10);
+
+    const option = {
+      title: {
+        text: '文章数量柱状图',
+        left: 'center',
+        textStyle: { fontSize: 16, fontWeight: 'bold' }
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'shadow' }
+      },
+      xAxis: {
+        type: 'category',
+        data: data.map(item => item.name),
+        axisLabel: { rotate: 45, fontSize: 11 }
+      },
+      yAxis: { type: 'value' },
+      series: [{
+        type: 'bar',
+        data: data.map(item => item.value),
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: '#0366d6' },
+            { offset: 1, color: '#0256cc' }
+          ]),
+          borderRadius: [4, 4, 0, 0]
+        }
+      }]
+    };
+
+    chart.setOption(option);
+    charts.bar = chart;
+  }
+
+  function renderCategoryTrendChart() {
+    const chart = echarts.init(document.getElementById('category-trend-chart'));
+    
+    // 处理时间数据
+    const monthlyData = {};
+    postData.forEach(post => {
+      if (!monthlyData[post.date]) {
+        monthlyData[post.date] = {};
+      }
+      if (!monthlyData[post.date][post.category]) {
+        monthlyData[post.date][post.category] = 0;
+      }
+      monthlyData[post.date][post.category]++;
+    });
+
+    const months = Object.keys(monthlyData).sort();
+
+    const series = topCategories.map(category => ({
+      name: category,
+      type: 'line',
+      data: months.map(month => monthlyData[month][category] || 0),
+      smooth: true,
+      symbol: 'circle',
+      symbolSize: 6
+    }));
+
+    const option = {
+      title: {
+        text: '分类时间趋势图',
+        left: 'center',
+        textStyle: { fontSize: 16, fontWeight: 'bold' }
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      legend: {
+        data: topCategories,
+        bottom: 0
+      },
+      xAxis: {
+        type: 'category',
+        data: months,
+        axisLabel: { rotate: 45 }
+      },
+      yAxis: { type: 'value' },
+      series: series
+    };
+
+    chart.setOption(option);
+    charts.trend = chart;
+  }
+
+  function setupResponsive() {
+    window.addEventListener('resize', function() {
+      Object.values(charts).forEach(chart => {
+        if (chart && chart.resize) {
+          chart.resize();
+        }
+      });
+    });
+  }
+</script>
+
+        </section>
+        <aside id="sidebar">
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line"></span>
+      <span class="sidebar-toggle-line"></span>
+      <span class="sidebar-toggle-line"></span>
+    </div>
+  </div>
+  
+  <div id="sidebar-inner">
+    <section class="site-overview-wrap sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Muscle">
+        <p class="site-author-name" itemprop="name">Muscle</p>
+        <p class="site-description motion-element" itemprop="description">一个关于技术和生活的博客</p>
+      </div>
+      
+      <nav class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <a href="/archives">
+            <span class="site-state-item-count">27</span>
+            <span class="site-state-item-name">文章</span>
+          </a>
+        </div>
+        
+        <div class="site-state-item site-state-categories">
+          <a href="/categories">
+            <span class="site-state-item-count">23</span>
+            <span class="site-state-item-name">分类</span>
+          </a>
+        </div>
+        
+        <div class="site-state-item site-state-tags">
+          <a href="/tags">
+            <span class="site-state-item-count">105</span>
+            <span class="site-state-item-name">标签</span>
+          </a>
+        </div>
+      </nav>
+      
+      
+        <div class="links-of-author motion-element">
+          
+            <span class="links-of-author-item">
+              <a href="https://github.com/zhangmengweimuscle/" target="_blank" title="GitHub">
+                
+                  <i class="fab fa-github"></i>GitHub
+                
+              </a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="https://x.com/zhangmuscle/" target="_blank" title="Twitter">
+                
+                  <i class="fab fa-twitter"></i>Twitter
+                
+              </a>
+            </span>
+          
+            <span class="links-of-author-item">
+              <a href="mailto:zhangmengweimusclea@email.com" target="_blank" title="Email">
+                
+                  <i class="fas fa-envelope"></i>Email
+                
+              </a>
+            </span>
+          
+        </div>
+      
+    </section>
+    
+    
+
+  </div>
+</aside>
+
+      </div>
+    </div>
+    <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2026 Muscle<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      | Theme - <a href="https://github.com/yourusername/hexo-theme-github-style" target="_blank">GitHub Style</a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  
+<script src="/js/main.js"></script>
+
+<!-- Mermaid support for flowcharts, sequence diagrams, etc. -->
+
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Mermaid with simple configuration
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'default'
+      });
+      
+      // Optional: Hide raw mermaid code blocks after rendering
+      setTimeout(function() {
+        var mermaidBlocks = document.querySelectorAll('.language-mermaid');
+        mermaidBlocks.forEach(function(block) {
+          if (block.nextElementSibling && block.nextElementSibling.classList.contains('mermaid')) {
+            block.style.display = 'none';
+          }
+        });
+      }, 1000);
+    });
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sidebarToggle = document.querySelector('.sidebar-toggle');
+    var sidebar = document.querySelector('#sidebar');
+    
+    if (sidebarToggle && sidebar) {
+      sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('sidebar-active');
+      });
+    }
+    
+    var searchBtn = document.querySelector('#nav-search-btn');
+    var searchForm = document.querySelector('#search-form-wrap');
+    
+    if (searchBtn && searchForm) {
+      searchBtn.addEventListener('click', function() {
+        searchForm.classList.toggle('on');
+        if (searchForm.classList.contains('on')) {
+          searchForm.querySelector('.search-form-input').focus();
+        }
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

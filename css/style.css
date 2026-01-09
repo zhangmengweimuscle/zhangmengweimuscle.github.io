@@ -514,13 +514,6 @@ a:hover {
 .post-body {
   padding: 20px;
   line-height: 1.6;
-  overflow-x: auto;
-  max-width: 100%;
-}
-
-.post-body > * {
-  max-width: 100%;
-  overflow-x: auto;
 }
 
 .post-body h1,
@@ -595,35 +588,13 @@ a:hover {
 
 .post-body pre {
   padding: 16px;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto;
   font-size: 85%;
   line-height: 1.45;
   background-color: #f6f8fa;
   border-radius: 6px;
   margin-bottom: 16px;
   border: 1px solid #d1d5da;
-  max-width: 100%;
-  scrollbar-width: thin;
-  scrollbar-color: #d1d5da transparent;
-}
-
-.post-body pre::-webkit-scrollbar {
-  height: 8px;
-}
-
-.post-body pre::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 4px;
-}
-
-.post-body pre::-webkit-scrollbar-thumb {
-  background: #d1d5da;
-  border-radius: 4px;
-}
-
-.post-body pre::-webkit-scrollbar-thumb:hover {
-  background: #a8b0bd;
 }
 
 .post-body pre code {
@@ -796,52 +767,16 @@ a:hover {
   border-spacing: 0;
   width: 100%;
   margin-bottom: 16px;
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
-  max-width: 100%;
-  scrollbar-width: thin;
-  scrollbar-color: #d1d5da transparent;
-  border-radius: 6px;
-  border: 1px solid #d1d5da;
-}
-
-.post-body table::-webkit-scrollbar {
-  height: 8px;
-}
-
-.post-body table::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 4px;
-}
-
-.post-body table::-webkit-scrollbar-thumb {
-  background: #d1d5da;
-  border-radius: 4px;
-}
-
-.post-body table::-webkit-scrollbar-thumb:hover {
-  background: #a8b0bd;
 }
 
 .post-body table th,
 .post-body table td {
-  padding: 8px 12px;
-  border: 1px solid #e1e4e5;
-  white-space: nowrap;
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
 }
 
 .post-body table th {
   font-weight: 600;
-  background-color: #f6f8fa;
-  color: #24292e;
-}
-
-.post-body table td {
-  color: #24292e;
-}
-
-.post-body table tr:nth-child(2n) {
   background-color: #f6f8fa;
 }
 
