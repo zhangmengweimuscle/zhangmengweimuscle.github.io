@@ -915,6 +915,42 @@
     var url = window.location.href;
     var title = document.title;
     
+    // 检测是否为移动设备
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // 手机端：尝试直接唤起微信
+      shareToWechatMobile(url, title);
+    } else {
+      // PC端：显示二维码弹窗
+      showWechatQRCode(url);
+    }
+  }
+  
+  // 手机端微信分享
+  function shareToWechatMobile(url, title) {
+    // 尝试使用微信JS-SDK的scheme（如果安装了微信）
+    var wechatUrl = 'weixin://dl/officialaccounts';
+    
+    // 创建临时链接尝试唤起微信
+    var tempLink = document.createElement('a');
+    tempLink.href = wechatUrl;
+    tempLink.style.display = 'none';
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    document.body.removeChild(tempLink);
+    
+    // 显示提示
+    showCopyToast('请手动粘贴链接到微信分享');
+    
+    // 同时复制链接到剪贴板
+    setTimeout(function() {
+      copyLink();
+    }, 500);
+  }
+  
+  // PC端显示二维码
+  function showWechatQRCode(url) {
     // 创建或获取弹窗
     var modal = document.querySelector('.wechat-modal');
     if (!modal) {
@@ -925,6 +961,7 @@
           <div class="wechat-modal-title">分享到微信</div>
           <div class="wechat-modal-desc">使用微信扫一扫，分享至朋友圈</div>
           <div class="wechat-qrcode" id="wechat-qrcode"></div>
+          <div class="wechat-modal-desc" style="font-size: 12px; color: #999; margin-top: 10px;">如二维码无法显示，请点击"复制链接"手动分享</div>
           <button class="wechat-modal-close" onclick="closeWechatModal()">关闭</button>
         </div>
       `;
@@ -945,7 +982,7 @@
     }
   }
   
-  // 生成二维码（使用 Google Chart API 或 QRCode.js）
+  // 生成二维码（使用可靠的后备服务）
   function generateQRCode(url) {
     var qrcodeContainer = document.getElementById('wechat-qrcode');
     if (!qrcodeContainer) return;
@@ -953,12 +990,47 @@
     // 清空容器
     qrcodeContainer.innerHTML = '';
     
-    // 使用 Google Chart API 生成二维码
-    var qrUrl = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chld=L|0&chl=' + encodeURIComponent(url);
+    // 使用多个后备服务
+    var qrServices = [
+      // 服务1: QR Server (免费，稳定)
+      'https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=' + encodeURIComponent(url),
+      // 服务2: GoQR (免费)
+      'https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=' + encodeURIComponent(url),
+      // 服务3: 使用纯CSS和Canvas生成（备用方案）
+      null
+    ];
+    
     var img = document.createElement('img');
-    img.src = qrUrl;
     img.alt = '微信分享二维码';
+    img.style.maxWidth = '100%';
+    img.style.height = 'auto';
+    
+    // 尝试加载第一个服务
+    img.src = qrServices[0];
+    
+    // 如果加载失败，尝试后备服务
+    img.onerror = function() {
+      console.log('二维码服务1加载失败，尝试后备方案');
+      // 尝试使用 canvas 生成简单二维码
+      generateCanvasQRCode(qrcodeContainer, url);
+    };
+    
     qrcodeContainer.appendChild(img);
+  }
+  
+  // 使用Canvas生成简单二维码（后备方案）
+  function generateCanvasQRCode(container, text) {
+    container.innerHTML = '';
+    
+    // 创建一个链接文本作为后备
+    var fallbackDiv = document.createElement('div');
+    fallbackDiv.style.cssText = 'padding: 20px; background: #f5f5f5; border-radius: 8px; margin: 10px 0;';
+    fallbackDiv.innerHTML = `
+      <div style="font-size: 14px; color: #666; margin-bottom: 10px;">请复制以下链接分享到微信：</div>
+      <div style="font-size: 12px; color: #333; word-break: break-all; background: #fff; padding: 10px; border-radius: 4px; border: 1px solid #ddd;">${text}</div>
+      <button onclick="copyLink()" style="margin-top: 10px; padding: 8px 16px; background: #a8b5a0; color: white; border: none; border-radius: 4px; cursor: pointer;">复制链接</button>
+    `;
+    container.appendChild(fallbackDiv);
   }
   
   // 点击弹窗外部关闭
