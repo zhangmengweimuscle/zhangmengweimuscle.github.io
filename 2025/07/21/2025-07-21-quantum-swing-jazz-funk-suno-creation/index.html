@@ -20,13 +20,15 @@
 <meta property="article:author" content="Muscle">
 <meta property="article:tag" content="Suno AI">
 <meta property="article:tag" content="AI音乐创作">
-<meta property="article:tag" content="计算机音乐">
-<meta property="article:tag" content="算法作曲">
 <meta property="article:tag" content="Jazz-Funk">
 <meta property="article:tag" content="量子计算">
+<meta property="article:tag" content="计算机音乐">
+<meta property="article:tag" content="算法作曲">
 <meta name="twitter:card" content="summary">
 
-<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/images/avatar.png">
+<link rel="shortcut icon" type="image/png" href="/images/avatar.png">
+
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400,700">
@@ -191,16 +193,6 @@
             </a>
             , 
           
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%9F%B3%E4%B9%90/" rel="index">
-              <span class="post-meta-item-text">计算机音乐</span>
-            </a>
-            , 
-          
-            <a href="/tags/%E7%AE%97%E6%B3%95%E4%BD%9C%E6%9B%B2/" rel="index">
-              <span class="post-meta-item-text">算法作曲</span>
-            </a>
-            , 
-          
             <a href="/tags/Jazz-Funk/" rel="index">
               <span class="post-meta-item-text">Jazz-Funk</span>
             </a>
@@ -208,6 +200,16 @@
           
             <a href="/tags/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97/" rel="index">
               <span class="post-meta-item-text">量子计算</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%9F%B3%E4%B9%90/" rel="index">
+              <span class="post-meta-item-text">计算机音乐</span>
+            </a>
+            , 
+          
+            <a href="/tags/%E7%AE%97%E6%B3%95%E4%BD%9C%E6%9B%B2/" rel="index">
+              <span class="post-meta-item-text">算法作曲</span>
             </a>
             
           
@@ -764,6 +766,7 @@
 
   </div>
   
+
 <script src="/js/main.js"></script>
 
 <!-- Mermaid support for flowcharts, sequence diagrams, etc. -->
@@ -914,24 +917,111 @@
   
   // 手机端微信分享
   function shareToWechatMobile(url, title) {
-    // 尝试使用微信JS-SDK的scheme（如果安装了微信）
-    var wechatUrl = 'weixin://dl/officialaccounts';
+    // 检测是否在微信浏览器内
+    var isWechatBrowser = /MicroMessenger/i.test(navigator.userAgent);
     
-    // 创建临时链接尝试唤起微信
-    var tempLink = document.createElement('a');
-    tempLink.href = wechatUrl;
-    tempLink.style.display = 'none';
-    document.body.appendChild(tempLink);
-    tempLink.click();
-    document.body.removeChild(tempLink);
+    if (isWechatBrowser) {
+      // 在微信内：提示使用右上角菜单分享
+      showWechatInAppGuide();
+    } else {
+      // 在其他浏览器：显示复制链接引导
+      showWechatShareGuide(url);
+    }
+  }
+  
+  // 在微信浏览器内的引导
+  function showWechatInAppGuide() {
+    // 创建或获取弹窗
+    var modal = document.querySelector('.wechat-inapp-guide-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.className = 'wechat-modal wechat-inapp-guide-modal';
+      modal.innerHTML = `
+        <div class="wechat-modal-content">
+          <div class="wechat-modal-title">分享到微信</div>
+          <div style="margin: 20px 0; text-align: center;">
+            <div style="font-size: 48px; color: #a8b5a0; margin-bottom: 15px;">
+              <i class="fas fa-hand-point-up"></i>
+            </div>
+            <div style="font-size: 14px; color: #666; line-height: 1.6;">
+              点击右上角 <span style="font-weight: 600; color: #333;">···</span> 菜单<br>
+              选择「发送给朋友」或「分享到朋友圈」
+            </div>
+          </div>
+          <button class="wechat-modal-close" onclick="closeWechatInAppGuide()">我知道了</button>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
     
-    // 显示提示
-    showCopyToast('请手动粘贴链接到微信分享');
+    // 显示弹窗
+    modal.classList.add('active');
+  }
+  
+  function closeWechatInAppGuide() {
+    var modal = document.querySelector('.wechat-inapp-guide-modal');
+    if (modal) {
+      modal.classList.remove('active');
+    }
+  }
+  
+  // 显示微信分享引导弹窗
+  function showWechatShareGuide(url) {
+    // 创建或获取弹窗
+    var modal = document.querySelector('.wechat-share-guide-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.className = 'wechat-modal wechat-share-guide-modal';
+      modal.innerHTML = `
+        <div class="wechat-modal-content">
+          <div class="wechat-modal-title">分享到微信</div>
+          <div class="wechat-modal-desc" style="margin-bottom: 20px;">
+            <div style="text-align: left; margin: 15px 0; line-height: 1.8;">
+              <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <span style="background: #a8b5a0; color: white; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">1</span>
+                <span>点击"复制链接"按钮</span>
+              </div>
+              <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <span style="background: #a8b5a0; color: white; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">2</span>
+                <span>打开微信，进入聊天或朋友圈</span>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="background: #a8b5a0; color: white; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">3</span>
+                <span>粘贴链接并发送</span>
+              </div>
+            </div>
+          </div>
+          <div id="share-guide-link" style="background: #f5f5f5; padding: 12px; border-radius: 8px; margin-bottom: 20px; word-break: break-all; font-size: 12px; color: #666; max-height: 60px; overflow-y: auto;"></div>
+          <button class="share-btn share-wechat" onclick="copyLinkAndClose()" style="width: 100%; margin-bottom: 12px;">
+            <i class="fas fa-copy"></i>
+            <span>复制链接</span>
+          </button>
+          <button class="wechat-modal-close" onclick="closeWechatShareGuide()">取消</button>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
     
-    // 同时复制链接到剪贴板
-    setTimeout(function() {
-      copyLink();
-    }, 500);
+    // 更新链接文本
+    var linkDiv = document.getElementById('share-guide-link');
+    if (linkDiv) {
+      linkDiv.textContent = url;
+    }
+    
+    // 显示弹窗
+    modal.classList.add('active');
+  }
+  
+  function closeWechatShareGuide() {
+    var modal = document.querySelector('.wechat-share-guide-modal');
+    if (modal) {
+      modal.classList.remove('active');
+    }
+  }
+  
+  function copyLinkAndClose() {
+    copyLink();
+    closeWechatShareGuide();
   }
   
   // PC端显示二维码
@@ -1021,8 +1111,16 @@
   // 点击弹窗外部关闭
   document.addEventListener('click', function(e) {
     var modal = document.querySelector('.wechat-modal');
+    var guideModal = document.querySelector('.wechat-share-guide-modal');
+    var inAppModal = document.querySelector('.wechat-inapp-guide-modal');
     if (modal && e.target === modal) {
       closeWechatModal();
+    }
+    if (guideModal && e.target === guideModal) {
+      closeWechatShareGuide();
+    }
+    if (inAppModal && e.target === inAppModal) {
+      closeWechatInAppGuide();
     }
   });
   
@@ -1030,6 +1128,8 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       closeWechatModal();
+      closeWechatShareGuide();
+      closeWechatInAppGuide();
     }
   });
 </script>
