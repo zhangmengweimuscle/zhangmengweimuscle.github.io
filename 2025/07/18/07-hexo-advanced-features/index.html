@@ -275,6 +275,40 @@
   </div>
   
   <footer class="post-footer">
+    <!-- 分享组件 -->
+    <div class="post-share">
+      <div class="share-card">
+        <div class="share-header">
+          <div class="share-avatar">
+            <img src="/images/avatar.png" alt="avatar">
+          </div>
+          <div class="share-info">
+            <div class="share-title">Hexo高级功能开发：搜索、评论、分析等核心功能实现</div>
+            <div class="share-meta">
+              <span class="share-author">Muscle</span>
+              <span class="share-divider">·</span>
+              <span class="share-date">2025-07-18</span>
+            </div>
+          </div>
+        </div>
+        <div class="share-actions">
+          <button class="share-btn share-wechat" onclick="shareToWechat()" title="分享到微信">
+            <i class="fab fa-weixin"></i>
+            <span>微信</span>
+          </button>
+          <button class="share-btn share-weibo" onclick="shareToWeibo()" title="分享到微博">
+            <i class="fab fa-weibo"></i>
+            <span>微博</span>
+          </button>
+          <button class="share-btn share-copy" onclick="copyLink()" title="复制链接">
+            <i class="fas fa-link"></i>
+            <span>复制链接</span>
+          </button>
+        </div>
+        <div class="share-tip">点击上方按钮，将这篇文章分享给朋友</div>
+      </div>
+    </div>
+    
     <div class="post-nav">
       
         <a href="/2025/07/18/08-hexo-migration-guide/" rel="prev" title="Hexo迁移指南：从其他平台无缝迁移到Hexo的完整方案">
@@ -314,21 +348,21 @@
       <nav class="site-state motion-element">
         <div class="site-state-item site-state-posts">
           <a href="/archives">
-            <span class="site-state-item-count">27</span>
+            <span class="site-state-item-count">28</span>
             <span class="site-state-item-name">文章</span>
           </a>
         </div>
         
         <div class="site-state-item site-state-categories">
           <a href="/categories">
-            <span class="site-state-item-count">23</span>
+            <span class="site-state-item-count">26</span>
             <span class="site-state-item-name">分类</span>
           </a>
         </div>
         
         <div class="site-state-item site-state-tags">
           <a href="/tags">
-            <span class="site-state-item-count">105</span>
+            <span class="site-state-item-count">111</span>
             <span class="site-state-item-name">标签</span>
           </a>
         </div>
@@ -611,6 +645,154 @@
           searchForm.querySelector('.search-form-input').focus();
         }
       });
+    }
+  });
+</script>
+
+<!-- 分享功能脚本 -->
+<script>
+  // 复制链接功能
+  function copyLink() {
+    var url = window.location.href;
+    var title = document.title;
+    var text = title + ' - ' + url;
+    
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function() {
+        showCopyToast('链接已复制到剪贴板');
+      }).catch(function() {
+        fallbackCopy(text);
+      });
+    } else {
+      fallbackCopy(text);
+    }
+  }
+  
+  function fallbackCopy(text) {
+    var textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    
+    try {
+      document.execCommand('copy');
+      showCopyToast('链接已复制到剪贴板');
+    } catch (err) {
+      showCopyToast('复制失败，请手动复制');
+    }
+    
+    document.body.removeChild(textarea);
+  }
+  
+  function showCopyToast(message) {
+    var existingToast = document.querySelector('.copy-toast');
+    if (existingToast) {
+      existingToast.remove();
+    }
+    
+    var toast = document.createElement('div');
+    toast.className = 'copy-toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(function() {
+      toast.classList.add('show');
+    }, 10);
+    
+    setTimeout(function() {
+      toast.classList.remove('show');
+      setTimeout(function() {
+        toast.remove();
+      }, 300);
+    }, 2000);
+  }
+  
+  // 分享到微博
+  function shareToWeibo() {
+    var url = window.location.href;
+    var title = document.title;
+    var pic = '';
+    
+    // 尝试获取文章中的第一张图片
+    var firstImg = document.querySelector('.post-body img');
+    if (firstImg) {
+      pic = firstImg.src;
+    }
+    
+    var shareUrl = 'https://service.weibo.com/share/share.php?' +
+      'url=' + encodeURIComponent(url) +
+      '&title=' + encodeURIComponent(title) +
+      '&pic=' + encodeURIComponent(pic) +
+      '&searchPic=false';
+    
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+  }
+  
+  // 分享到微信
+  function shareToWechat() {
+    var url = window.location.href;
+    var title = document.title;
+    
+    // 创建或获取弹窗
+    var modal = document.querySelector('.wechat-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.className = 'wechat-modal';
+      modal.innerHTML = `
+        <div class="wechat-modal-content">
+          <div class="wechat-modal-title">分享到微信</div>
+          <div class="wechat-modal-desc">使用微信扫一扫，分享至朋友圈</div>
+          <div class="wechat-qrcode" id="wechat-qrcode"></div>
+          <button class="wechat-modal-close" onclick="closeWechatModal()">关闭</button>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+    
+    // 显示弹窗
+    modal.classList.add('active');
+    
+    // 生成二维码
+    generateQRCode(url);
+  }
+  
+  function closeWechatModal() {
+    var modal = document.querySelector('.wechat-modal');
+    if (modal) {
+      modal.classList.remove('active');
+    }
+  }
+  
+  // 生成二维码（使用 Google Chart API 或 QRCode.js）
+  function generateQRCode(url) {
+    var qrcodeContainer = document.getElementById('wechat-qrcode');
+    if (!qrcodeContainer) return;
+    
+    // 清空容器
+    qrcodeContainer.innerHTML = '';
+    
+    // 使用 Google Chart API 生成二维码
+    var qrUrl = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chld=L|0&chl=' + encodeURIComponent(url);
+    var img = document.createElement('img');
+    img.src = qrUrl;
+    img.alt = '微信分享二维码';
+    qrcodeContainer.appendChild(img);
+  }
+  
+  // 点击弹窗外部关闭
+  document.addEventListener('click', function(e) {
+    var modal = document.querySelector('.wechat-modal');
+    if (modal && e.target === modal) {
+      closeWechatModal();
+    }
+  });
+  
+  // ESC键关闭弹窗
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeWechatModal();
     }
   });
 </script>

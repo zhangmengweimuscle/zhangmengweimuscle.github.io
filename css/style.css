@@ -1259,3 +1259,293 @@ a:hover {
   display: table;
   clear: both;
 }
+
+/* ==================== 分享组件样式 - 莫兰迪色系 ==================== */
+
+/* 莫兰迪色系定义 */
+:root {
+  --morandi-rose: #c9b8a8;      /* 玫瑰灰 */
+  --morandi-sage: #a8b5a0;      /* 鼠尾草绿 */
+  --morandi-dusty-blue: #9db4c0; /* 灰蓝 */
+  --morandi-mauve: #b8a9a1;     /* 藕荷色 */
+  --morandi-cream: #f5f1ed;     /* 奶油白 */
+  --morandi-charcoal: #6b6b6b;  /* 炭灰 */
+  --morandi-warm-gray: #8a8a8a; /* 暖灰 */
+}
+
+.post-share {
+  margin: 40px 0;
+  padding: 0 20px;
+}
+
+.share-card {
+  background: linear-gradient(135deg, #f8f6f3 0%, #f0ece6 100%);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(107, 107, 107, 0.08);
+  border: 1px solid rgba(201, 184, 168, 0.3);
+}
+
+.share-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(168, 181, 160, 0.3);
+}
+
+.share-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 16px;
+  border: 3px solid var(--morandi-rose);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.share-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.share-info {
+  flex: 1;
+}
+
+.share-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--morandi-charcoal);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.share-meta {
+  font-size: 13px;
+  color: var(--morandi-warm-gray);
+}
+
+.share-author {
+  font-weight: 500;
+  color: var(--morandi-mauve);
+}
+
+.share-divider {
+  margin: 0 8px;
+  color: var(--morandi-rose);
+}
+
+.share-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.share-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.share-btn i {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.share-btn span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 微信按钮 - 鼠尾草绿 */
+.share-wechat {
+  background: linear-gradient(135deg, var(--morandi-sage) 0%, #97a890 100%);
+  color: white;
+}
+
+.share-wechat:hover {
+  background: linear-gradient(135deg, #97a890 0%, #86967f 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(168, 181, 160, 0.4);
+}
+
+/* 微博按钮 - 玫瑰灰 */
+.share-weibo {
+  background: linear-gradient(135deg, var(--morandi-rose) 0%, #b8a899 100%);
+  color: white;
+}
+
+.share-weibo:hover {
+  background: linear-gradient(135deg, #b8a899 0%, #a89888 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(201, 184, 168, 0.4);
+}
+
+/* 复制链接按钮 - 灰蓝 */
+.share-copy {
+  background: linear-gradient(135deg, var(--morandi-dusty-blue) 0%, #8aa3b0 100%);
+  color: white;
+}
+
+.share-copy:hover {
+  background: linear-gradient(135deg, #8aa3b0 0%, #7a93a0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(157, 180, 192, 0.4);
+}
+
+.share-tip {
+  text-align: center;
+  font-size: 12px;
+  color: var(--morandi-warm-gray);
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* 微信分享弹窗 */
+.wechat-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+}
+
+.wechat-modal.active {
+  display: flex;
+}
+
+.wechat-modal-content {
+  background: linear-gradient(135deg, #f8f6f3 0%, #f0ece6 100%);
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(201, 184, 168, 0.3);
+}
+
+.wechat-modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--morandi-charcoal);
+  margin-bottom: 8px;
+}
+
+.wechat-modal-desc {
+  font-size: 13px;
+  color: var(--morandi-warm-gray);
+  margin-bottom: 20px;
+}
+
+.wechat-qrcode {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.wechat-qrcode canvas,
+.wechat-qrcode img {
+  width: 100%;
+  height: 100%;
+}
+
+.wechat-modal-close {
+  background: var(--morandi-sage);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.wechat-modal-close:hover {
+  background: #97a890;
+  transform: translateY(-1px);
+}
+
+/* 复制成功提示 */
+.copy-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(107, 107, 107, 0.9);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 10001;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.copy-toast.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 响应式分享组件 */
+@media (max-width: 768px) {
+  .post-share {
+    padding: 0 16px;
+  }
+  
+  .share-card {
+    padding: 20px;
+  }
+  
+  .share-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .share-avatar {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+  
+  .share-actions {
+    flex-direction: row;
+  }
+  
+  .share-btn {
+    padding: 12px 8px;
+  }
+  
+  .share-btn i {
+    font-size: 20px;
+  }
+  
+  .share-btn span {
+    font-size: 11px;
+  }
+}
+
+/* ==================== 分享组件样式结束 ==================== */
