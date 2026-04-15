@@ -121,7 +121,7 @@
     return text.substr(0, maxLength) + '...';
   }
 
-  // Initialize comprehensive search
+// Initialize comprehensive search
   function initComprehensiveSearch() {
     var searchInput = document.getElementById('search-input');
     var searchClear = document.getElementById('search-clear');
@@ -129,30 +129,63 @@
     
     if (!searchInput || !searchResults) return;
 
-    // Load all posts data
+    // Load all posts data - priority: 1. window.blogSearchData, 2. search-index.json, 3. current page DOM
     var allPosts = [];
     
-    // Try to get posts from the current page first
-    var postsContainer = document.getElementById('posts-container');
-    if (postsContainer) {
-      var postElements = postsContainer.querySelectorAll('.post-type-compact');
-      postElements.forEach(function(postEl) {
-        var title = postEl.querySelector('.post-title-link').textContent;
-        var url = postEl.querySelector('.post-title-link').href;
-        var excerpt = postEl.querySelector('.post-excerpt').textContent;
-        var date = postEl.querySelector('.post-date').textContent;
-        var categories = Array.from(postEl.querySelectorAll('.category-tag')).map(tag => tag.textContent);
-        var tags = Array.from(postEl.querySelectorAll('.tag')).map(tag => tag.textContent.replace('#', ''));
-        
-        allPosts.push({
-          title: title,
-          url: url,
-          content: excerpt,
-          date: date,
-          categories: categories,
-          tags: tags
-        });
+    // Priority 1: Use window.blogSearchData (contains all posts from site.posts)
+    if (typeof window.blogSearchData !== 'undefined' && window.blogSearchData.length > 0) {
+      allPosts = window.blogSearchData.map(function(post) {
+        return {
+          title: post.title || '',
+          url: post.url || post.permalink || '',
+          content: post.content || '',
+          date: post.date || '',
+          categories: post.categories || [],
+          tags: post.tags || []
+        };
       });
+      console.log('Search: Loaded', allPosts.length, 'posts from blogSearchData');
+    }
+    // Priority 2: Fallback to fetch search-index.json
+    else {
+      loadSearchIndex().then(function(data) {
+        if (data && data.length > 0) {
+          allPosts = data;
+          console.log('Search: Loaded', allPosts.length, 'posts from search-index.json');
+        }
+      });
+    }
+    
+    // Fallback: if no data loaded, use current page posts
+    if (allPosts.length === 0) {
+      var postsContainer = document.getElementById('posts-container');
+      if (postsContainer) {
+        var postElements = postsContainer.querySelectorAll('.post-type-compact');
+        postElements.forEach(function(postEl) {
+          var titleEl = postEl.querySelector('.post-title-link');
+          if (!titleEl) return;
+          
+          var title = titleEl.textContent;
+          var url = titleEl.href;
+          var excerptEl = postEl.querySelector('.post-excerpt');
+          var dateEl = postEl.querySelector('.post-date');
+          
+          var excerpt = excerptEl ? excerptEl.textContent : '';
+          var date = dateEl ? dateEl.textContent : '';
+          var categories = Array.from(postEl.querySelectorAll('.category-tag')).map(tag => tag.textContent);
+          var tags = Array.from(postEl.querySelectorAll('.tag')).map(tag => tag.textContent.replace('#', ''));
+          
+          allPosts.push({
+            title: title,
+            url: url,
+            content: excerpt,
+            date: date,
+            categories: categories,
+            tags: tags
+          });
+        });
+        console.log('Search: Fallback loaded', allPosts.length, 'posts from current page DOM');
+      }
     }
 
     // Enhanced search with all posts
